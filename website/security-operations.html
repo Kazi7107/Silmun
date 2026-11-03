@@ -28,60 +28,66 @@
     
   <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/refresh.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/pricing.css">
 <link rel="stylesheet" href="css/motion.css"></head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
     <div class="site hero-dark">
       <!-- Desktop -->
-<header class="gnav">
-  <div class="wrap">
-    <a class="brand" href="index.html" aria-label="Silmun home">
+<header class="isl-wrap">
+  <div class="isl" data-island>
+    <div class="isl-bar">
+      <a class="brand" href="index.html" aria-label="Silmun home">
   <svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="flex: none"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg>
   <span>silmun</span>
 </a>
-    <nav class="gnav-links" aria-label="Site">
-      <div class="dd-anchor" data-dropdown>
-        <button class="gnav-link" type="button" aria-expanded="false" aria-controls="modules-menu" data-dropdown-toggle>Modules <span class="caret" aria-hidden="true">▾</span></button>
-        <div class="dropdown" id="modules-menu" hidden>
-          <a class="dd-row live" href="catalog-automation.html"><span class="dd-mod">Module</span><span class="nm">ITSM</span><span class="tag tag-live"><span class="dot"></span>Live</span><span class="ds">Catalog Automation: plain-language request in, catalog item out.</span></a>
-          <a class="dd-row live" href="security-operations.html" aria-current="page"><span class="dd-mod">Module</span><span class="nm">Security Operations</span><span class="tag tag-live"><span class="dot"></span>Live</span><span class="ds">Vulnerability Remediation agent.</span></a>
-          <a class="dd-later" href="source-to-pay.html"><span>Finance &amp; Supply Chain · Source to Pay</span><span class="tag tag-later"><span class="dot"></span>Next</span></a>
+      <nav class="isl-links" aria-label="Site">
+        <span class="isl-blob" aria-hidden="true"></span>
+        <button class="isl-link is-here" type="button" aria-expanded="false" aria-controls="isl-modules" data-island-toggle>Modules <span class="isl-plus" aria-hidden="true"></span></button>
+        <a class="isl-link" href="about.html">About us</a>
+        <a class="isl-link" href="support.html">Support</a>
+        <a class="isl-link" href="index.html#contact">Contact</a>
+      </nav>
+      <a class="isl-cta" href="catalog-automation.html#pricing" data-event="Store click" data-event-agent="catalog">Get it on the Store <span aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="isl-panel" id="isl-modules">
+      <div class="isl-panel-in">
+        <div class="isl-grid">
+          <p class="isl-sec" style="--d:0">Modules</p>
+          <a class="isl-mod" href="catalog-automation.html" style="--d:1"><span class="isl-top"><span class="isl-n">01</span><span class="isl-live">Live</span></span><span class="isl-mn">ITSM <span class="isl-go" aria-hidden="true">&#8594;</span></span><span class="isl-ms">Catalog Automation: plain-language request in, catalog item out.</span></a>
+          <a class="isl-mod" href="security-operations.html" aria-current="page" style="--d:2"><span class="isl-top"><span class="isl-n">02</span><span class="isl-live">Live</span></span><span class="isl-mn">Security Operations <span class="isl-go" aria-hidden="true">&#8594;</span></span><span class="isl-ms">Vulnerability Remediation agent.</span></a>
+          <a class="isl-next" href="source-to-pay.html" style="--d:3"><span class="isl-n">03</span><span class="isl-nn">Source to Pay</span><span class="isl-ns">Finance &amp; Supply Chain</span><span class="isl-soon">Next</span></a>
         </div>
-      </div>
-      <a class="gnav-link" href="about.html">About us</a>
-      <a class="gnav-link" href="support.html">Support</a>
-      <a class="gnav-link" href="index.html#contact">Contact</a>
-    </nav>
-    <a class="btn btn-primary btn-sm" href="security-operations.html#pricing" data-event="Store click" data-event-agent="secops">Get it on the Store <span class="k" aria-hidden="true">↗</span></a>
+        </div>
+    </div>
   </div>
 </header>
 
 <!-- Mobile -->
-<header class="m-head">
-  <div class="wrap">
+<header class="mh">
+  <div class="mh-pill">
     <a class="brand" href="index.html" aria-label="Silmun home">
   <svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="flex: none"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg>
   <span>silmun</span>
 </a>
-    <button class="m-menu-btn" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-open><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Menu</button>
+    <button class="mh-btn" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-open>Menu <span class="mh-ic" aria-hidden="true"><i></i><i></i></span></button>
   </div>
 </header>
-<div class="m-menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Site menu" hidden data-menu>
-  <div class="m-menu-top"><a class="brand" href="index.html" aria-label="Silmun home">
+<div class="msheet" id="site-menu" role="dialog" aria-modal="true" aria-label="Site menu" hidden data-menu>
+  <div class="msheet-top"><a class="brand" href="index.html" aria-label="Silmun home">
   <svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="flex: none"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg>
   <span>silmun</span>
-</a><button class="m-menu-btn" type="button" data-menu-close>Close <span class="mono" aria-hidden="true">×</span></button></div>
-  <nav class="m-menu-body" aria-label="Site">
-    <span class="m-menu-sec">Modules</span>
-    <a class="m-prod live" href="catalog-automation.html"><span class="dd-mod">Module</span><span class="m-prod-row"><span class="nm">ITSM</span><span class="tag tag-live"><span class="dot"></span>Live</span></span><span class="small">Catalog Automation</span></a>
-    <a class="m-prod live" href="security-operations.html" aria-current="page"><span class="dd-mod">Module</span><span class="m-prod-row"><span class="nm">Security Operations</span><span class="tag tag-live"><span class="dot"></span>Live</span></span><span class="small">Vulnerability Remediation</span></a>
-    <a class="m-prod later" href="source-to-pay.html"><span class="nm">Source to Pay · next</span><span class="small dim">Finance &amp; Supply Chain</span></a>
-    <span class="m-menu-sec">Company</span>
-    <a class="m-link" href="about.html">About us <span class="k" aria-hidden="true">→</span></a>
-    <a class="m-link" href="support.html">Support <span class="k" aria-hidden="true">→</span></a>
-    <a class="m-link" href="index.html#contact" data-menu-close>Contact <span class="k" aria-hidden="true">→</span></a>
+</a><button class="mh-btn" type="button" data-menu-close>Close <span class="mh-ic x" aria-hidden="true"><i></i><i></i></span></button></div>
+  <nav class="msheet-body" aria-label="Site">
+    <p class="msheet-sec" style="--d:0">Modules</p>
+    <a class="ms-mod" href="catalog-automation.html" style="--d:1"><span class="ms-n">01</span><span><span class="ms-nm">ITSM</span><span class="ms-sub">Catalog Automation</span></span><span class="ms-tag">Live</span></a>
+    <a class="ms-mod" href="security-operations.html" aria-current="page" style="--d:2"><span class="ms-n">02</span><span><span class="ms-nm">Security Operations</span><span class="ms-sub">Vulnerability Remediation</span></span><span class="ms-tag">Live</span></a>
+    <a class="ms-mod ms-later" href="source-to-pay.html" style="--d:3"><span class="ms-n">03</span><span><span class="ms-nm">Source to Pay</span><span class="ms-sub">Finance &amp; Supply Chain</span></span><span class="ms-tag">Next</span></a>
+    <p class="msheet-sec" style="--d:4">Company</p>
+    <div class="ms-co" style="--d:5"><a href="about.html">About us</a><a href="support.html">Support</a><a href="index.html#contact" data-menu-close>Contact</a></div>
   </nav>
-  <div class="m-menu-cta"><a class="btn btn-primary" href="security-operations.html#pricing" data-event="Store click" data-event-agent="secops">Get it on the Store <span class="k" aria-hidden="true">↗</span></a></div>
+  <div class="msheet-cta" style="--d:6"><a class="btn btn-primary" href="catalog-automation.html#pricing" data-event="Store click" data-event-agent="catalog">Get it on the Store <span class="k" aria-hidden="true">&#8599;</span></a></div>
 </div>
       <nav class="subnav" aria-label="On this page">
   <div class="wrap">
@@ -247,26 +253,59 @@
         <div class="stack g12"><div class="sec-head"><span class="sec-no">04</span><span class="sec-label">Pricing</span></div><h2 class="h2">Pay for the problems you have.</h2></div>
         <p class="line1">Example prices. Every plan needs ServiceNow's Now Assist add-on.</p>
       </div>
-      <div class="tiers">
-  <div class="tier">
-      <span class="tname">Essential</span>
-      <span class="tfor">Find owners and confirm fixes</span>
-      <span class="tamt">$39 <small>/ month</small></span>
-      <ul class="uses"><li>No owner (01)<span class="cs"></span></li><li>Patched, still open (07)<span class="cs"></span></li><li>Unknown hardware (08)<span class="cs"></span></li><li>Email support, 1 business day<span class="cs"></span></li></ul>
-      <a class="btn btn-secondary" href="security-operations.html#pricing" data-event="Store click" data-event-agent="secops">Get Essential</a>
-    </div><div class="tier top">
-      <span class="tier-head"><span class="tname">Pro</span><span class="tag tag-soon"><span class="dot"></span>Most popular</span></span>
-      <span class="tfor">Get stuck fixes moving</span>
-      <span class="tamt">$99 <small>/ month</small></span>
-      <ul class="uses"><li>Everything in Essential<span class="cs"></span></li><li>Patch blocked (03)<span class="cs"></span></li><li>Records disagree (05)<span class="cs"></span></li><li>Stalled task (06)<span class="cs"></span></li></ul>
-      <a class="btn btn-primary" href="security-operations.html#pricing" data-event="Store click" data-event-agent="secops">Get Pro <span class="k" aria-hidden="true">↗</span></a>
-    </div><div class="tier">
-      <span class="tname">Enterprise</span>
-      <span class="tfor">Every use case, every team</span>
-      <span class="tamt">$499 <small>/ month</small></span>
-      <ul class="uses"><li>All 8, including Many teams (02) and No patch yet (04)<span class="cs"></span></li><li>Guided onboarding session<span class="cs"></span></li><li>Priority support<span class="cs"></span></li></ul>
-      <a class="btn btn-secondary" href="index.html#contact">Talk to us</a>
+      <div class="plan" data-plan="2" data-plan-picker>
+  <div class="plan-list">
+    <p class="plan-hint">Tick what you need. We'll point you to the plan that covers it.</p>
+    <div class="plan-step" data-step="1">
+      <div class="plan-step-h"><span class="plan-node" aria-hidden="true"></span><span class="plan-step-name">Essential</span><span class="plan-step-amt">$39 <small>/ month</small></span></div>
+      <label class="plan-row" data-step="1"><input type="checkbox"><span class="plan-check" aria-hidden="true"></span><span class="plan-row-t">No owner</span><span class="plan-row-n">01</span></label>
+      <label class="plan-row" data-step="1"><input type="checkbox"><span class="plan-check" aria-hidden="true"></span><span class="plan-row-t">Patched, still open</span><span class="plan-row-n">07</span></label>
+      <label class="plan-row" data-step="1"><input type="checkbox"><span class="plan-check" aria-hidden="true"></span><span class="plan-row-t">Unknown hardware</span><span class="plan-row-n">08</span></label>
+      <label class="plan-row" data-step="1"><input type="checkbox"><span class="plan-check" aria-hidden="true"></span><span class="plan-row-t">Email support, 1 business day</span></label>
     </div>
+    <div class="plan-step" data-step="2">
+      <div class="plan-step-h"><span class="plan-node" aria-hidden="true"></span><span class="plan-step-name">Pro adds</span><span class="plan-step-amt">$99 <small>/ month</small></span></div>
+      <label class="plan-row" data-step="2"><input type="checkbox"><span class="plan-check" aria-hidden="true"></span><span class="plan-row-t">Patch blocked</span><span class="plan-row-n">03</span></label>
+      <label class="plan-row" data-step="2"><input type="checkbox"><span class="plan-check" aria-hidden="true"></span><span class="plan-row-t">Records disagree</span><span class="plan-row-n">05</span></label>
+      <label class="plan-row" data-step="2"><input type="checkbox"><span class="plan-check" aria-hidden="true"></span><span class="plan-row-t">Stalled task</span><span class="plan-row-n">06</span></label>
+    </div>
+    <div class="plan-step" data-step="3">
+      <div class="plan-step-h"><span class="plan-node" aria-hidden="true"></span><span class="plan-step-name">Enterprise adds</span><span class="plan-step-amt">$499 <small>/ month</small></span></div>
+      <label class="plan-row" data-step="3"><input type="checkbox"><span class="plan-check" aria-hidden="true"></span><span class="plan-row-t">Many teams</span><span class="plan-row-n">02</span></label>
+      <label class="plan-row" data-step="3"><input type="checkbox"><span class="plan-check" aria-hidden="true"></span><span class="plan-row-t">No patch yet</span><span class="plan-row-n">04</span></label>
+      <label class="plan-row" data-step="3"><input type="checkbox"><span class="plan-check" aria-hidden="true"></span><span class="plan-row-t">Guided onboarding session</span></label>
+      <label class="plan-row" data-step="3"><input type="checkbox"><span class="plan-check" aria-hidden="true"></span><span class="plan-row-t">Priority support</span></label>
+    </div>
+  </div>
+  <aside class="plan-sum" aria-label="Your plan">
+    <div class="plan-seg" role="radiogroup" aria-label="Plan">
+      <label><input type="radio" name="plan-secops" value="1"><span>Essential</span></label>
+      <label><input type="radio" name="plan-secops" value="2" checked><span>Pro</span></label>
+      <label><input type="radio" name="plan-secops" value="3"><span>Enterprise</span></label>
+    </div>
+    <div class="plan-out" data-out="1">
+      <span class="plan-name">Essential</span>
+      <span class="plan-for">Find owners and confirm fixes</span>
+      <span class="plan-price"><span class="plan-amt">$39</span><span class="plan-per">/ month</span></span>
+      <span class="plan-incl">Everything in the Essential list.</span>
+      <a class="btn plan-cta" href="security-operations.html#pricing" data-event="Store click" data-event-agent="secops">Get Essential <span class="k" aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="plan-out" data-out="2">
+      <span class="plan-name">Pro<span class="plan-pop">Most popular</span></span>
+      <span class="plan-for">Get stuck fixes moving</span>
+      <span class="plan-price"><span class="plan-amt">$99</span><span class="plan-per">/ month</span></span>
+      <span class="plan-incl">Everything in Essential, plus the Pro list.</span>
+      <a class="btn plan-cta" href="security-operations.html#pricing" data-event="Store click" data-event-agent="secops">Get Pro <span class="k" aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="plan-out" data-out="3">
+      <span class="plan-name">Enterprise</span>
+      <span class="plan-for">Every use case, every team</span>
+      <span class="plan-price"><span class="plan-amt">$499</span><span class="plan-per">/ month</span></span>
+      <span class="plan-incl">Everything on the list.</span>
+      <a class="btn plan-cta" href="index.html#contact">Talk to us <span class="k" aria-hidden="true">&#8594;</span></a>
+    </div>
+    <p class="plan-why" aria-live="polite" data-plan-why></p>
+  </aside>
 </div>
 <p class="small dim tier-note">Example prices and plan contents for the team to confirm.</p>
     </div>

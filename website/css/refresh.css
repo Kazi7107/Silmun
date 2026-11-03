@@ -1,21 +1,13 @@
-/* Refresh: more color and depth.
-   1. Dark hero with the product in front (canvas "08 Design directions", A).
-      Pages opt in with .hero-dark on .site; the product element in the hero
-      carries .rise, and the dark band ends partway down it.
-   2. Hard offset shadows (canvas "09 Depth options", 2): ink borders pushed
-      into solid shadows. Turquoise where the shadow sits on dark. */
+/* Refresh: more color.
+   Dark hero with the product in front (canvas "08 Design directions", A).
+   Pages opt in with .hero-dark on .site; the product element in the hero
+   carries .rise, and the dark band ends partway down it. */
 
-.site{--shadow-ink:var(--rule);--shadow-pop:#19C6B4}
+.site{--shadow-pop:#19C6B4}
 
 /* ---------- 1 · Dark top: nav, product sub-nav, hero ---------- */
-.hero-dark .gnav,.hero-dark .m-head{background:var(--deep);border-bottom-color:rgba(230,238,238,.14)}
 .site.hero-dark a.brand{color:#FFFFFF}
 .hero-dark .brand circle{fill:var(--accent)}
-.site.hero-dark .gnav-link,.site.hero-dark a.gnav-link{color:var(--on-dark)}
-.site.hero-dark .gnav-link:hover,.site.hero-dark a.gnav-link:hover,.site.hero-dark .gnav-link.open{background:rgba(230,238,238,.08);color:#FFFFFF}
-.hero-dark .caret{color:var(--on-dark-2)}
-.hero-dark .m-menu-btn{background:transparent;color:#FFFFFF;border-color:rgba(230,238,238,.3)}
-.hero-dark .bars i{background:#FFFFFF}
 
 .hero-dark .subnav{background:var(--deep-2);border-bottom-color:rgba(230,238,238,.14)}
 .hero-dark .subnav-id{border-right-color:rgba(230,238,238,.14)}
@@ -49,34 +41,3 @@ html:not(.mo) .hero-dark .hero-top .hlw{background:linear-gradient(transparent 6
 .hero-dark .m-down{background:var(--shadow-pop)}
 .hero-dark .m-down::after{border-top-color:var(--shadow-pop)}
 .hero-dark .m-down span{background:var(--surface);color:var(--ink-2);padding:2px 6px;border-radius:3px}
-
-/* ---------- 2 · Hard offset shadows ---------- */
-/* Product mocks: the heaviest shadow. */
-.site .vrec,.site .req-note,.site .rec,.site .player{border:1.5px solid var(--rule)!important;box-shadow:8px 8px 0 var(--shadow-ink)!important}
-.hero-dark .rise .vrec,.hero-dark .rise .req-note{box-shadow:8px 8px 0 var(--shadow-pop)!important}
-.mo-hero .vrec{border-style:dashed!important}
-
-/* Cards. */
-.site .mod,.site .tier,.site .step3,.site .lib-row,.site .kind,.site .card,.site .flow-card,.site .form.fb{border:1.5px solid var(--rule)!important;border-radius:6px;box-shadow:5px 5px 0 var(--shadow-ink)!important}
-.site .tier.top,.site .flow-card-dark,.site .dark .card,.site .dark .step3,.hero-dark .rise .card{box-shadow:5px 5px 0 var(--shadow-pop)!important}
-.site .tier.top::before{border-radius:4px 4px 0 0}
-
-/* Menus. */
-.site .dropdown{border:1.5px solid var(--rule);border-radius:6px;box-shadow:6px 6px 0 var(--shadow-ink)}
-
-/* Buttons: a small shadow that presses in. */
-.site .btn-primary,.site .btn-secondary{transition:transform .12s ease,box-shadow .12s ease,background-color .15s ease,color .15s ease}
-.site .btn-primary{box-shadow:3px 3px 0 var(--shadow-pop)}
-.site .btn-secondary{box-shadow:3px 3px 0 var(--shadow-ink)}
-.site .dark .btn-secondary,.site.hero-dark .hero-top .btn-secondary{box-shadow:3px 3px 0 var(--shadow-pop)}
-.site .btn-primary:hover,.site .btn-secondary:hover{transform:translate(-1px,-1px)}
-.site .btn-primary:hover{box-shadow:4px 4px 0 var(--shadow-pop)}
-.site .btn-secondary:hover{box-shadow:4px 4px 0 var(--shadow-ink)}
-.site .dark .btn-secondary:hover,.site.hero-dark .hero-top .btn-secondary:hover{box-shadow:4px 4px 0 var(--shadow-pop)}
-.site .btn-primary:active,.site .btn-secondary:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--shadow-ink)}
-.site .btn-primary:active{box-shadow:1px 1px 0 var(--shadow-pop)}
-
-@media (prefers-reduced-motion: reduce){
-  .site .btn-primary,.site .btn-secondary{transition:none}
-  .site .btn-primary:hover,.site .btn-secondary:hover,.site .btn-primary:active,.site .btn-secondary:active{transform:none}
-}

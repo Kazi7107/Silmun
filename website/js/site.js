@@ -14,32 +14,104 @@ function track(event        , props                         ) {
   }
 }
 
-/* ---------- Modules dropdown (desktop) ---------- */
-function initDropdown() {
-  document.querySelectorAll             ('[data-dropdown]').forEach((root) => {
-    const btn = root.querySelector                   ('[data-dropdown-toggle]');
-    const panel = root.querySelector             ('.dropdown');
-    if (!btn || !panel) return;
+/* ---------- Island nav (desktop): sliding blob + Modules panel ---------- */
+function initIsland() {
+  document.querySelectorAll('[data-island]').forEach((isl) => {
+    const btn = isl.querySelector('[data-island-toggle]');
+    const panel = isl.querySelector('.isl-panel');
+    const links = isl.querySelector('.isl-links');
+    const blob = isl.querySelector('.isl-blob');
+    const isOpen = () => isl.hasAttribute('data-open');
 
-    const set = (open         ) => {
-      panel.hidden = !open;
-      btn.setAttribute('aria-expanded', String(open));
-      btn.classList.toggle('open', open);
+    // The blob slides to the link you point at. On first show it jumps there, no slide.
+    const move = (el) => {
+      if (!blob) return;
+      if (!el) return blob.removeAttribute('data-on');
+      const jump = !blob.hasAttribute('data-on');
+      if (jump) blob.style.transition = 'none';
+      blob.style.setProperty('--x', `${el.offsetLeft}px`);
+      blob.style.setProperty('--w', `${el.offsetWidth}px`);
+      if (jump) {
+        void blob.offsetWidth;
+        blob.style.transition = '';
+      }
+      blob.setAttribute('data-on', '');
     };
 
-    btn.addEventListener('click', () => set(panel.hidden));
+    if (links) {
+      links.querySelectorAll('.isl-link').forEach((el) => {
+        el.addEventListener('mouseenter', () => move(el));
+        el.addEventListener('focus', () => move(el));
+      });
+      links.addEventListener('mouseleave', () => move(isOpen() ? btn : null));
+      links.addEventListener('focusout', (e) => {
+        if (!links.contains(e.relatedTarget)) move(isOpen() ? btn : null);
+      });
+    }
+
+    if (!btn || !panel) return;
+    const set = (open) => {
+      isl.toggleAttribute('data-open', open);
+      btn.setAttribute('aria-expanded', String(open));
+      panel.inert = !open;
+      if (open) move(btn);
+      else if (!links?.matches(':hover') && !links?.contains(document.activeElement)) move(null);
+    };
+    set(false);
+
+    btn.addEventListener('click', () => set(!isOpen()));
     document.addEventListener('click', (e) => {
-      if (!panel.hidden && !root.contains(e.target        )) set(false);
+      if (isOpen() && !isl.contains(e.target)) set(false);
     });
-    root.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !panel.hidden) {
+    isl.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) {
         set(false);
         btn.focus();
       }
     });
-    root.addEventListener('focusout', (e) => {
-      if (!root.contains(e.relatedTarget               )) set(false);
+    isl.addEventListener('focusout', (e) => {
+      if (isOpen() && !isl.contains(e.relatedTarget)) set(false);
     });
+  });
+}
+
+/* ---------- Pricing: plan ladder ---------- */
+// Tick what you need and the cheapest plan that covers it is picked. Picking a plan by hand
+// keeps the ticks and flags any that plan doesn't cover.
+function initPlans() {
+  document.querySelectorAll('[data-plan-picker]').forEach((root) => {
+    const rows = Array.from(root.querySelectorAll('.plan-row'));
+    const radios = Array.from(root.querySelectorAll('.plan-seg input'));
+    const why = root.querySelector('[data-plan-why]');
+    const nameOf = (n) => radios.find((r) => r.value === String(n))?.nextElementSibling?.textContent || '';
+    const stepOf = (row) => Number(row.dataset.step);
+    const label = (row) => row.querySelector('.plan-row-t')?.textContent || '';
+    const list = (xs) => (xs.length < 2 ? xs[0] : `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}`);
+    const picked = () => rows.filter((r) => r.querySelector('input')?.checked);
+
+    const show = (n) => {
+      root.dataset.plan = String(n);
+      radios.forEach((r) => (r.checked = r.value === String(n)));
+      const out = picked().filter((r) => stepOf(r) > n);
+      rows.forEach((r) => r.classList.toggle('is-out', out.includes(r)));
+      if (!why) return;
+      why.classList.toggle('is-warn', out.length > 0);
+      if (out.length) why.textContent = `${nameOf(n)} doesn't include ${list(out.map(label))}.`;
+      else if (picked().length) why.textContent = `${nameOf(n)} covers everything you ticked.`;
+      else why.textContent = '';
+    };
+
+    rows.forEach((row) =>
+      row.querySelector('input')?.addEventListener('change', () => {
+        const p = picked();
+        if (!p.length) return show(Number(root.dataset.plan));
+        const need = Math.max(...p.map(stepOf));
+        show(need);
+        const drivers = p.filter((r) => stepOf(r) === need).map(label);
+        if (why && need > 1) why.textContent = `${nameOf(need)} covers everything you ticked. You need it for ${list(drivers)}.`;
+      }),
+    );
+    radios.forEach((r) => r.addEventListener('change', () => show(Number(r.value))));
   });
 }
 
@@ -52,12 +124,28 @@ function initMenu() {
   const focusables = () =>
     Array.from(menu.querySelectorAll             ('a[href], button:not([disabled])'));
 
+  // Closing plays a short shrink-back-into-the-pill animation first (only when motion is on).
+  let closeTimer = 0;
   const set = (open         ) => {
-    menu.hidden = !open;
+    window.clearTimeout(closeTimer);
     openBtn.setAttribute('aria-expanded', String(open));
     document.documentElement.classList.toggle('menu-open', open);
-    if (open) focusables()[0]?.focus();
-    else openBtn.focus();
+    if (open) {
+      menu.removeAttribute('data-closing');
+      menu.hidden = false;
+      (menu.querySelector('[data-menu-close]') || focusables()[0])?.focus();
+      return;
+    }
+    if (menu.hidden) return;
+    const done = () => {
+      menu.hidden = true;
+      menu.removeAttribute('data-closing');
+    };
+    if (document.documentElement.classList.contains('mo')) {
+      menu.setAttribute('data-closing', '');
+      closeTimer = window.setTimeout(done, 300);
+    } else done();
+    openBtn.focus();
   };
 
   openBtn.addEventListener('click', () => set(true));
@@ -250,7 +338,8 @@ function initEvents() {
   });
 }
 
-initDropdown();
+initIsland();
+initPlans();
 initMenu();
 initReveal();
 initScrollSpy();

@@ -353,6 +353,254 @@ async function initHeroCursor() {
   );
 }
 
+/* ---------- 07 · Agent run (Security Operations "How it works", desktop) ---------- */
+// The agent walks the trace: reads the server, follows a wire to the app, then to the
+// owning team. Each box appears as the agent reaches it. It stops on Confirm; Reset replays.
+async function initSecopsRun() {
+  const stage = document.querySelector('[data-decision] .demo-desk .amock');
+  if (!stage || !window.matchMedia('(min-width: 1081px)').matches) return;
+  const demo = stage.closest('[data-decision]');
+  const vrec = stage.querySelector('.vrec');
+  const [serverRow, teamRow] = Array.from(vrec?.querySelectorAll('.vrow.hl-d') || []);
+  const sv = serverRow?.querySelector('.v');
+  const tv = teamRow?.querySelector('.v');
+  const node = stage.querySelector('.am-layer.node');
+  const rec = stage.querySelector('.am-layer.rec');
+  const pick = rec?.querySelector('.rec-body .v');
+  const confirm = rec?.querySelector('[data-decide="approved"]');
+  if (!sv || !tv || !node || !rec || !pick || !confirm) return;
+
+  stage.classList.add('mo-run');
+
+  const NS = 'http://www.w3.org/2000/svg';
+  const wires = document.createElementNS(NS, 'svg');
+  wires.setAttribute('class', 'mo-wires');
+  wires.setAttribute('aria-hidden', 'true');
+  stage.append(wires);
+
+  const cur = document.createElement('div');
+  cur.className = 'mo-cursor';
+  cur.setAttribute('aria-hidden', 'true');
+  cur.innerHTML = `${CURSOR_SVG}<span class="mo-cur-tag"><span>agent</span></span>`;
+  stage.append(cur);
+  const tag = cur.querySelector('.mo-cur-tag');
+
+  // The demo is drawn scaled down; work in its own (unscaled) pixels.
+  let k = 1;
+  const measure = () => {
+    k = stage.getBoundingClientRect().width / stage.offsetWidth || 1;
+  };
+  const pt = (el, fx, fy) => {
+    const s = stage.getBoundingClientRect();
+    const r = el.getBoundingClientRect();
+    return [(r.left - s.left + r.width * fx) / k, (r.top - s.top + r.height * fy) / k];
+  };
+
+  let pos = [0, 0];
+  const place = (p) => {
+    pos = p;
+    cur.style.transform = `translate3d(${p[0]}px,${p[1]}px,0) scale(${1 / k})`;
+  };
+  // Gentle in-out, and a steady speed: duration follows distance, so short hops stay short.
+  const ease = (t) => -(Math.cos(Math.PI * t) - 1) / 2;
+  const speed = (d) => Math.min(950, Math.max(380, 260 + d * 1.5));
+  const tween = (dur, fn) =>
+    new Promise((done) => {
+      const t0 = performance.now();
+      const step = (now) => {
+        const t = Math.min(1, (now - t0) / dur);
+        fn(ease(t));
+        if (t < 1) requestAnimationFrame(step);
+        else done();
+      };
+      requestAnimationFrame(step);
+    });
+  const move = (to) => {
+    const from = pos;
+    const dur = speed(Math.hypot(to[0] - from[0], to[1] - from[1]));
+    return tween(dur, (e) => place([from[0] + (to[0] - from[0]) * e, from[1] + (to[1] - from[1]) * e]));
+  };
+
+  // Wire endpoints, measured live so they stay right after a resize.
+  const ends = () => {
+    const recL = pt(rec, 0, 0)[0];
+    const t = pt(tv, 0.7, 0.5);
+    return [
+      [pt(sv, 1, 0.5), pt(node, 0, 0.5), true],
+      [pt(node, 0.5, 1), [pt(node, 0.5, 1)[0], pt(rec, 0, 0)[1]], false],
+      [[recL, t[1]], [Math.min(t[0], recL - 40), t[1]], false],
+    ];
+  };
+  const wire = ([a, b, curve], drawn = false) => {
+    const p = document.createElementNS(NS, 'path');
+    const mx = (a[0] + b[0]) / 2;
+    p.setAttribute('d', curve ? `M${a[0]} ${a[1]} C ${mx} ${a[1]}, ${mx} ${b[1]}, ${b[0]} ${b[1]}` : `M${a[0]} ${a[1]} L ${b[0]} ${b[1]}`);
+    wires.append(p);
+    const len = p.getTotalLength();
+    p.style.strokeDasharray = `${len}`;
+    p.style.strokeDashoffset = drawn ? '0' : `${len}`;
+    return { p, len };
+  };
+  const sizeWires = () => wires.setAttribute('viewBox', `0 0 ${stage.offsetWidth} ${stage.offsetHeight}`);
+  // The cursor rides the wire while it draws. It starts from wherever it is and eases onto
+  // the wire (no jump to the wire's start). near() fires as the cursor closes in on the end.
+  const travel = async ({ p, len }, near) => {
+    const s = p.getPointAtLength(0);
+    const off = [pos[0] - s.x, pos[1] - s.y];
+    const dur = speed(len + Math.hypot(off[0], off[1]));
+    let fired = false;
+    await tween(dur, (e) => {
+      const q = p.getPointAtLength(len * e);
+      place([q.x + off[0] * (1 - e), q.y + off[1] * (1 - e)]);
+      p.style.strokeDashoffset = `${len * (1 - e)}`;
+      if (!fired && e > 0.7) {
+        fired = true;
+        near?.();
+      }
+    });
+    if (!fired) near?.();
+  };
+
+  const say = async (text) => {
+    const old = tag.firstElementChild;
+    const nu = document.createElement('span');
+    nu.textContent = text;
+    tag.append(nu);
+    tag.style.width = `${nu.offsetWidth}px`;
+    const o = { duration: 220, easing: 'cubic-bezier(.7,0,.3,1)', fill: 'forwards' };
+    old.animate([{ transform: 'none' }, { transform: 'translateY(-110%)' }], o);
+    await nu.animate([{ transform: 'translateY(110%)' }, { transform: 'none' }], o).finished;
+    old.remove();
+    nu.getAnimations().forEach((a) => a.cancel());
+  };
+
+  const pending = () => demo.dataset.decision === 'pending';
+  let running = false;
+  let finished = false;
+
+  const run = async () => {
+    running = true;
+    finished = false;
+    node.classList.remove('mo-show');
+    rec.classList.remove('mo-show');
+    confirm.classList.remove('mo-wait');
+    sv.classList.remove('mo-land');
+    tv.classList.remove('mo-land');
+    wires.replaceChildren();
+    measure();
+    sizeWires();
+    tag.replaceChildren(Object.assign(document.createElement('span'), { textContent: 'agent' }));
+    tag.style.transition = 'none';
+    tag.style.width = `${tag.firstElementChild.offsetWidth}px`;
+    void tag.offsetWidth;
+    tag.style.transition = 'width .22s cubic-bezier(.7,0,.3,1)';
+
+    place(pt(vrec, 0.3, 1.06));
+    cur.getAnimations().forEach((a) => a.cancel());
+    cur.style.opacity = '1';
+    cur.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 180 });
+    await sleep(300);
+
+    // 1. Read the record: which server is this?
+    await move(pt(sv, 0.6, 0.6));
+    sv.classList.add('mo-land');
+    await sleep(240);
+
+    // 2. Follow the server to the app it runs. The app box appears as the agent gets there.
+    const [w1, w2, w3] = ends();
+    say('tracing the server');
+    await travel(wire(w1), () => node.classList.add('mo-show'));
+    await sleep(220);
+
+    // 3. Follow the app to the team that owns it.
+    say('finding the owner');
+    await travel(wire(w2), () => rec.classList.add('mo-show'));
+    rec.querySelectorAll('.rec-body > *, .rec-actions').forEach((el, i) =>
+      el.animate([{ opacity: 0, transform: 'translateY(4px)' }, { opacity: 1, transform: 'none' }], {
+        duration: 260,
+        delay: 120 + i * 35,
+        easing: 'ease-out',
+        fill: 'backwards',
+      }),
+    );
+    await sleep(420);
+
+    // 4. Carry the suggestion back to the empty Team field.
+    await move(pt(pick, 0.25, 0.75));
+    say('suggesting a team');
+    await travel(wire(w3), () => tv.classList.add('mo-land'));
+    await sleep(240);
+
+    // 5. Stop on Confirm. Confirming is the person's call.
+    await move(pt(confirm, 0.72, 0.68));
+    if (pending()) {
+      say('waiting for you');
+      confirm.classList.add('mo-wait');
+    }
+    running = false;
+    finished = true;
+  };
+
+  demo.querySelectorAll('[data-decide]').forEach((b) =>
+    b.addEventListener('click', () => {
+      if (b.dataset.decide === 'pending') {
+        if (!running) run();
+        return;
+      }
+      confirm.classList.remove('mo-wait');
+      cur.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 200, fill: 'forwards' });
+    }),
+  );
+
+  // Keep the drawn wires and the parked cursor in place if the window changes size.
+  window.addEventListener('resize', () => {
+    if (!finished) return;
+    wires.replaceChildren();
+    measure();
+    sizeWires();
+    ends().forEach((w) => wire(w, true));
+    place(pt(confirm, 0.72, 0.68));
+  });
+
+  await document.fonts?.ready;
+  onView(stage, () => sleep(250).then(run));
+}
+
+// Small screens: the stacked demo builds top to bottom, one box after another.
+function initSecopsSteps() {
+  const mob = document.querySelector('[data-decision] .demo-mob');
+  if (!mob) return;
+  const items = Array.from(mob.children);
+  mob.classList.add('mo-seq');
+  const play = () => {
+    items.forEach((el, i) => {
+      const arrow = el.classList.contains('m-down');
+      el.animate(
+        arrow
+          ? [{ transform: 'scaleY(0)', transformOrigin: 'top' }, { transform: 'none', transformOrigin: 'top' }]
+          : [{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }],
+        { duration: arrow ? 300 : 440, delay: i * 280, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'backwards' },
+      );
+    });
+    mob.classList.remove('mo-seq');
+  };
+  if (!('IntersectionObserver' in window)) return play();
+  const io = new IntersectionObserver(
+    (entries) => {
+      if (!entries.some((e) => e.isIntersecting)) return;
+      io.disconnect();
+      const go = () => {
+        const sec = mob.closest('.reveal');
+        if (sec && !sec.classList.contains('is-in')) return setTimeout(go, 120);
+        play();
+      };
+      go();
+    },
+    { threshold: 0.15 },
+  );
+  io.observe(mob);
+}
+
 if (root.classList.contains('mo')) {
   root.classList.add('mo-ready');
   initArrows();
@@ -362,4 +610,6 @@ if (root.classList.contains('mo')) {
   initTrace();
   initDecisionDecode();
   initHeroCursor();
+  initSecopsRun();
+  initSecopsSteps();
 }

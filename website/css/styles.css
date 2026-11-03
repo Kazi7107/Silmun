@@ -1154,7 +1154,7 @@ html:not(.js) .reveal *,html:not(.js) .reveal *::before,html:not(.js) .reveal *:
 .tier-head{display:flex;justify-content:space-between;align-items:center;gap:8px}
 
 /* ---------- Security Operations demo ---------- */
-.demo-desk{height:280px;overflow:hidden}
+.demo-desk{height:318px;overflow:hidden}
 .demo-scale > .amock{width:100%;transform:scale(.7);transform-origin:top center}
 .demo-mob{display:none}
 .demo-mob-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px 14px}

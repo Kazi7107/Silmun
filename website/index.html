@@ -28,60 +28,65 @@
     
   <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/refresh.css">
+<link rel="stylesheet" href="css/nav.css">
 <link rel="stylesheet" href="css/motion.css"></head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
     <div class="site hero-dark">
       <!-- Desktop -->
-<header class="gnav">
-  <div class="wrap">
-    <a class="brand" href="index.html" aria-label="Silmun home">
+<header class="isl-wrap">
+  <div class="isl" data-island>
+    <div class="isl-bar">
+      <a class="brand" href="index.html" aria-label="Silmun home">
   <svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="flex: none"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg>
   <span>silmun</span>
 </a>
-    <nav class="gnav-links" aria-label="Site">
-      <div class="dd-anchor" data-dropdown>
-        <button class="gnav-link" type="button" aria-expanded="false" aria-controls="modules-menu" data-dropdown-toggle>Modules <span class="caret" aria-hidden="true">▾</span></button>
-        <div class="dropdown" id="modules-menu" hidden>
-          <a class="dd-row live" href="catalog-automation.html"><span class="dd-mod">Module</span><span class="nm">ITSM</span><span class="tag tag-live"><span class="dot"></span>Live</span><span class="ds">Catalog Automation: plain-language request in, catalog item out.</span></a>
-          <a class="dd-row live" href="security-operations.html"><span class="dd-mod">Module</span><span class="nm">Security Operations</span><span class="tag tag-live"><span class="dot"></span>Live</span><span class="ds">Vulnerability Remediation agent.</span></a>
-          <a class="dd-later" href="source-to-pay.html"><span>Finance &amp; Supply Chain · Source to Pay</span><span class="tag tag-later"><span class="dot"></span>Next</span></a>
+      <nav class="isl-links" aria-label="Site">
+        <span class="isl-blob" aria-hidden="true"></span>
+        <button class="isl-link" type="button" aria-expanded="false" aria-controls="isl-modules" data-island-toggle>Modules <span class="isl-plus" aria-hidden="true"></span></button>
+        <a class="isl-link" href="about.html">About us</a>
+        <a class="isl-link" href="support.html">Support</a>
+        <a class="isl-link" href="index.html#contact">Contact</a>
+      </nav>
+      <a class="isl-cta" href="catalog-automation.html#pricing" data-event="Store click" data-event-agent="catalog">Get it on the Store <span aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="isl-panel" id="isl-modules">
+      <div class="isl-panel-in">
+        <div class="isl-grid">
+          <p class="isl-sec" style="--d:0">Modules</p>
+          <a class="isl-mod" href="catalog-automation.html" style="--d:1"><span class="isl-top"><span class="isl-n">01</span><span class="isl-live">Live</span></span><span class="isl-mn">ITSM <span class="isl-go" aria-hidden="true">&#8594;</span></span><span class="isl-ms">Catalog Automation: plain-language request in, catalog item out.</span></a>
+          <a class="isl-mod" href="security-operations.html" style="--d:2"><span class="isl-top"><span class="isl-n">02</span><span class="isl-live">Live</span></span><span class="isl-mn">Security Operations <span class="isl-go" aria-hidden="true">&#8594;</span></span><span class="isl-ms">Vulnerability Remediation agent.</span></a>
+          <a class="isl-next" href="source-to-pay.html" style="--d:3"><span class="isl-n">03</span><span class="isl-nn">Source to Pay</span><span class="isl-ns">Finance &amp; Supply Chain</span><span class="isl-soon">Next</span></a>
         </div>
-      </div>
-      <a class="gnav-link" href="about.html">About us</a>
-      <a class="gnav-link" href="support.html">Support</a>
-      <a class="gnav-link" href="index.html#contact">Contact</a>
-    </nav>
-    <a class="btn btn-primary btn-sm" href="catalog-automation.html#pricing" data-event="Store click" data-event-agent="catalog">Get it on the Store <span class="k" aria-hidden="true">↗</span></a>
+        </div>
+    </div>
   </div>
 </header>
 
 <!-- Mobile -->
-<header class="m-head">
-  <div class="wrap">
+<header class="mh">
+  <div class="mh-pill">
     <a class="brand" href="index.html" aria-label="Silmun home">
   <svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="flex: none"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg>
   <span>silmun</span>
 </a>
-    <button class="m-menu-btn" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-open><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Menu</button>
+    <button class="mh-btn" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-open>Menu <span class="mh-ic" aria-hidden="true"><i></i><i></i></span></button>
   </div>
 </header>
-<div class="m-menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Site menu" hidden data-menu>
-  <div class="m-menu-top"><a class="brand" href="index.html" aria-label="Silmun home">
+<div class="msheet" id="site-menu" role="dialog" aria-modal="true" aria-label="Site menu" hidden data-menu>
+  <div class="msheet-top"><a class="brand" href="index.html" aria-label="Silmun home">
   <svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="flex: none"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg>
   <span>silmun</span>
-</a><button class="m-menu-btn" type="button" data-menu-close>Close <span class="mono" aria-hidden="true">×</span></button></div>
-  <nav class="m-menu-body" aria-label="Site">
-    <span class="m-menu-sec">Modules</span>
-    <a class="m-prod live" href="catalog-automation.html"><span class="dd-mod">Module</span><span class="m-prod-row"><span class="nm">ITSM</span><span class="tag tag-live"><span class="dot"></span>Live</span></span><span class="small">Catalog Automation</span></a>
-    <a class="m-prod live" href="security-operations.html"><span class="dd-mod">Module</span><span class="m-prod-row"><span class="nm">Security Operations</span><span class="tag tag-live"><span class="dot"></span>Live</span></span><span class="small">Vulnerability Remediation</span></a>
-    <a class="m-prod later" href="source-to-pay.html"><span class="nm">Source to Pay · next</span><span class="small dim">Finance &amp; Supply Chain</span></a>
-    <span class="m-menu-sec">Company</span>
-    <a class="m-link" href="about.html">About us <span class="k" aria-hidden="true">→</span></a>
-    <a class="m-link" href="support.html">Support <span class="k" aria-hidden="true">→</span></a>
-    <a class="m-link" href="index.html#contact" data-menu-close>Contact <span class="k" aria-hidden="true">→</span></a>
+</a><button class="mh-btn" type="button" data-menu-close>Close <span class="mh-ic x" aria-hidden="true"><i></i><i></i></span></button></div>
+  <nav class="msheet-body" aria-label="Site">
+    <p class="msheet-sec" style="--d:0">Modules</p>
+    <a class="ms-mod" href="catalog-automation.html" style="--d:1"><span class="ms-n">01</span><span><span class="ms-nm">ITSM</span><span class="ms-sub">Catalog Automation</span></span><span class="ms-tag">Live</span></a>
+    <a class="ms-mod" href="security-operations.html" style="--d:2"><span class="ms-n">02</span><span><span class="ms-nm">Security Operations</span><span class="ms-sub">Vulnerability Remediation</span></span><span class="ms-tag">Live</span></a>
+    <a class="ms-mod ms-later" href="source-to-pay.html" style="--d:3"><span class="ms-n">03</span><span><span class="ms-nm">Source to Pay</span><span class="ms-sub">Finance &amp; Supply Chain</span></span><span class="ms-tag">Next</span></a>
+    <p class="msheet-sec" style="--d:4">Company</p>
+    <div class="ms-co" style="--d:5"><a href="about.html">About us</a><a href="support.html">Support</a><a href="index.html#contact" data-menu-close>Contact</a></div>
   </nav>
-  <div class="m-menu-cta"><a class="btn btn-primary" href="catalog-automation.html#pricing" data-event="Store click" data-event-agent="catalog">Get it on the Store <span class="k" aria-hidden="true">↗</span></a></div>
+  <div class="msheet-cta" style="--d:6"><a class="btn btn-primary" href="catalog-automation.html#pricing" data-event="Store click" data-event-agent="catalog">Get it on the Store <span class="k" aria-hidden="true">&#8599;</span></a></div>
 </div>
       
       <main id="main">
