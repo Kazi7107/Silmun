@@ -1,0 +1,20 @@
+---
+// Sticky "on this page" nav for agent pages. Desktop shows a bar,
+// small screens show scrollable chips. Both are kept in sync by scrollspy.
+interface Props {
+  label: string;
+  links: { href: string; text: string }[];
+}
+const { label, links } = Astro.props;
+---
+<nav class="subnav" aria-label="On this page">
+  <div class="wrap">
+    <span class="subnav-id"><span class="label subnav-name">{label}</span><span class="tag tag-live subnav-tag"><span class="dot"></span>Live</span></span>
+    <span class="subnav-links" data-spy>
+      {links.map((l, i) => <a class={i === 0 ? 'on' : undefined} href={l.href}>{l.text}</a>)}
+    </span>
+  </div>
+</nav>
+<nav class="m-chips" aria-label="On this page" data-spy>
+  {links.map((l, i) => <a class={i === 0 ? 'on' : undefined} href={l.href}>{l.text}</a>)}
+</nav>

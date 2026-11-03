@@ -1,0 +1,40 @@
+---
+// A form handled by Netlify Forms. Works without JS (posts to /thanks/);
+// with JS it submits in place and swaps the button label to `sentLabel`.
+interface Props {
+  name: string;          // Netlify form name, unique per form
+  ariaLabel: string;
+  buttonLabel: string;
+  sentLabel: string;
+  sentNote?: string;     // optional line shown under the button once sent
+  buttonClass?: string;
+  arrow?: boolean;
+  /** Subject line on the notification email. */
+  subject?: string;
+}
+const {
+  name, ariaLabel, buttonLabel, sentLabel, sentNote,
+  buttonClass = 'btn btn-primary', arrow = true, subject,
+} = Astro.props;
+---
+<form
+  class="form fb"
+  name={name}
+  method="POST"
+  action="/thanks/"
+  aria-label={ariaLabel}
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  data-site-form
+  data-sent-label={sentLabel}
+  data-sent-note={sentNote}
+>
+  <input type="hidden" name="form-name" value={name} />
+  {subject && <input type="hidden" name="subject" value={subject} />}
+  <p class="hp" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+  <slot />
+  <div class="fld full form-actions">
+    <button class={buttonClass} type="submit"><span data-label>{buttonLabel}</span>{arrow && <span class="k" aria-hidden="true">→</span>}</button>
+    <span class="small form-status" role="status" data-form-status></span>
+  </div>
+</form>

@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Silmun · Security Operations · Vulnerability Remediation</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/24a1a36d510f1c7d8ea7661074bb699c">
+<link rel="stylesheet" href="/_blob/6e96a1914e7b529372c1c4836b4cc102">
+<link rel="stylesheet" href="/_blob/21ce855bb796ee1969b5e8b3fb51a1f7">
+<link rel="stylesheet" href="/_blob/7c2f2ff715d852230a89c8b6c4e93b8f">
+<link rel="stylesheet" href="/_blob/e8cf45c30d8fb382c0b40a83d7cc6884">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="site" style="font-family: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif; color: #1A2B30; background: #F3F6F6">
+
+<header class="gnav">
+<div class="wrap">
+<a class="brand" href="Main.dc.html"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="flex: none"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg><span>silmun</span></a>
+<nav class="gnav-links" aria-label="Site">
+<div class="dd-anchor">
+<button class="gnav-link {{ddCls}}" type="button" aria-expanded="{{ddOpen}}" onClick="{{toggleDd}}">Modules <span class="caret">▾</span></button>
+<sc-if value="{{ddOpen}}" hint-placeholder-val="{{ false }}">
+<div class="dropdown">
+<a class="dd-row live" href="Catalog.dc.html"><span class="dd-mod">Module</span><span class="nm">ITSM</span><span class="tag tag-live"><span class="dot"></span>Live</span><span class="ds">Catalog Automation: plain-language request in, catalog item out.</span></a>
+<a class="dd-row live" href="Orchestrator.dc.html"><span class="dd-mod">Module</span><span class="nm">Security Operations</span><span class="tag tag-live"><span class="dot"></span>Live</span><span class="ds">Vulnerability Remediation agent.</span></a>
+<a class="dd-later" href="SourceToPay.dc.html"><span>Finance &amp; Supply Chain · Source to Pay</span><span class="tag tag-later"><span class="dot"></span>Next</span></a>
+</div>
+</sc-if>
+</div>
+<a class="gnav-link" href="About.dc.html">About us</a>
+<a class="gnav-link" href="Support.dc.html">Support</a>
+<a class="gnav-link" href="Main.dc.html#contact">Contact</a>
+</nav>
+<a class="btn btn-primary btn-sm" href="Catalog.dc.html#pricing">Get it on the Store <span class="k">↗</span></a>
+</div>
+</header>
+<nav class="subnav" aria-label="On this page">
+<div class="wrap">
+<span class="subnav-id"><span class="label" style="color: #1A2B30">Security Operations · Vulnerability Remediation</span><span class="tag tag-live" style="padding: 3px 8px"><span class="dot"></span>Live</span></span>
+<span class="subnav-links"><a class="on" href="#what">What it does</a><a href="#how">How it works</a><a href="#why">Why us</a><a href="#pricing">Pricing</a><a href="#feedback">Feedback</a></span>
+</div>
+</nav>
+
+<!-- HEADER + 1 WHAT IT DOES -->
+<section class="hero" id="what" style="padding-bottom: 80px">
+<div class="wrap">
+<div class="hero-top" style="align-items: start">
+<div class="hero-copy">
+<span class="mod-label">Module · Security Operations</span>
+<h1 class="display"><span class="hlw">Security Operations</span> Agent for ServiceNow</h1>
+<p class="subhead">Vulnerability Remediation</p>
+</div>
+<div class="stack g24" style="padding-top: 8px">
+<p class="lede">ServiceNow already finds and assigns vulnerabilities. But fixes still get stuck: nobody owns the server, the fix needs three teams, the patch can't go in yet, or two systems disagree. This agent is designed to dig into those cases, line up the next step and check the fix worked. A person signs off on anything that matters.</p>
+<div class="actions"><a class="btn btn-primary" href="#pricing">Get it on the ServiceNow Store <span class="k">↗</span></a><a class="btn btn-secondary" href="#cases">Explore use cases</a></div>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin: 8px 0 56px">
+<div class="stack g8" style="padding: 20px; background: #FFFFFF; border: 1px solid #DDE4E5; border-radius: 12px"><span class="label" style="color: #143640">Investigate</span><span class="h4">Find who should fix it.</span><span class="small">Follows the links between servers, apps and teams to find the owner.</span></div>
+<div class="stack g8" style="padding: 20px; background: #FFFFFF; border: 1px solid #DDE4E5; border-radius: 12px"><span class="label" style="color: #143640">Coordinate</span><span class="h4">See what's holding it up.</span><span class="small">Spots blockers like a failed change or a fix waiting on another team.</span></div>
+<div class="stack g8" style="padding: 20px; background: #FFFFFF; border: 1px solid #DDE4E5; border-radius: 12px"><span class="label" style="color: #143640">Verify</span><span class="h4">Make sure it's really fixed.</span><span class="small">Checks the patch against the latest scan before anything is closed.</span></div>
+</div>
+
+<div class="stack g8" id="cases"><span class="label">What it does</span><h2 class="h2" style="font-size: 30px">Eight problems it's built for.</h2><p class="line1" style="font-size: 15.5px">All eight are live now.</p></div>
+<div class="ucgrid" style="display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin-top: 24px">
+<div class="stack g8" style="padding: 18px; background: #FFFFFF; border: 1px solid #DDE4E5; border-radius: 12px"><span class="sec-no">01</span><span class="h4">No owner</span><span class="small">Finds who should fix it and asks them to confirm.</span></div>
+<div class="stack g8" style="padding: 18px; background: #FFFFFF; border: 1px solid #DDE4E5; border-radius: 12px"><span class="sec-no">02</span><span class="h4">Many teams</span><span class="small">Plans a fix that needs several teams, in the right order.</span></div>
+<div class="stack g8" style="padding: 18px; background: #FFFFFF; border: 1px solid #DDE4E5; border-radius: 12px"><span class="sec-no">03</span><span class="h4">Patch blocked</span><span class="small">Finds a safe workaround when you can't patch yet.</span></div>
+<div class="stack g8" style="padding: 18px; background: #FFFFFF; border: 1px solid #DDE4E5; border-radius: 12px"><span class="sec-no">04</span><span class="h4">No patch yet</span><span class="small">Prepares the paperwork to accept the risk for now.</span></div>
+<div class="stack g8" style="padding: 18px; background: #FFFFFF; border: 1px solid #DDE4E5; border-radius: 12px"><span class="sec-no">05</span><span class="h4">Records disagree</span><span class="small">Sorts out scan results and asset records that don't match.</span></div>
+<div class="stack g8" style="padding: 18px; background: #FFFFFF; border: 1px solid #DDE4E5; border-radius: 12px"><span class="sec-no">06</span><span class="h4">Stalled task</span><span class="small">Finds out why a fix is late, not just that it's late.</span></div>
+<div class="stack g8" style="padding: 18px; background: #FFFFFF; border: 1px solid #DDE4E5; border-radius: 12px"><span class="sec-no">07</span><span class="h4">Patched, still open</span><span class="small">Checks why a patched item still shows as open.</span></div>
+<div class="stack g8" style="padding: 18px; background: #FFFFFF; border: 1px solid #DDE4E5; border-radius: 12px"><span class="sec-no">08</span><span class="h4">Unknown hardware</span><span class="small">Works out what an unlabeled device is and who owns it.</span></div>
+</div>
+</div>
+</section>
+
+<!-- 2 HOW IT WORKS -->
+<section class="sec reveal {{rvHow}}" data-reveal="how" id="how">
+<div class="wrap">
+<div class="intro">
+<div class="stack g12"><div class="sec-head"><span class="sec-no">02</span><span class="sec-label">How it works</span></div><h2 class="h2">The agent proposes. You confirm.</h2></div>
+<p class="line1">Example: a vulnerable server with no owner. The agent suggests a team, and a person confirms it. Sample data.</p>
+</div>
+<div style="height: 280px; overflow: hidden">
+<div class="amock" style="height: 400px; width: 100%; transform: scale(.7); transform-origin: top center" role="img" aria-label="A vulnerability record with the CMDB trace drawn over it, ending at a recommendation card that a person approves">
+<svg class="am-svg muted" viewBox="0 0 100 400" preserveAspectRatio="none" aria-hidden="true">
+<path pathLength="1" d="M34 128 C 46 128, 50 124, 60 124" style="animation-delay: .4s"></path>
+<path pathLength="1" d="M70 158 C 70 168, 70 172, 70 182" style="animation-delay: 1.1s"></path>
+<path class="dash" d="M50 228 L 45.5 228" style="animation-delay: 1.8s"></path>
+</svg>
+<div class="am-layer vrec" style="left: 0; top: 0; width: 54%">
+<div class="vrec-h"><b>VIT0041187</b><span class="data dim">vulnerable item · sample</span></div>
+<div class="vrow"><span class="k">Vulnerability</span><span class="v"><span>CVE-2024-6387 · OpenSSH</span><span class="c">Critical</span></span></div>
+<div class="vrow hl-d"><span class="k">Server</span><span class="v"><span>lnx-pay-app-07</span><span class="c">server</span></span></div>
+<div class="vrow"><span class="k">State</span><span class="v"><span>Open</span></span></div>
+<div class="vrow hl-d"><span class="k">Team</span><span class="v"><sc-if value="{{notApproved}}" hint-placeholder-val="{{ true }}"><span style="color: #B5442A">Unassigned</span></sc-if><sc-if value="{{approved}}" hint-placeholder-val="{{ false }}"><span class="val-to-d flip">Payments Platform Ops · confirmed</span></sc-if><span class="c">team</span></span></div>
+<div class="vrow"><span class="k">Fix by</span><span class="v"><span>Nov 4, 2026</span></span></div>
+<div class="vrec-f"><span class="data dim">Note added: how the owner was found</span><span class="lvl lvl-act">LOGGED</span></div>
+</div>
+<div class="am-layer node in" style="left: 60%; top: 92px; width: 23%; animation-delay: .7s"><span class="k">App on this server</span><span class="v">Payments API</span><span class="t">from your asset records</span></div>
+<div class="am-layer am-top rec in" style="left: 50%; top: 182px; width: 46%; animation-delay: 1.3s">
+<div class="rec-head" style="padding: 10px 16px"><span class="data" style="font-weight: 600">Suggested owner</span>
+<sc-if value="{{pending}}" hint-placeholder-val="{{ true }}"><span class="tag tag-soon">Needs confirmation</span></sc-if>
+<sc-if value="{{approved}}" hint-placeholder-val="{{ false }}"><span class="lvl lvl-act flip">CONFIRMED</span></sc-if>
+<sc-if value="{{overridden}}" hint-placeholder-val="{{ false }}"><span class="lvl lvl-never flip">OVERRIDDEN</span></sc-if>
+</div>
+<div class="rec-body" style="padding: 12px 16px; grid-template-columns: 110px minmax(0,1fr)">
+<span class="k">team</span><span class="v" style="font-weight: 600">Payments Platform Ops</span>
+<span class="k">confidence</span><span class="v">High</span>
+<span class="k">why</span><span class="v">The server has no team listed. The app it runs belongs to this team.</span>
+</div>
+<div class="rec-actions" style="padding: 0 16px 14px"><button class="btn btn-deep btn-sm" type="button" onClick="{{approve}}">Confirm</button><button class="btn btn-secondary btn-sm" type="button" onClick="{{override}}">Override</button><button class="btn btn-ghost btn-sm" type="button" onClick="{{reset}}">Reset</button></div>
+</div>
+</div>
+</div>
+<div class="steps3" style="margin-top: 32px; grid-template-columns: repeat(4, minmax(0,1fr))">
+<div class="step3"><span class="n">1</span><span class="h4">Spots the problem</span><span class="small">Picks up vulnerabilities that are stuck or missing information.</span></div>
+<div class="step3"><span class="n">2</span><span class="h4">Looks into it</span><span class="small">Checks asset records, scan results, tasks and how systems connect.</span></div>
+<div class="step3"><span class="n">3</span><span class="h4">Suggests a next step</span><span class="small">Shows what it found and why, then asks a person to approve.</span></div>
+<div class="step3"><span class="n">4</span><span class="h4">Follows through</span><span class="small">Uses your normal ServiceNow process and keeps the proof on record.</span></div>
+</div>
+</div>
+</section>
+
+<!-- 3 WHY US -->
+<section class="sec dark" id="why">
+<div class="wrap">
+<div class="intro">
+<div class="stack g12"><div class="sec-head"><span class="sec-no">03</span><span class="sec-label">Why us</span></div><h2 class="h2">Stop chasing fixes <span class="hlw">by hand.</span></h2></div>
+</div>
+
+<div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); border: 1px solid rgba(230,238,238,.25); border-radius: 6px; overflow: hidden">
+<div style="padding: 14px 22px; border-bottom: 1px solid rgba(230,238,238,.25); border-right: 1px solid rgba(230,238,238,.25)"><span class="label" style="color: #9DB3B8">Today, without it</span></div>
+<div style="padding: 14px 22px; border-bottom: 1px solid rgba(230,238,238,.25); background: rgba(25,198,180,.10)"><span class="label" style="color: #19C6B4">With Silmun</span></div>
+
+<div style="padding: 18px 22px; border-bottom: 1px solid rgba(230,238,238,.18); border-right: 1px solid rgba(230,238,238,.25)"><span class="h4" style="color: #9DB3B8">Findings sit unassigned</span></div>
+<div style="padding: 18px 22px; border-bottom: 1px solid rgba(230,238,238,.18); background: rgba(25,198,180,.06)"><span class="h4" style="color: #FFFFFF">The owner gets found and confirmed</span></div>
+
+<div style="padding: 18px 22px; border-bottom: 1px solid rgba(230,238,238,.18); border-right: 1px solid rgba(230,238,238,.25)"><span class="h4" style="color: #9DB3B8">Overdue reminders, no answers</span></div>
+<div style="padding: 18px 22px; border-bottom: 1px solid rgba(230,238,238,.18); background: rgba(25,198,180,.06)"><span class="h4" style="color: #FFFFFF">The real blocker, with a next step</span></div>
+
+<div style="padding: 18px 22px; border-right: 1px solid rgba(230,238,238,.25)"><span class="h4" style="color: #9DB3B8">"Patched" doesn't mean fixed</span></div>
+<div style="padding: 18px 22px; background: rgba(25,198,180,.06)"><span class="h4" style="color: #FFFFFF">Proof before anything closes</span></div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin-top: 40px">
+<div class="stack g8"><span class="label" style="color: #19C6B4">"Will it change things on its own?"</span><span class="h4">No. You approve every decision.</span></div>
+<div class="stack g8"><span class="label" style="color: #19C6B4">"Do we have to replace anything?"</span><span class="h4">No. It works with what you have.</span></div>
+<div class="stack g8"><span class="label" style="color: #19C6B4">"Can we trust what it says?"</span><span class="h4">Every suggestion shows its proof.</span></div>
+</div>
+
+
+<details class="spec-more" style="margin-top: 32px; border-top: 1px solid #DDE4E5; border-radius: 12px; color: #1A2B30">
+<summary><span>What ServiceNow already does, and what we add</span><span class="pm" aria-hidden="true"></span></summary>
+<table class="spec"><tbody>
+<tr><th>Assigns work using your rules</th><td>Figures out the owner when the rules come up empty, then asks someone to confirm.</td></tr>
+<tr><th>Sends overdue reminders</th><td>Explains why a fix is stuck and suggests what to do next.</td></tr>
+<tr><th>Pulls in scan and asset data</th><td>Sorts out records that don't match, and shows where each one came from.</td></tr>
+<tr><th>Runs exception and change approvals</th><td>Gathers the proof so approvers have what they need.</td></tr>
+<tr><th>Tracks whether a fix is done</th><td>Double-checks patched items against the latest scan before they close.</td></tr>
+</tbody></table>
+</details>
+
+</div>
+</section>
+
+<!-- PRICING -->
+<section class="sec band" id="pricing">
+<div class="wrap">
+<div class="intro">
+<div class="stack g12"><div class="sec-head"><span class="sec-no">04</span><span class="sec-label">Pricing</span></div><h2 class="h2">Pay for the problems you have.</h2></div>
+<p class="line1">Example prices. Every plan needs ServiceNow's Now Assist add-on.</p>
+</div>
+<div class="tiers">
+<div class="tier">
+<span class="tname">Essential</span>
+<span class="tfor">Find owners and confirm fixes</span>
+<span class="tamt">$39 <small>/ month</small></span>
+<ul class="uses"><li>No owner (01)<span class="cs"></span></li><li>Patched, still open (07)<span class="cs"></span></li><li>Unknown hardware (08)<span class="cs"></span></li><li>Email support, 1 business day<span class="cs"></span></li></ul>
+<a class="btn btn-secondary" href="#pricing">Get Essential</a>
+</div>
+<div class="tier top">
+<span style="display: flex; justify-content: space-between; align-items: center"><span class="tname">Pro</span><span class="tag tag-soon"><span class="dot"></span>Most popular</span></span>
+<span class="tfor">Get stuck fixes moving</span>
+<span class="tamt">$99 <small>/ month</small></span>
+<ul class="uses"><li>Everything in Essential<span class="cs"></span></li><li>Patch blocked (03)<span class="cs"></span></li><li>Records disagree (05)<span class="cs"></span></li><li>Stalled task (06)<span class="cs"></span></li></ul>
+<a class="btn btn-primary" href="#pricing">Get Pro <span class="k">↗</span></a>
+</div>
+<div class="tier">
+<span class="tname">Enterprise</span>
+<span class="tfor">Every use case, every team</span>
+<span class="tamt">$499 <small>/ month</small></span>
+<ul class="uses"><li>All 8, including Many teams (02) and No patch yet (04)<span class="cs"></span></li><li>Guided onboarding session<span class="cs"></span></li><li>Priority support<span class="cs"></span></li></ul>
+<a class="btn btn-secondary" href="Main.dc.html#contact">Talk to us</a>
+</div>
+</div>
+<p class="small dim tier-note">Example prices and plan contents for the team to confirm.</p>
+</div>
+</section>
+
+<!-- FEEDBACK / EARLY ACCESS -->
+<section class="sec" id="feedback">
+<div class="wrap two">
+<div class="stack g16">
+<div class="sec-head"><span class="sec-no">05</span><span class="sec-label">Feedback</span></div>
+<h2 class="h2">Tell us what to improve.</h2>
+<p class="line1">Ideas, bugs, or the next problem you want it to handle. Something broken? <a href="Support.dc.html">Contact support</a>.</p>
+</div>
+<form class="form fb" aria-label="Discovery call and feedback form">
+<div class="fld"><label for="e-name">Name</label><input id="e-name" type="text" autocomplete="name"></div>
+<div class="fld"><label for="e-email">Work email</label><input id="e-email" type="email" autocomplete="email"></div>
+<div class="fld"><label for="e-why">I want to</label><select id="e-why"><option>Idea</option><option>Bug</option><option>Question</option><option>Book a demo</option></select></div>
+<div class="fld"><label for="e-scan">Scanner</label><select id="e-scan"><option>Tenable</option><option>Qualys</option><option>Tanium</option><option>Rapid7</option><option>More than one</option></select></div>
+<div class="fld full"><label for="e-msg">Message</label><textarea id="e-msg"></textarea></div>
+<div class="fld full"><button class="btn btn-deep" type="button" onClick="{{join}}" style="align-self: flex-start">{{joinLabel}} <span class="k">→</span></button></div>
+</form>
+</div>
+</section>
+
+<footer class="foot">
+<div class="wrap">
+<a class="brand" href="Main.dc.html"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="flex: none"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg><span>silmun</span></a>
+<nav class="foot-prods" aria-label="Site"><a class="live" href="Catalog.dc.html"><span class="dot live"></span>ITSM</a><a class="live" href="Orchestrator.dc.html"><span class="dot live"></span>Security Operations</a><a class="soon" href="SourceToPay.dc.html">Source to Pay · next</a><a class="soon" href="About.dc.html">About us</a><a class="soon" href="Support.dc.html">Support</a></nav>
+<span class="label dim">© [YEAR] Silmun · ServiceNow is a trademark of ServiceNow, Inc.</span>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":5400}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { dd: false, decision: 'pending', joined: false, seen: {}, all: false };
+  }
+  componentDidMount() {
+    this._fb = setTimeout(() => { if (!Object.keys(this.state.seen).length) this.setState({ all: true }); }, 3000);
+    try {
+      if (!('IntersectionObserver' in window)) { this.setState({ all: true }); return; }
+      this.io = new IntersectionObserver((es) => {
+        const add = {};
+        es.forEach((e) => { if (e.isIntersecting) { add[e.target.getAttribute('data-reveal')] = true; this.io.unobserve(e.target); } });
+        if (Object.keys(add).length) this.setState({ seen: Object.assign({}, this.state.seen, add) });
+      }, { threshold: 0.2 });
+      document.querySelectorAll('[data-reveal]').forEach((el) => this.io.observe(el));
+    } catch (err) { this.setState({ all: true }); }
+  }
+  componentWillUnmount() { clearTimeout(this._fb); if (this.io) this.io.disconnect(); }
+  renderVals() {
+    const on = (k) => (this.state.all || this.state.seen[k]) ? 'is-in' : '';
+    const d = this.state.decision;
+    return {
+      rvHow: on('how'),
+      ddOpen: this.state.dd, ddCls: this.state.dd ? 'open' : '',
+      toggleDd: () => this.setState({ dd: !this.state.dd }),
+      pending: d === 'pending', approved: d === 'approved', notApproved: d !== 'approved', overridden: d === 'overridden',
+      approve: () => this.setState({ decision: 'approved' }),
+      override: () => this.setState({ decision: 'overridden' }),
+      reset: () => this.setState({ decision: 'pending' }),
+      joinLabel: this.state.joined ? 'Got it. We will email you' : 'Send',
+      join: () => this.setState({ joined: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

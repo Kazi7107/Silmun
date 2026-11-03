@@ -1,0 +1,18 @@
+---
+import Logo from './Logo.astro';
+import { ROUTES } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="foot">
+  <div class="wrap">
+    <Logo />
+    <nav class="foot-prods" aria-label="Footer">
+      <a class="live" href={ROUTES.catalog}><span class="dot live"></span>ITSM</a>
+      <a class="live" href={ROUTES.secops}><span class="dot live"></span>Security Operations</a>
+      <a class="soon" href={ROUTES.sourceToPay}>Source to Pay · next</a>
+      <a class="soon" href={ROUTES.about}>About us</a>
+      <a class="soon" href={ROUTES.support}>Support</a>
+    </nav>
+    <span class="label dim">© <span data-year>{year}</span> Silmun · ServiceNow is a trademark of ServiceNow, Inc.</span>
+  </div>
+</footer>

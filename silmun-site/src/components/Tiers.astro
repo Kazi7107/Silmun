@@ -1,0 +1,24 @@
+---
+import StoreButton from './StoreButton.astro';
+import type { Tier } from '../data/pricing';
+import { ROUTES, type AgentKey } from '../data/site';
+
+interface Props { tiers: Tier[]; agent: AgentKey; topTagClass?: string }
+const { tiers, agent, topTagClass = 'tag tag-live' } = Astro.props;
+---
+<div class="tiers">
+  {tiers.map((t) => (
+    <div class={t.highlight ? 'tier top' : 'tier'}>
+      {t.highlight
+        ? <span class="tier-head"><span class="tname">{t.name}</span><span class={topTagClass}><span class="dot"></span>Most popular</span></span>
+        : <span class="tname">{t.name}</span>}
+      <span class="tfor">{t.forWho}</span>
+      <span class="tamt">${t.price} <small>/ month</small></span>
+      <ul class="uses">{t.features.map((f) => <li>{f}<span class="cs"></span></li>)}</ul>
+      {t.cta.to === 'contact'
+        ? <a class="btn btn-secondary" href={ROUTES.contact}>{t.cta.label}</a>
+        : <StoreButton agent={agent} label={t.cta.label} class={t.highlight ? 'btn btn-primary' : 'btn btn-secondary'} arrow={!!t.highlight} />}
+    </div>
+  ))}
+</div>
+<p class="small dim tier-note">Example prices and plan contents for the team to confirm.</p>

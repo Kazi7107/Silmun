@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Silmun · ITSM · Catalog Automation · mobile</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/24a1a36d510f1c7d8ea7661074bb699c">
+<link rel="stylesheet" href="/_blob/6e96a1914e7b529372c1c4836b4cc102">
+<link rel="stylesheet" href="/_blob/21ce855bb796ee1969b5e8b3fb51a1f7">
+<link rel="stylesheet" href="/_blob/7c2f2ff715d852230a89c8b6c4e93b8f">
+<link rel="stylesheet" href="/_blob/e8cf45c30d8fb382c0b40a83d7cc6884">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+.mrow{height:auto !important;grid-template-columns:minmax(0,1fr) !important;gap:4px !important;padding:10px 14px !important}
+.mrow .v{height:36px}
+</style>
+</helmet>
+<div class="site m" style="width: 390px; font-family: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif; color: #1A2B30; background: #F3F6F6">
+
+<header class="m-head"><div class="wrap"><a class="brand" href="HomeMobile.dc.html"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="flex: none"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg><span>silmun</span></a><button class="m-menu-btn" type="button" aria-expanded="{{menuOpen}}" onClick="{{openMenu}}"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Menu</button></div></header>
+<nav class="m-chips" aria-label="On this page"><a class="on" href="#what">What it does</a><a href="#why">Why us</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#feedback">Feedback</a></nav>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<div class="m-menu" role="dialog" aria-label="Site menu" style="bottom: auto; height: 844px">
+<div class="m-menu-top"><a class="brand" href="HomeMobile.dc.html"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="flex: none"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg><span>silmun</span></a><button class="m-menu-btn" type="button" onClick="{{closeMenu}}">Close <span class="mono" aria-hidden="true">×</span></button></div>
+<div class="m-menu-body">
+<span class="m-menu-sec">Modules</span>
+<a class="m-prod live" href="CatalogMobile.dc.html"><span class="dd-mod">Module</span><span style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span class="nm">ITSM</span><span class="tag tag-live"><span class="dot"></span>Live</span></span><span class="small">Catalog Automation</span></a>
+<a class="m-prod live" href="OrchestratorMobile.dc.html"><span class="dd-mod">Module</span><span style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span class="nm">Security Operations</span><span class="tag tag-live"><span class="dot"></span>Live</span></span><span class="small">Vulnerability Remediation</span></a>
+<a class="m-prod later" href="SourceToPayMobile.dc.html" style="color: #5C6C71"><span class="nm">Source to Pay · next</span><span class="small dim">Finance &amp; Supply Chain</span></a>
+<span class="m-menu-sec">Company</span>
+<a class="m-link" href="AboutMobile.dc.html">About us <span class="k">→</span></a>
+<a class="m-link" href="SupportMobile.dc.html">Support <span class="k">→</span></a>
+<a class="m-link" href="HomeMobile.dc.html#contact">Contact <span class="k">→</span></a>
+</div>
+<div class="m-menu-cta"><a class="btn btn-primary" href="#pricing">Get it on the Store <span class="k">↗</span></a></div>
+</div>
+</sc-if>
+
+<section class="m-hero reveal {{rvHero}}" data-reveal="hero" id="what">
+<div class="wrap stack g24">
+<div class="stack g16">
+<span class="mod-label">Module · ITSM</span>
+<h1 class="display">Describe it. Review it. <span class="hlw">Ship</span> the catalog item.</h1>
+<p class="lede">Type what the item needs in plain words. Review every question. Nothing is built until you say so.</p>
+</div>
+<div role="img" aria-label="A request turns into a catalog item form with numbered callouts">
+<div class="req-note"><div class="rn-h"><span>Request</span><span>admin</span></div><p>New hire laptop: <mark class="hi">MacBook Pro 14 or Dell 7450</mark>, <mark>justification required</mark>.</p></div>
+<div class="m-down" style="height: 36px"><span>fills the form</span></div>
+<div class="vrec">
+<div class="vrec-h" style="padding: 0 14px"><b>New Hire Laptop</b><span class="data dim">catalog item</span></div>
+<div class="vrow hl mrow"><span class="k" style="display: flex; justify-content: space-between; align-items: center">Which laptop? <button class="cob {{c1}}" type="button" onClick="{{pick1}}" aria-label="Callout 1">1</button></span><span class="v"><span class="flipper" style="--at: 1.3s"><span class="from dim">empty</span><span class="to val-to">MacBook Pro 14 · Dell 7450</span></span></span></div>
+<div class="vrow mrow"><span class="k" style="display: flex; justify-content: space-between; align-items: center">Justification * <button class="cob {{c2}}" type="button" onClick="{{pick2}}" aria-label="Callout 2">2</button></span><span class="v"><span class="dim">help: Why this model?</span><span class="c">required</span></span></div>
+<div class="vrec-f" style="padding: 0 14px"><button class="cob {{c3}}" type="button" onClick="{{pick3}}" aria-label="Callout 3">3</button><span class="flipper" style="--at: 2.2s"><span class="from tag tag-soon">Generating</span><span class="to tag tag-live">Ready for review</span></span></div>
+</div>
+<div class="cap-bar" aria-live="polite" style="flex-wrap: wrap; gap: 6px 12px"><span class="cob on" aria-hidden="true">{{coN}}</span><span class="h4">{{coTitle}}</span><span class="small" style="flex-basis: 100%">{{coText}}</span></div>
+</div>
+<ul class="uses uses-lg">
+<li>Build catalog items from plain text<span class="cs"></span></li>
+<li>Auto-create questions and choices<span class="cs"></span></li>
+<li>Review and edit before building<span class="cs"></span></li>
+<li>Catch duplicate item names<span class="cs"></span></li>
+<li>Keep a log of every request<span class="cs"></span></li>
+</ul>
+</div>
+</section>
+
+<section class="m-sec dark" id="why">
+<div class="wrap">
+<div class="m-intro"><div class="sec-head" style="margin: 0"><span class="sec-no">02</span><span class="sec-label">Why us</span></div><h2 class="h2">Stop building catalog items <span class="hlw">by hand.</span></h2></div>
+<div class="stack g8"><div style="border: 1px solid rgba(230,238,238,.25); border-radius: 6px; overflow: hidden"><div style="padding: 12px 14px; color: #9DB3B8; font-size: 14.5px"><span class="label" style="color: #9DB3B8; display: block; margin-bottom: 2px">Today</span>One item eats an afternoon</div><div style="padding: 12px 14px; background: rgba(25,198,180,.10); color: #FFFFFF; font-weight: 600; font-size: 15px"><span class="label" style="color: #19C6B4; display: block; margin-bottom: 2px">With Silmun</span>Describe it, get it in minutes</div></div><div style="border: 1px solid rgba(230,238,238,.25); border-radius: 6px; overflow: hidden"><div style="padding: 12px 14px; color: #9DB3B8; font-size: 14.5px"><span class="label" style="color: #9DB3B8; display: block; margin-bottom: 2px">Today</span>AI means another license</div><div style="padding: 12px 14px; background: rgba(25,198,180,.10); color: #FFFFFF; font-weight: 600; font-size: 15px"><span class="label" style="color: #19C6B4; display: block; margin-bottom: 2px">With Silmun</span>No ServiceNow AI license</div></div><div style="border: 1px solid rgba(230,238,238,.25); border-radius: 6px; overflow: hidden"><div style="padding: 12px 14px; color: #9DB3B8; font-size: 14.5px"><span class="label" style="color: #9DB3B8; display: block; margin-bottom: 2px">Today</span>Every admin builds it differently</div><div style="padding: 12px 14px; background: rgba(25,198,180,.10); color: #FFFFFF; font-weight: 600; font-size: 15px"><span class="label" style="color: #19C6B4; display: block; margin-bottom: 2px">With Silmun</span>Consistent items, every time</div></div></div>
+<div class="stack g16" style="margin-top: 24px"><div class="stack g4"><span class="label" style="color: #19C6B4">"Will it build things without us?"</span><span class="h4">No. Nothing is created until you click Build Item.</span></div><div class="stack g4"><span class="label" style="color: #19C6B4">"Is our data safe?"</span><span class="h4">Only the request text leaves your instance.</span></div><div class="stack g4"><span class="label" style="color: #19C6B4">"What will the AI cost us?"</span><span class="h4">Usually very little, and you can see it.</span></div></div>
+<p class="small" style="color: #9DB3B8; margin-top: 20px">Live on the ServiceNow Store. No AI license needed.</p>
+</div>
+</section>
+
+<section class="m-sec" id="how">
+<div class="wrap">
+<div class="m-intro"><div class="sec-head" style="margin: 0"><span class="sec-no">03</span><span class="sec-label">How it works</span></div><h2 class="h2">Set up once, then just describe.</h2></div>
+<div class="player" style="margin-bottom: 16px"><div class="player-screen"><span class="player-slot">[Demo video]</span><button class="play" type="button" aria-label="Play demo video">▶</button></div></div>
+<div class="track">
+<div class="tstep"><span class="tn">1</span><span class="tt">Install from the ServiceNow Store</span></div>
+<div class="tstep"><span class="tn">2</span><span class="tt">Add your OpenAI key</span></div>
+<div class="tstep"><span class="tn">3</span><span class="tt">Describe your first item, then click Build Item</span></div>
+</div>
+</div>
+</section>
+
+<section class="m-sec band" id="pricing">
+<div class="wrap">
+<div class="m-intro"><div class="sec-head" style="margin: 0"><span class="sec-no">04</span><span class="sec-label">Pricing</span></div><h2 class="h2">Three plans.</h2><p class="line1">Example prices. OpenAI usage bills to you.</p></div>
+<div class="tiers">
+<div class="tier"><span class="tname">Essential</span><span class="tamt">$19 <small>/ mo</small></span><ul class="uses"><li>Build from plain text<span class="cs"></span></li><li>Review before building<span class="cs"></span></li><li>Up to 25 items a month<span class="cs"></span></li></ul><a class="btn btn-secondary" href="#pricing">Get Essential</a></div>
+<div class="tier top"><span style="display: flex; justify-content: space-between; align-items: center"><span class="tname">Pro</span><span class="tag tag-live"><span class="dot"></span>Most popular</span></span><span class="tamt">$49 <small>/ mo</small></span><ul class="uses"><li>Everything in Essential<span class="cs"></span></li><li>Unlimited items<span class="cs"></span></li><li>Duplicate checks and request log<span class="cs"></span></li></ul><a class="btn btn-primary" href="#pricing">Get Pro</a></div>
+<div class="tier"><span class="tname">Enterprise</span><span class="tamt">$249 <small>/ mo</small></span><ul class="uses"><li>Everything in Pro<span class="cs"></span></li><li>Test and production instances<span class="cs"></span></li><li>1-hour response on critical issues<span class="cs"></span></li></ul><a class="btn btn-secondary" href="HomeMobile.dc.html#contact">Talk to us</a></div>
+</div>
+</div>
+</section>
+
+<section class="m-sec" id="feedback">
+<div class="wrap">
+<div class="m-intro"><div class="sec-head" style="margin: 0"><span class="sec-no">05</span><span class="sec-label">Feedback</span></div><h2 class="h2">Tell us what to improve.</h2><p class="line1">Something broken? <a href="SupportMobile.dc.html">Contact support</a>.</p></div>
+<form class="form fb" aria-label="Feedback form" style="grid-template-columns: minmax(0,1fr)">
+<div class="fld"><label for="mf-email">Work email</label><input id="mf-email" type="email" autocomplete="email"></div>
+<div class="fld"><label for="mf-type">Type</label><select id="mf-type"><option>Idea</option><option>Bug</option><option>Question</option></select></div>
+<div class="fld"><label for="mf-msg">Message</label><textarea id="mf-msg"></textarea></div>
+<button class="btn btn-secondary" type="button" onClick="{{send}}">{{sendLabel}}</button>
+</form>
+</div>
+</section>
+
+<div class="m-sticky"><a class="btn btn-primary" href="#pricing">Get it on the Store <span class="k">↗</span></a></div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":5600}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { menu: false, co: 1, sent: false, seen: {}, all: false };
+  }
+  componentDidMount() {
+    this._fb = setTimeout(() => { if (!Object.keys(this.state.seen).length) this.setState({ all: true }); }, 3000);
+    try {
+      if (!('IntersectionObserver' in window)) { this.setState({ all: true }); return; }
+      this.io = new IntersectionObserver((es) => {
+        const add = {};
+        es.forEach((e) => { if (e.isIntersecting) { add[e.target.getAttribute('data-reveal')] = true; this.io.unobserve(e.target); } });
+        if (Object.keys(add).length) this.setState({ seen: Object.assign({}, this.state.seen, add) });
+      }, { threshold: 0.2 });
+      document.querySelectorAll('[data-reveal]').forEach((el) => this.io.observe(el));
+    } catch (err) { this.setState({ all: true }); }
+  }
+  componentWillUnmount() { clearTimeout(this._fb); if (this.io) this.io.disconnect(); }
+  renderVals() {
+    const on = (k) => (this.state.all || this.state.seen[k]) ? 'is-in' : '';
+    const cos = {
+      1: { t: 'Choices from the sentence', x: 'Two laptop models became a dropdown with two choices.' },
+      2: { t: 'Required flag and help text', x: '"Justification required" became a required question with help text.' },
+      3: { t: 'Built on Build Item', x: 'Nothing is created until you review the preview and click Build Item.' }
+    };
+    const c = this.state.co;
+    return {
+      rvHero: on('hero'),
+      menuOpen: this.state.menu,
+      openMenu: () => this.setState({ menu: true }),
+      closeMenu: () => this.setState({ menu: false }),
+      c1: c === 1 ? 'on' : '', c2: c === 2 ? 'on' : '', c3: c === 3 ? 'on' : '',
+      pick1: () => this.setState({ co: 1 }), pick2: () => this.setState({ co: 2 }), pick3: () => this.setState({ co: 3 }),
+      coN: String(c), coTitle: cos[c].t, coText: cos[c].x,
+      sendLabel: this.state.sent ? 'Sent. Thanks' : 'Send feedback',
+      send: () => this.setState({ sent: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

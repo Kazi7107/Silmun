@@ -1,0 +1,66 @@
+---
+// Hero mock: a plain-English request layered over a catalog item form.
+// Desktop gets the layered, absolutely positioned version; small screens
+// get the stacked version. `interactive` turns the 1-3 callouts into buttons
+// that drive a caption bar.
+interface Props { interactive?: boolean }
+const { interactive = false } = Astro.props;
+
+const callouts = [
+  { n: '1', label: interactive ? 'Choices from the sentence' : 'Choices pulled from the sentence', title: 'Choices from the sentence', text: '"MacBook Pro 14 or Dell Latitude 7450" became a dropdown with two choices.', top: 200 },
+  { n: '2', label: interactive ? 'Required flag + help text' : 'Required flag and help text added', title: 'Required flag and help text', text: '"Justification required" became a required question with help text.', top: 296 },
+  { n: '3', label: interactive ? 'Built on Build Item' : 'Built only when you click Build Item', title: 'Built on Build Item', text: 'Edit or delete any question in the preview. Nothing is created until you click Build Item.', top: 348 },
+];
+const label = 'A plain-English request layered over a catalog item form. The laptop choices from the sentence fill the Select Box field and the preview flips to Ready for review.';
+---
+<div class="catalog-mock" data-callouts={interactive ? '' : undefined}>
+  {interactive && callouts.map((c) => <template data-co-text={c.n} data-title={c.title}>{c.text}</template>)}
+
+  <!-- Desktop: layered -->
+  <div class="amock amock-desk" style="height: 400px" role={interactive ? "group" : "img"} aria-label={label}>
+    <svg class="am-svg" viewBox="0 0 100 400" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M50 74 C 44 74, 47 200, 41 200" style="animation-delay: .9s"></path></svg>
+    <span class="am-layer am-pin" aria-hidden="true"></span>
+    <div class="am-layer vrec" style="left: 0; top: 72px; width: 60%">
+      <div class="vrec-h"><b>New Hire Laptop</b><span class="data dim">catalog item · Hardware</span></div>
+      <div class="vrow"><span class="k">New hire name</span><span class="v"><span class="dim">new_hire_name</span><span class="c">Single Line Text</span></span></div>
+      <div class="vrow hl"><span class="k">Which laptop?</span><span class="v"><span class="flipper" style="--at: 1.5s"><span class="from dim">empty</span><span class="to val-to">MacBook Pro 14 · Dell Latitude 7450</span></span><span class="c">Select Box</span></span></div>
+      <div class="vrow"><span class="k">Needs a monitor?</span><span class="v"><span class="dim">needs_monitor</span><span class="c">Checkbox</span></span></div>
+      <div class="vrow"><span class="k">Justification *</span><span class="v"><span class="dim">help: Why this model?</span><span class="c">Multi Line · required</span></span></div>
+      <div class="vrec-f"><span class="data dim">4 questions · 2 choices · nothing built yet</span><span class="flipper" style="--at: 2.4s"><span class="from tag tag-soon">Generating preview</span><span class="to tag tag-live">Ready for review</span></span></div>
+    </div>
+    <div class="am-layer am-top req-note" style="left: 50%; top: 0; width: 36%">
+      <div class="rn-h"><span>Request</span><span>typed by catalog admin</span></div>
+      <p>New hire laptop: name, <mark class="hi">MacBook Pro 14 or Dell Latitude 7450</mark>, monitor yes or no, <mark>justification required</mark>.</p>
+    </div>
+    {callouts.map((c) => (
+      <div class="am-co" style={`left: 61.5%; top: ${c.top}px`}>
+        <span class="ln"></span>
+        {interactive
+          ? <button class={c.n === '1' ? 'cob on' : 'cob'} type="button" data-co={c.n} aria-pressed={c.n === '1' ? 'true' : 'false'} aria-label={`Callout ${c.n}: ${c.title}`}>{c.n}</button>
+          : <span class="cob" aria-hidden="true">{c.n}</span>}
+        <span class="lbl">{c.label}</span>
+      </div>
+    ))}
+  </div>
+
+  <!-- Small screens: stacked -->
+  <div class="amock-mob" role={interactive ? "group" : "img"} aria-label={label}>
+    <div class="req-note"><div class="rn-h"><span>Request</span><span>admin</span></div><p>New hire laptop: <mark class="hi">MacBook Pro 14 or Dell 7450</mark>, <mark>justification required</mark>.</p></div>
+    <div class="m-down" style="height: 36px"><span>fills the form</span></div>
+    <div class="vrec">
+      <div class="vrec-h" style="padding: 0 14px"><b>New Hire Laptop</b><span class="data dim">catalog item</span></div>
+      <div class="vrow hl mrow"><span class="k mrow-k">Which laptop? {interactive && <button class="cob on" type="button" data-co="1" aria-pressed="true" aria-label="Callout 1: Choices from the sentence">1</button>}</span><span class="v"><span class="flipper" style="--at: 1.3s"><span class="from dim">empty</span><span class="to val-to">MacBook Pro 14 · Dell 7450</span></span></span></div>
+      <div class="vrow mrow"><span class="k mrow-k">Justification * {interactive && <button class="cob" type="button" data-co="2" aria-pressed="false" aria-label="Callout 2: Required flag and help text">2</button>}</span><span class="v"><span class="dim">help: Why this model?</span><span class="c">required</span></span></div>
+      <div class="vrec-f" style="padding: 0 14px">{interactive ? <button class="cob" type="button" data-co="3" aria-pressed="false" aria-label="Callout 3: Built on Build Item">3</button> : <span class="data dim">nothing built yet</span>}<span class="flipper" style="--at: 2.2s"><span class="from tag tag-soon">Generating</span><span class="to tag tag-live">Ready for review</span></span></div>
+    </div>
+  </div>
+
+  {interactive && (
+    <div class="cap-bar" aria-live="polite" data-cap>
+      <span class="cob on" aria-hidden="true" data-cap-n>1</span>
+      <span class="h4" data-cap-t>{callouts[0].title}</span>
+      <span class="small" data-cap-x>{callouts[0].text}</span>
+      <span class="cap-hint">Hover or tap 1 · 2 · 3</span>
+    </div>
+  )}
+</div>

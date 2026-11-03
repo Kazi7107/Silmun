@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Silmun · Support · mobile</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/24a1a36d510f1c7d8ea7661074bb699c">
+<link rel="stylesheet" href="/_blob/6e96a1914e7b529372c1c4836b4cc102">
+<link rel="stylesheet" href="/_blob/21ce855bb796ee1969b5e8b3fb51a1f7">
+<link rel="stylesheet" href="/_blob/7c2f2ff715d852230a89c8b6c4e93b8f">
+<link rel="stylesheet" href="/_blob/e8cf45c30d8fb382c0b40a83d7cc6884">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="site m" style="width: 390px; font-family: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif; color: #1A2B30; background: #F3F6F6">
+
+<header class="m-head"><div class="wrap"><a class="brand" href="HomeMobile.dc.html"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="flex: none"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg><span>silmun</span></a><button class="m-menu-btn" type="button" aria-expanded="{{menuOpen}}" onClick="{{openMenu}}"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Menu</button></div></header>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<div class="m-menu" role="dialog" aria-label="Site menu" style="bottom: auto; height: 844px">
+<div class="m-menu-top"><a class="brand" href="HomeMobile.dc.html"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="flex: none"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg><span>silmun</span></a><button class="m-menu-btn" type="button" onClick="{{closeMenu}}">Close <span class="mono" aria-hidden="true">×</span></button></div>
+<div class="m-menu-body">
+<span class="m-menu-sec">Modules</span>
+<a class="m-prod live" href="CatalogMobile.dc.html"><span class="dd-mod">Module</span><span style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span class="nm">ITSM</span><span class="tag tag-live"><span class="dot"></span>Live</span></span><span class="small">Catalog Automation</span></a>
+<a class="m-prod live" href="OrchestratorMobile.dc.html"><span class="dd-mod">Module</span><span style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span class="nm">Security Operations</span><span class="tag tag-live"><span class="dot"></span>Live</span></span><span class="small">Vulnerability Remediation</span></a>
+<a class="m-prod later" href="SourceToPayMobile.dc.html" style="color: #5C6C71"><span class="nm">Source to Pay · next</span><span class="small dim">Finance &amp; Supply Chain</span></a>
+<span class="m-menu-sec">Company</span>
+<a class="m-link" href="AboutMobile.dc.html">About us <span class="k">→</span></a>
+<a class="m-link" href="SupportMobile.dc.html">Support <span class="k">→</span></a>
+<a class="m-link" href="HomeMobile.dc.html#contact">Contact <span class="k">→</span></a>
+</div>
+</div>
+</sc-if>
+
+<section class="m-hero" style="padding-bottom: 16px">
+<div class="wrap stack g12"><span class="mod-label">Support</span><h1 class="display" style="font-size: 36px">Need <span class="hlw">help?</span></h1><p class="lede">We reply by email within 1 business day.</p></div>
+</section>
+
+<section style="padding: 0 0 48px">
+<div class="wrap">
+<form class="form fb" aria-label="Support request" style="grid-template-columns: minmax(0,1fr)">
+<div class="fld"><label for="ms-email">Work email</label><input id="ms-email" type="email" autocomplete="email"></div>
+<div class="fld"><label for="ms-mod">Agent</label><select id="ms-mod"><option>ITSM · Catalog Automation</option><option>Security Operations · Vulnerability Remediation</option></select></div>
+<div class="fld"><label for="ms-sev">How bad is it?</label><select id="ms-sev"><option>Something is down</option><option>Broken, but I can work around it</option><option>Question or small issue</option></select></div>
+<div class="fld"><label for="ms-subj">Subject</label><input id="ms-subj" type="text"></div>
+<div class="fld"><label for="ms-det">What happened?</label><textarea id="ms-det"></textarea></div>
+<button class="btn btn-primary" type="button" onClick="{{send}}">{{sendLabel}} <span class="k">→</span></button>
+<sc-if value="{{sent}}" hint-placeholder-val="{{ false }}"><span class="small flip">Got it. We'll reply to your inbox.</span></sc-if>
+</form>
+<p class="small dim" style="margin-top: 16px">Or email <span class="ph">[support@silmun...]</span></p>
+</div>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1300}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { menu: false, sent: false };
+  }
+  renderVals() {
+    return {
+      menuOpen: this.state.menu,
+      openMenu: () => this.setState({ menu: true }),
+      closeMenu: () => this.setState({ menu: false }),
+      sent: this.state.sent,
+      sendLabel: this.state.sent ? 'Sent' : 'Send to support',
+      send: () => this.setState({ sent: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

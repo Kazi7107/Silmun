@@ -1,0 +1,152 @@
+/* 07 · Responsive layer. One page per route, collapsing the way the 390px
+   mobile boards show. The design's own @container rules (1080px, 600px)
+   still apply; this file adds:
+     - fluid type between the 1440 and 390 boards
+     - nav swap at 860px (desktop nav + subnav -> mobile header, menu, chips, sticky Store bar)
+     - stacked mocks and demo below 860px / 1080px
+     - mobile densities from the `.site.m` boards below 640px */
+
+/* ---------- fluid type ---------- */
+.site .display{font-size:clamp(44px, 2.4rem + 3.6vw, 76px)}
+.site .h2{font-size:clamp(30px, 1.4rem + 1.9vw, 46px)}
+.site .display.display-sm{font-size:clamp(36px, 1.6rem + 2vw, 48px)}
+.site .h2.h2-sm{font-size:clamp(24px, 1.1rem + .9vw, 30px)}
+
+/* ---------- tablet: tighter gutters ---------- */
+@media (max-width: 1080px){
+  .wrap{padding:0 32px}
+  .flow3{grid-template-columns:minmax(0,1fr);gap:0}
+  .flow-arrow{height:36px;transform:rotate(90deg)}
+  .objections{grid-template-columns:minmax(0,1fr);gap:20px}
+  .pillars{grid-template-columns:minmax(0,1fr);gap:12px}
+  .ucgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps3.steps4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  /* The layered SecOps demo needs width; stack it below 1080. */
+  .demo-desk{display:none}
+  .demo-mob{display:block;max-width:560px}
+  .demo-mob .vrec,.demo-mob .rec,.demo-mob .node{width:100%}
+  .what-list{margin-top:40px}
+  .site .what-list.two{gap:20px}
+  .modrow-main{flex-basis:100%}
+}
+
+/* ---------- stacked hero mock (layered one needs ~1000px) ---------- */
+@media (max-width: 1000px){
+  .amock-desk{display:none}
+  .amock-mob{display:block;max-width:560px}
+  .catalog-mock .cap-bar{flex-wrap:wrap;gap:6px 12px;max-width:560px}
+  .catalog-mock .cap-bar .small{flex-basis:100%}
+  .catalog-mock .cap-hint{display:none}
+}
+
+/* ---------- nav swap ---------- */
+@media (min-width: 861px){
+  .m-head,.m-chips,.m-sticky,.m-menu{display:none !important}
+}
+@media (max-width: 860px){
+  .gnav,.subnav{display:none}
+  section[id],div[id]{scroll-margin-top:128px}
+  .m-sticky{box-shadow:0 -6px 20px rgba(14,42,49,.06)}
+  .site .m-chips{border-bottom:1px solid var(--rule)}
+  .site .m-head{border-bottom:1px solid var(--rule)}
+}
+
+/* ---------- phone: densities from the 390px boards ---------- */
+@media (max-width: 640px){
+  .site{font-size:16px}
+  .wrap{padding:0 20px}
+
+  .site .display{line-height:.98;letter-spacing:-.035em}
+  .site .h2{line-height:1.05;letter-spacing:-.025em}
+  .site .lede{font-size:17px}
+  .line1{font-size:16px}
+  .subhead{font-size:21px}
+
+  .site .sec,.site .sec.sec-tight,.site .sec.sec-cta{padding:56px 0}
+  .site .hero,.site .hero.hero-tight{padding:32px 0 40px}
+  .site .sec.support-sec{padding:32px 0 48px}
+  .intro,.hero-top{gap:16px;margin-bottom:24px}
+  .hero-top-last{margin-bottom:0}
+  .hero-copy{gap:16px}
+  .hero-side{padding-top:0}
+  .sec-head{margin-bottom:0}
+
+  .actions{flex-direction:column;align-items:stretch}
+  .actions .btn,.cta-row .btn{width:100%}
+  .cta-row{flex-direction:column;align-items:stretch}
+
+  /* module rows */
+  .modrow{gap:16px;padding:16px 0 24px}
+  .modrow + .modrow{margin-top:16px}
+  .modrow-title{font-size:32px}
+  .modrow-title-md{font-size:26px}
+  .modrow-title-sm{font-size:22px}
+  .modrow-link{display:none}
+  .modrow-next{padding:16px 0}
+  .mod-vis{display:none}
+  .mod-foot{flex-direction:column;align-items:stretch}
+  .mod-foot .actions{flex-direction:column-reverse}
+
+  /* how agents work */
+  .flow-card{padding:18px;gap:8px}
+  .site .h3.flow-h{font-size:17px}
+  .flow-ex{display:none}
+  .flow-arrow{height:28px;font-size:16px}
+  .flow-note{margin-top:16px}
+
+  /* agent pages */
+  .what-list{margin-top:32px}
+  .cmp{border:0;border-radius:0;display:flex;flex-direction:column;gap:8px}
+  .cmp-head{display:none}
+  .cmp-row{grid-template-columns:minmax(0,1fr);border:1px solid rgba(230,238,238,.25);border-radius:6px;overflow:hidden}
+  .cmp-row > span{padding:12px 14px;border-bottom:0}
+  .cmp-a{border-right:0}
+  .cmp-k{display:block;margin-bottom:2px}
+  .cmp-a .cmp-k{color:#9DB3B8}
+  .cmp-b .cmp-k{color:#19C6B4}
+  .cmp-row .cmp-a .h4{font-size:14.5px;font-weight:400}
+  .cmp-row .cmp-b{background:rgba(25,198,180,.10)}
+  .cmp-row .cmp-b .h4{font-size:15px}
+  .objections{margin-top:24px;gap:16px}
+  .objections .stack{gap:4px}
+  .spec-more.spec-on-dark{margin-top:24px}
+  .spec th,.spec td{display:block;width:auto;padding:10px 16px}
+  .spec th{padding-bottom:4px;border-bottom:0}
+
+  .player-wide{margin-bottom:16px}
+  .player-wide .player-screen{aspect-ratio:16/9}
+  .player-wide .player-bar{display:none}
+  .steps3,.steps3.steps4{grid-template-columns:minmax(0,1fr);gap:8px}
+  .step3{padding:16px;flex-direction:row;flex-wrap:wrap;align-items:center;column-gap:14px;row-gap:4px}
+  .step3 .n{flex:none}
+  .step3 .h4{flex:1 1 0;min-width:0}
+  .step3 .small{flex-basis:100%;padding-left:44px}
+
+  .pillars{margin:0 0 32px;gap:8px}
+  .pillars .card{padding:14px 16px;gap:4px}
+  .pillars .card .small{display:none}
+  .ucgrid{gap:8px;margin-top:16px}
+  .ucgrid .card{padding:12px;border-radius:10px;gap:4px}
+  .ucgrid .card .h4{font-size:15px}
+  .ucgrid .card .small{display:none}
+  .demo-mob{max-width:none}
+
+  /* tiers */
+  .tier{gap:14px}
+  .tier .tfor{font-size:14px}
+  .tier .tamt{font-size:30px}
+
+  /* forms */
+  .form{grid-template-columns:minmax(0,1fr);gap:14px}
+  .form-actions .btn{width:100%}
+
+  /* about */
+  .kind{gap:10px}
+  .lib-row{gap:6px 12px;padding:14px 0}
+
+  /* footer */
+  .foot{padding:24px 0 8px}
+  .foot .wrap{flex-direction:column;align-items:flex-start;gap:4px}
+  .foot-prods{flex-direction:column;align-items:flex-start;gap:0}
+  .foot .label{padding:12px 0}
+}

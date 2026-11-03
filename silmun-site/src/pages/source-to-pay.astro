@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHead from '../components/SectionHead.astro';
+import SiteForm from '../components/SiteForm.astro';
+---
+<Base
+  title="Source to Pay agents for ServiceNow are next · Silmun"
+  description="Source to Pay is Silmun's next ServiceNow module: buying, suppliers and invoices. Tell us where the work piles up for your team, and we'll build for that first."
+>
+  <section class="hero hero-tight">
+    <div class="wrap">
+      <div class="hero-top hero-top-start hero-top-last">
+        <div class="hero-copy">
+          <span class="mod-label">Module · Finance &amp; Supply Chain</span>
+          <h1 class="display">Source to Pay agents are <span class="hlw">next.</span></h1>
+          <p class="subhead">Buying, suppliers and invoices</p>
+        </div>
+        <div class="stack g24 hero-side">
+          <p class="lede">It's our next module after ITSM and Security Operations. Tell us where the work piles up for your team, and we'll build for that first.</p>
+          <span class="tag tag-later self-start"><span class="dot"></span>Next module</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="feedback">
+    <div class="wrap two">
+      <div class="stack g16">
+        <SectionHead no="01" label="Feedback" />
+        <h2 class="h2">Where does it hurt?</h2>
+        <p class="line1">Pick an area and tell us what eats your team's time. We'll email you when the first agent is ready.</p>
+      </div>
+      <SiteForm name="feedback-source-to-pay" ariaLabel="Source to Pay feedback form" buttonLabel="Send" sentLabel="Thanks. We will be in touch" buttonClass="btn btn-secondary" subject="Source to Pay feedback">
+        <div class="fld"><label for="s-name">Name</label><input id="s-name" name="name" type="text" autocomplete="name" /></div>
+        <div class="fld"><label for="s-email">Work email</label><input id="s-email" name="email" type="email" autocomplete="email" required /></div>
+        <div class="fld full"><label for="s-area">Area</label><select id="s-area" name="area"><option>Purchase requests and approvals</option><option>Supplier onboarding</option><option>Invoices and payments</option><option>Something else</option></select></div>
+        <div class="fld full"><label for="s-msg">What takes too long today?</label><textarea id="s-msg" name="message"></textarea></div>
+      </SiteForm>
+    </div>
+  </section>
+</Base>

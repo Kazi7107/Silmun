@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import SiteForm from '../components/SiteForm.astro';
+import { SITE } from '../data/site';
+---
+<Base
+  title="Support · Silmun"
+  description="Get help with Silmun's ServiceNow agents. Send us a support request and we reply by email within 1 business day."
+>
+  <section class="sec support-sec" style="border-top: 0">
+    <div class="wrap two">
+      <div class="stack g16">
+        <span class="mod-label">Support</span>
+        <h1 class="display display-sm">Need <span class="hlw">help?</span></h1>
+        <p class="lede">Tell us what's going on. It lands in our support inbox and we reply by email within 1 business day.</p>
+        <!-- Open item 3: set SITE.supportEmail in src/data/site.ts. -->
+        <span class="small dim">Or email us directly: {SITE.supportEmail
+          ? <a href={`mailto:${SITE.supportEmail}`}>{SITE.supportEmail}</a>
+          : <span class="ph">[support@silmun...]</span>}</span>
+      </div>
+      <SiteForm
+        name="support"
+        ariaLabel="Support request"
+        buttonLabel="Send to support"
+        sentLabel="Sent"
+        sentNote="Got it. A copy is on its way to your inbox, and we'll reply there."
+        subject="Support request"
+      >
+        <div class="fld"><label for="s-name">Name</label><input id="s-name" name="name" type="text" autocomplete="name" /></div>
+        <div class="fld"><label for="s-email">Work email</label><input id="s-email" name="email" type="email" autocomplete="email" required /></div>
+        <div class="fld"><label for="s-mod">Agent</label><select id="s-mod" name="agent"><option>ITSM · Catalog Automation</option><option>Security Operations · Vulnerability Remediation</option></select></div>
+        <div class="fld"><label for="s-sev">How bad is it?</label><select id="s-sev" name="severity"><option>Something is down</option><option>Broken, but I can work around it</option><option>Question or small issue</option></select></div>
+        <div class="fld full"><label for="s-subj">Subject</label><input id="s-subj" name="subject_line" type="text" required /></div>
+        <div class="fld full"><label for="s-det">What happened?</label><textarea id="s-det" name="details" required></textarea></div>
+      </SiteForm>
+    </div>
+  </section>
+</Base>

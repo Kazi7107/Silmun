@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Silmun · Home · mobile</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/24a1a36d510f1c7d8ea7661074bb699c">
+<link rel="stylesheet" href="/_blob/6e96a1914e7b529372c1c4836b4cc102">
+<link rel="stylesheet" href="/_blob/21ce855bb796ee1969b5e8b3fb51a1f7">
+<link rel="stylesheet" href="/_blob/7c2f2ff715d852230a89c8b6c4e93b8f">
+<link rel="stylesheet" href="/_blob/e8cf45c30d8fb382c0b40a83d7cc6884">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+.mrow{height:auto !important;grid-template-columns:minmax(0,1fr) !important;gap:4px !important;padding:10px 14px !important}
+.mrow .v{height:36px}
+</style>
+</helmet>
+<div class="site m" style="width: 390px; font-family: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif; color: #1A2B30; background: #F3F6F6">
+
+<header class="m-head"><div class="wrap"><a class="brand" href="HomeMobile.dc.html"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="flex: none"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg><span>silmun</span></a><button class="m-menu-btn" type="button" aria-expanded="{{menuOpen}}" onClick="{{openMenu}}"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Menu</button></div></header>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<div class="m-menu" role="dialog" aria-label="Site menu" style="bottom: auto; height: 844px">
+<div class="m-menu-top"><a class="brand" href="HomeMobile.dc.html"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="flex: none"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg><span>silmun</span></a><button class="m-menu-btn" type="button" onClick="{{closeMenu}}">Close <span class="mono" aria-hidden="true">×</span></button></div>
+<div class="m-menu-body">
+<span class="m-menu-sec">Modules</span>
+<a class="m-prod live" href="CatalogMobile.dc.html"><span class="dd-mod">Module</span><span style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span class="nm">ITSM</span><span class="tag tag-live"><span class="dot"></span>Live</span></span><span class="small">Catalog Automation</span></a>
+<a class="m-prod live" href="OrchestratorMobile.dc.html"><span class="dd-mod">Module</span><span style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span class="nm">Security Operations</span><span class="tag tag-live"><span class="dot"></span>Live</span></span><span class="small">Vulnerability Remediation</span></a>
+<a class="m-prod later" href="SourceToPayMobile.dc.html" style="color: #5C6C71"><span class="nm">Source to Pay · next</span><span class="small dim">Finance &amp; Supply Chain</span></a>
+<span class="m-menu-sec">Company</span>
+<a class="m-link" href="AboutMobile.dc.html">About us <span class="k">→</span></a>
+<a class="m-link" href="SupportMobile.dc.html">Support <span class="k">→</span></a>
+<a class="m-link" href="#contact">Contact <span class="k">→</span></a>
+</div>
+<div class="m-menu-cta"><a class="btn btn-primary" href="CatalogMobile.dc.html#pricing">Get it on the Store <span class="k">↗</span></a></div>
+</div>
+</sc-if>
+
+<section class="m-hero reveal {{rvHero}}" data-reveal="hero">
+<div class="wrap stack g24">
+<div class="stack g16">
+<span class="tag tag-live" style="align-self: flex-start"><span class="dot"></span>Live on the Store</span>
+<h1 class="display">Agents that make ServiceNow work <span class="hlw">easier.</span></h1>
+<p class="lede">They do the follow-through inside your instance. You approve anything that matters.</p>
+</div>
+<div role="img" aria-label="A request turns into a catalog item form ready for review">
+<div class="req-note"><div class="rn-h"><span>Request</span><span>admin</span></div><p>New hire laptop: <mark class="hi">MacBook Pro 14 or Dell 7450</mark>, <mark>justification required</mark>.</p></div>
+<div class="m-down" style="height: 36px"><span>fills the form</span></div>
+<div class="vrec">
+<div class="vrec-h" style="padding: 0 14px"><b>New Hire Laptop</b><span class="data dim">catalog item</span></div>
+<div class="vrow hl mrow"><span class="k">Which laptop?</span><span class="v"><span class="flipper" style="--at: 1.3s"><span class="from dim">empty</span><span class="to val-to">MacBook Pro 14 · Dell 7450</span></span></span></div>
+<div class="vrow mrow"><span class="k">Justification *</span><span class="v"><span class="dim">help: Why this model?</span><span class="c">required</span></span></div>
+<div class="vrec-f" style="padding: 0 14px"><span class="data dim">nothing built yet</span><span class="flipper" style="--at: 2.2s"><span class="from tag tag-soon">Generating</span><span class="to tag tag-live">Ready for review</span></span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="m-sec" id="modules">
+<div class="wrap">
+<div class="m-intro"><div class="sec-head" style="margin: 0"><span class="sec-no">01</span><span class="sec-label">Modules</span></div><h2 class="h2">Find the agents for your ServiceNow module.</h2></div>
+<div class="mods">
+<div class="stack g8" style="padding-top: 16px; border-top: 2px solid #2B7350"><span class="label dim">Module 01</span><span style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 32px; font-weight: 500; line-height: 1">ITSM</span><span class="tag tag-live"><span class="dot"></span>Live</span></span><span class="small">Service catalog, requests, service desk.</span></div>
+<article class="mod mod-live">
+<div class="mod-top"><span class="mod-module">ITSM agent</span><span class="tag tag-live"><span class="dot"></span>Live</span></div>
+<div class="mod-body">
+<h3 class="mod-name">Catalog Automation</h3>
+<ul class="uses"><li>Build catalog items from text<span class="cs"></span></li><li>Auto-create questions and choices<span class="cs"></span></li><li>Review and edit before building<span class="cs"></span></li><li>Catch duplicate item names<span class="cs"></span></li></ul>
+<div class="price"><span class="amt">From $19 <small>/ mo</small></span><span class="rt">3 plans</span></div>
+<div class="stack g8"><a class="btn btn-primary" href="CatalogMobile.dc.html#pricing">Get it on the Store <span class="k">↗</span></a><a class="btn btn-secondary" href="CatalogMobile.dc.html">View agent</a></div>
+</div>
+</article>
+<div class="stack g8" style="padding-top: 16px; margin-top: 16px; border-top: 1px solid #C8D2D4"><span class="label dim">Module 02</span><span style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span style="font-size: 26px; font-weight: 500; line-height: 1.05">Security Operations</span><span class="tag tag-live"><span class="dot"></span>Live</span></span><span class="small">Vulnerability Response.</span></div>
+<article class="mod mod-live">
+<div class="mod-top"><span class="mod-module">Security Operations agent</span><span class="tag tag-live"><span class="dot"></span>Live</span></div>
+<div class="mod-body">
+<h3 class="mod-name">Vulnerability Remediation</h3>
+<ul class="uses"><li>Find and confirm missing owners<span class="cs"></span></li><li>Check fixes before anything closes<span class="cs"></span></li><li>Sort out unclassed hardware<span class="cs"></span></li><li>Coordinate fixes across teams<span class="cs"></span></li></ul>
+<div class="price"><span class="amt">From $39 <small>/ mo</small></span><span class="rt">3 plans</span></div>
+<div class="stack g8"><a class="btn btn-primary" href="OrchestratorMobile.dc.html#pricing">Get it on the Store <span class="k">↗</span></a><a class="btn btn-secondary" href="OrchestratorMobile.dc.html">View agent</a></div>
+</div>
+</article>
+<div class="stack g8" style="padding: 16px 0; margin-top: 16px; border-top: 1px dashed #C8D2D4; border-bottom: 1px dashed #C8D2D4"><span class="label dim">Module 03 · Finance &amp; Supply Chain</span><span style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 22px; font-weight: 500; color: #5C6C71">Source to Pay</span><span class="tag tag-later">Next</span></span><a class="small" href="SourceToPayMobile.dc.html">Tell us what you need →</a></div>
+</div>
+</div>
+</section>
+
+<section class="m-sec band" id="behave">
+<div class="wrap">
+<div class="m-intro"><div class="sec-head" style="margin: 0"><span class="sec-no">02</span><span class="sec-label">How our agents work</span></div><h2 class="h2">The agent does the work. <span class="hlw">You</span> make the call.</h2></div>
+<div class="stack g8">
+<div class="stack g8" style="padding: 18px; background: #FFFFFF; border: 1px solid #DDE4E5; border-radius: 14px"><span style="display: flex; justify-content: space-between; align-items: center"><span class="sec-no">Step 1</span><span class="tag tag-live">Automatic</span></span><span class="h4">It does the legwork.</span><span class="small">Reads your records and drafts what should happen next.</span></div>
+<div aria-hidden="true" style="text-align: center; color: #8A989C">↓</div>
+<div class="stack g8" style="padding: 18px; background: #FFFFFF; border: 1px solid #DDE4E5; border-radius: 14px"><span style="display: flex; justify-content: space-between; align-items: center"><span class="sec-no">Step 2</span><span class="tag tag-soon">Needs your OK</span></span><span class="h4">You check it.</span><span class="small">Nothing changes in ServiceNow until a person approves.</span></div>
+<div aria-hidden="true" style="text-align: center; color: #8A989C">↓</div>
+<div class="stack g8" style="padding: 18px; background: #0E2A31; color: #F3F6F6; border-radius: 14px"><span style="display: flex; justify-content: space-between; align-items: center"><span class="sec-no" style="color: #9FB3B7">Always</span><span class="tag" style="background: rgba(255,255,255,.1); color: #F3F6F6">Never automated</span></span><span class="h4" style="color: #F3F6F6">Big decisions stay with people.</span><span class="small" style="color: #C9D6D8">Like approving a risk exception or closing a vulnerability.</span></div>
+</div>
+</div>
+</section>
+
+<section class="m-sec">
+<div class="wrap stack g16"><span class="label">About us</span><h2 class="h2">An IT company that builds ServiceNow agents.</h2><a class="btn btn-secondary" href="AboutMobile.dc.html">Meet the team <span class="k">→</span></a></div>
+</section>
+
+<section class="m-sec" id="contact">
+<div class="wrap">
+<div class="m-intro"><div class="sec-head" style="margin: 0"><span class="sec-no">03</span><span class="sec-label">Contact</span></div><h2 class="h2">Talk to the people who build them.</h2></div>
+<form class="form fb" aria-label="Contact form" style="grid-template-columns: minmax(0,1fr)">
+<div class="fld"><label for="mc-email">Work email</label><input id="mc-email" type="email" autocomplete="email"></div>
+<div class="fld"><label for="mc-mod">Module</label><select id="mc-mod"><option>ITSM</option><option>Security Operations</option><option>Source to Pay</option><option>Something else</option></select></div>
+<div class="fld"><label for="mc-msg">Message</label><textarea id="mc-msg"></textarea></div>
+<button class="btn btn-secondary" type="button" onClick="{{send}}">{{sendLabel}}</button>
+</form>
+</div>
+</section>
+
+<footer class="foot" style="padding: 24px 0 8px"><div class="wrap" style="flex-direction: column; align-items: flex-start; gap: 4px"><a class="brand" href="HomeMobile.dc.html"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="flex: none"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg><span>silmun</span></a><nav class="foot-prods" aria-label="Site" style="flex-direction: column; align-items: flex-start; gap: 0"><a class="live" href="CatalogMobile.dc.html"><span class="dot live"></span>ITSM</a><a class="live" href="OrchestratorMobile.dc.html"><span class="dot live"></span>Security Operations</a><a class="soon" href="SourceToPayMobile.dc.html">Source to Pay · next</a><a class="soon" href="AboutMobile.dc.html">About us</a><a class="soon" href="SupportMobile.dc.html">Support</a></nav><span class="label dim" style="padding: 12px 0">© [YEAR] Silmun</span></div></footer>
+
+<div class="m-sticky"><a class="btn btn-primary" href="CatalogMobile.dc.html#pricing">Get it on the Store <span class="k">↗</span></a></div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":5200}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { menu: false, sent: false, seen: {}, all: false };
+  }
+  componentDidMount() {
+    this._fb = setTimeout(() => { if (!Object.keys(this.state.seen).length) this.setState({ all: true }); }, 3000);
+    try {
+      if (!('IntersectionObserver' in window)) { this.setState({ all: true }); return; }
+      this.io = new IntersectionObserver((es) => {
+        const add = {};
+        es.forEach((e) => { if (e.isIntersecting) { add[e.target.getAttribute('data-reveal')] = true; this.io.unobserve(e.target); } });
+        if (Object.keys(add).length) this.setState({ seen: Object.assign({}, this.state.seen, add) });
+      }, { threshold: 0.2 });
+      document.querySelectorAll('[data-reveal]').forEach((el) => this.io.observe(el));
+    } catch (err) { this.setState({ all: true }); }
+  }
+  componentWillUnmount() { clearTimeout(this._fb); if (this.io) this.io.disconnect(); }
+  renderVals() {
+    const on = (k) => (this.state.all || this.state.seen[k]) ? 'is-in' : '';
+    return {
+      rvHero: on('hero'),
+      menuOpen: this.state.menu,
+      openMenu: () => this.setState({ menu: true }),
+      closeMenu: () => this.setState({ menu: false }),
+      sendLabel: this.state.sent ? 'Sent. Thanks' : 'Send',
+      send: () => this.setState({ sent: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

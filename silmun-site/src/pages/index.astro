@@ -1,0 +1,192 @@
+---
+import Base from '../layouts/Base.astro';
+import StoreButton from '../components/StoreButton.astro';
+import SectionHead from '../components/SectionHead.astro';
+import CatalogMock from '../components/CatalogMock.astro';
+import SiteForm from '../components/SiteForm.astro';
+import { ROUTES } from '../data/site';
+---
+<Base
+  title="Silmun · AI agents for ServiceNow"
+  description="Silmun builds AI agents that work inside ServiceNow. They do the follow-through in your instance, and you approve anything that matters. Live on the ServiceNow Store."
+  storeAgent="catalog"
+  mobileCta
+>
+  <!-- HERO -->
+  <section class="hero reveal" data-reveal="hero">
+    <div class="wrap">
+      <div class="hero-top">
+        <div class="hero-copy">
+          <span class="tag tag-live self-start"><span class="dot"></span>Live on the ServiceNow Store</span>
+          <h1 class="display">Agents that make ServiceNow work <span class="hlw">easier.</span></h1>
+        </div>
+        <div class="stack g24">
+          <p class="lede">They do the follow-through inside your instance. You approve anything that matters.</p>
+          <div class="actions">
+            <StoreButton agent="catalog" />
+            <a class="btn btn-secondary" href="#modules">See the modules <span class="k" aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+      </div>
+      <CatalogMock />
+    </div>
+  </section>
+
+  <!-- 01 MODULES -->
+  <section class="sec reveal" data-reveal="mods" id="modules">
+    <div class="wrap">
+      <div class="intro">
+        <div class="stack g12"><SectionHead no="01" label="Modules" /><h2 class="h2">Find the agents for your ServiceNow module.</h2></div>
+        <p class="line1">Live in ITSM and Security Operations. Source to Pay is next.</p>
+      </div>
+      <div class="stack">
+
+        <!-- ITSM -->
+        <div class="modrow modrow-first">
+          <div class="modrow-side stack g12">
+            <span class="label dim">Module 01</span>
+            <h3 class="modrow-title">ITSM</h3>
+            <span class="small">IT Service Management. The service catalog, requests and the service desk.</span>
+            <span class="tag tag-live self-start"><span class="dot"></span>1 agent live</span>
+            <a class="btn btn-ghost btn-sm modrow-link" href={ROUTES.catalog}>Open the ITSM page →</a>
+          </div>
+          <div class="modrow-main">
+            <article class="mod mod-live">
+              <div class="mod-top"><span class="mod-module">ITSM agent</span><span class="tag tag-live"><span class="dot"></span>Live on ServiceNow Store</span></div>
+              <div class="mod-body">
+                <h3 class="mod-name">Catalog Automation</h3>
+                <div class="mod-vis grid-bg" aria-hidden="true">
+                  <div class="mini-x">
+                    <div class="mini-req">Laptop for a new hire. <mark>MacBook or Dell</mark>, monitor yes or no.</div>
+                    <div class="xarrow" style="margin: 0 8px; animation-delay: .4s"></div>
+                    <div class="mini-item"><div class="mini-hl"><span>laptop_model</span><span>Select Box</span></div><div><span>needs_monitor</span><span class="dim">Checkbox</span></div><div><span>new_hire_name</span><span class="dim">Single Line</span></div></div>
+                  </div>
+                </div>
+                <ul class="uses">
+                  <li>Build catalog items from text<span class="cs"></span></li>
+                  <li>Auto-create questions and choices<span class="cs"></span></li>
+                  <li>Review and edit before building<span class="cs"></span></li>
+                  <li>Catch duplicate item names<span class="cs"></span></li>
+                </ul>
+                <div class="mod-foot">
+                  <div class="price"><span class="amt">From $19 <small>/ month</small></span><span class="rt">3 plans</span></div>
+                  <div class="actions"><a class="btn btn-secondary" href={ROUTES.catalog}>View agent</a><StoreButton agent="catalog" /></div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- SECURITY OPERATIONS -->
+        <div class="modrow">
+          <div class="modrow-side stack g12">
+            <span class="label dim">Module 02</span>
+            <h3 class="modrow-title modrow-title-md">Security Operations</h3>
+            <span class="small">Vulnerability Response: finding, owning and fixing security weaknesses.</span>
+            <span class="tag tag-live self-start"><span class="dot"></span>1 agent live</span>
+            <a class="btn btn-ghost btn-sm modrow-link" href={ROUTES.secops}>Open the Security Operations page →</a>
+          </div>
+          <div class="modrow-main">
+            <article class="mod mod-live">
+              <div class="mod-top"><span class="mod-module">Security Operations agent</span><span class="tag tag-live"><span class="dot"></span>Live on ServiceNow Store</span></div>
+              <div class="mod-body">
+                <h3 class="mod-name">Vulnerability Remediation</h3>
+                <div class="mod-vis" aria-hidden="true">
+                  <div class="trace" style="opacity: .8">
+                    <div class="node"><span class="k">Vulnerability</span><span class="v">VIT0041187</span></div>
+                    <span class="wire grey" style="animation-delay: .3s"></span>
+                    <div class="node ghost"><span class="k">Server</span><span class="v">lnx-pay-app-07</span></div>
+                    <span class="wire grey" style="animation-delay: .6s"></span>
+                    <div class="node ghost"><span class="k">Owner</span><span class="v dim">in progress</span></div>
+                  </div>
+                </div>
+                <ul class="uses">
+                  <li>Find and confirm missing owners<span class="cs"></span></li>
+                  <li>Check fixes before anything closes<span class="cs"></span></li>
+                  <li>Sort out unclassed hardware<span class="cs"></span></li>
+                  <li>Coordinate fixes across teams<span class="cs"></span></li>
+                </ul>
+                <div class="mod-foot">
+                  <div class="price"><span class="amt">From $39 <small>/ month</small></span><span class="rt">3 plans · needs Now Assist</span></div>
+                  <div class="actions"><a class="btn btn-secondary" href={ROUTES.secops}>View agent</a><StoreButton agent="secops" /></div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- FINANCE & SUPPLY CHAIN -->
+        <div class="modrow modrow-next">
+          <div class="modrow-side stack g8">
+            <span class="label dim">Module 03 · Finance &amp; Supply Chain</span>
+            <h3 class="modrow-title modrow-title-sm">Source to Pay</h3>
+            <span class="small dim">Buying, suppliers and invoices.</span>
+          </div>
+          <div class="modrow-main modrow-next-main">
+            <span class="small dim">Next module after Security Operations</span>
+            <span class="modrow-next-cta"><span class="tag tag-later"><span class="dot"></span>Next</span><a class="btn btn-ghost btn-sm" href={ROUTES.sourceToPay}>Tell us what you need →</a></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 HOW AGENTS WORK -->
+  <section class="sec band reveal sec-tight" data-reveal="lanes" id="behave">
+    <div class="wrap">
+      <div class="intro">
+        <div class="stack g12"><SectionHead no="02" label="How our agents work" /><h2 class="h2">The agent does the work. <span class="hlw">You</span> make the call.</h2></div>
+        <p class="line1">Every agent works the same way, in three steps.</p>
+      </div>
+      <div class="flow3">
+        <div class="flow-card">
+          <span class="flow-top"><span class="sec-no">Step 1</span><span class="tag tag-live">Automatic</span></span>
+          <span class="h3 flow-h">It does the legwork.</span>
+          <span class="small">Reads your records, looks things up and drafts what should happen next.</span>
+          <div class="flow-ex"><span class="label dim">Example</span><p class="small">Turns "laptop for a new hire, MacBook or Dell" into a draft catalog item.</p></div>
+        </div>
+        <div class="flow-arrow" aria-hidden="true">→</div>
+        <div class="flow-card">
+          <span class="flow-top"><span class="sec-no">Step 2</span><span class="tag tag-soon">Needs your OK</span></span>
+          <span class="h3 flow-h">You check it.</span>
+          <span class="small">Nothing changes in ServiceNow until a person approves it.</span>
+          <div class="flow-ex"><span class="label dim">Example</span><p class="small">You review the draft, fix anything, then click Build Item.</p></div>
+        </div>
+        <div class="flow-arrow" aria-hidden="true">→</div>
+        <div class="flow-card flow-card-dark">
+          <span class="flow-top"><span class="sec-no">Always</span><span class="tag tag-dark">Never automated</span></span>
+          <span class="h3 flow-h">Big decisions stay with people.</span>
+          <span class="small">Some calls no agent of ours will ever make for you.</span>
+          <div class="flow-ex"><span class="label">Examples</span><p class="small">Approving a risk exception. Closing a vulnerability without scan proof.</p></div>
+        </div>
+      </div>
+      <p class="small dim flow-note">Every step is logged on the record, so you can always see what the agent did and why.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT TEASER -->
+  <section class="sec sec-cta" style="border-top: 0">
+    <div class="wrap cta-row">
+      <div class="stack g8"><span class="label">About us</span><h2 class="h2 h2-sm">An IT company that builds ServiceNow agents.</h2></div>
+      <a class="btn btn-secondary" href={ROUTES.about}>Meet the team behind them <span class="k" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- 03 CONTACT -->
+  <section class="sec" id="contact">
+    <div class="wrap two">
+      <div class="stack g16">
+        <SectionHead no="03" label="Contact" />
+        <h2 class="h2">Talk to the people who build them.</h2>
+        <p class="line1">Questions, demos or an agent you want built. Already a customer? <a href={ROUTES.support}>Contact support</a>.</p>
+      </div>
+      <SiteForm name="contact" ariaLabel="Contact form" buttonLabel="Send" sentLabel="Sent. Thanks" subject="Website contact">
+        <div class="fld"><label for="c-name">Name</label><input id="c-name" name="name" type="text" autocomplete="name" /></div>
+        <div class="fld"><label for="c-email">Work email</label><input id="c-email" name="email" type="email" autocomplete="email" required /></div>
+        <div class="fld full"><label for="c-mod">Module</label><select id="c-mod" name="module"><option>ITSM</option><option>Security Operations</option><option>Source to Pay</option><option>Something else</option></select></div>
+        <div class="fld full"><label for="c-msg">Message</label><textarea id="c-msg" name="message" required></textarea></div>
+      </SiteForm>
+    </div>
+  </section>
+</Base>

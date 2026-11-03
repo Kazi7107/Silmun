@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Silmun · Design system</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/24a1a36d510f1c7d8ea7661074bb699c">
+<link rel="stylesheet" href="/_blob/6e96a1914e7b529372c1c4836b4cc102">
+<link rel="stylesheet" href="/_blob/21ce855bb796ee1969b5e8b3fb51a1f7">
+<link rel="stylesheet" href="/_blob/7c2f2ff715d852230a89c8b6c4e93b8f">
+<link rel="stylesheet" href="/_blob/e8cf45c30d8fb382c0b40a83d7cc6884">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="site" style="font-family: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif; color: #1A2B30; background: #F3F6F6">
+
+<header class="gnav"><div class="wrap"><span class="brand"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="flex: none"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg><span>silmun · System</span></span><span class="label" style="margin-left: auto">Rev 0.6 · editorial: big type, hairlines, highlighter</span></div></header>
+
+<section class="hero" style="padding-bottom: 56px">
+<div class="wrap intro" style="margin: 0">
+<h1 class="display">Live gets the color. Everything else waits.</h1>
+<p class="lede">Sage is reserved for the live agent. Sage means live. Turquoise is the highlighter: one word per headline, plus section numbers. Everything else is ink on white with thin black rules.</p>
+</div>
+<div class="wrap" style="display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin-top: 32px">
+<div class="stack g8"><span style="height: 72px; border-radius: 10px; background: #0E2A31"></span><span class="data">Deep teal · #0E2A31</span></div>
+<div class="stack g8"><span style="height: 72px; border-radius: 10px; background: #1A2B30"></span><span class="data">Ink · #1A2B30</span></div>
+<div class="stack g8"><span style="height: 72px; border-radius: 10px; background: #72C49A"></span><span class="data">Sage · #72C49A</span></div>
+<div class="stack g8"><span style="height: 72px; border-radius: 10px; background: #19C6B4"></span><span class="data">Turquoise · #19C6B4</span></div>
+<div class="stack g8"><span style="height: 72px; border-radius: 10px; background: #0C7A6E"></span><span class="data">Turquoise ink · #0C7A6E</span></div>
+<div class="stack g8"><span style="height: 72px; border-radius: 10px; background: #E7FAF7; border: 1px solid #9FE3DA"></span><span class="data">Turquoise soft · #E7FAF7</span></div>
+<div class="stack g8"><span style="height: 72px; border-radius: 10px; background: #C9F2EC"></span><span class="data">Highlighter · #C9F2EC</span></div>
+<div class="stack g8"><span style="height: 72px; border-radius: 10px; background: #FFFFFF; border: 1px solid #1A2B30"></span><span class="data">Hairline · 1px #1A2B30</span></div>
+</div>
+</section>
+
+<!-- S1 HIERARCHY RULES -->
+<section class="sec">
+<div class="wrap">
+<div class="sec-head"><span class="sec-no">S1</span><span class="sec-label">Status hierarchy</span></div>
+<div class="panel panel-flat">
+<div class="btn-demo"><span class="label dim">State</span><span class="label dim">Live</span><span class="label dim">Coming soon</span><span class="label dim">Later</span></div>
+<div class="btn-demo"><span class="label">Tag</span><span><span class="tag tag-live"><span class="dot"></span>Live on Store</span></span><span><span class="tag tag-soon"><span class="dot"></span>Coming soon</span></span><span><span class="tag tag-later"><span class="dot"></span>Later</span></span></div>
+<div class="btn-demo"><span class="label">Card</span><span class="small">2px sage-ink border, tinted header, lift, richest visual</span><span class="small">1px outline, no fill, muted text, quiet visual</span><span class="small">Dashed outline, type only</span></div>
+<div class="btn-demo"><span class="label">Name size</span><span style="font-size: 30px; font-weight: 500">34 px</span><span style="font-size: 22px; font-weight: 500; color: #46575D">23 px</span><span style="font-size: 17px; font-weight: 500; color: #5C6C71">18 px</span></div>
+<div class="btn-demo"><span class="label">CTA</span><span><a class="btn btn-primary btn-sm" href="#">Get it on the Store</a></span><span><a class="btn btn-secondary btn-sm" href="#">Join early access</a></span><span><a class="btn btn-ghost btn-sm" href="#">Request it →</a></span></div>
+<div class="btn-demo"><span class="label">Visual stroke</span><span class="small">Sage ink, full path, animates</span><span class="small">Grey or deep teal, partly drawn</span><span class="small">None</span></div>
+</div>
+<p class="small" style="margin-top: 12px">Same rule in nav dropdown, mobile menu, home cards, pricing and footer. The live dot pulses three times, then holds.</p>
+</div>
+</section>
+
+<!-- S2 MODULE CARDS -->
+<section class="sec">
+<div class="wrap">
+<div class="sec-head"><span class="sec-no">S2</span><span class="sec-label">Module card · three states</span></div>
+<div class="mods">
+<article class="mod mod-live">
+<div class="mod-top"><span class="mod-module">Module</span><span class="tag tag-live"><span class="dot"></span>Live on ServiceNow Store</span></div>
+<div class="mod-body">
+<h3 class="mod-name">Agent name</h3>
+<div class="mod-vis grid-bg"><div class="trace"><div class="node"><span class="k">Input</span><span class="v">Record</span></div><span class="wire" aria-hidden="true"></span><div class="node end"><span class="k">Output</span><span class="v">Result</span></div></div></div>
+<ul class="uses"><li>Use case, 4 to 5 words<span class="cs"></span></li><li>4 to 6 items per card<span class="cs"></span></li><li>Plain check glyph only<span class="cs"></span></li><li class="soon">Upcoming item, grayed<span class="cs">Coming soon</span></li></ul>
+<div class="mod-foot"><div class="prices"><div class="price"><span class="amt">$19 <small>/ month</small></span><span class="rt">Essential</span></div><div class="price"><span class="amt">$49 <small>/ month</small></span><span class="rt">Pro</span></div></div><div class="actions"><a class="btn btn-secondary" href="#">View agent</a><a class="btn btn-primary" href="#">Get it on the Store</a></div></div>
+</div>
+</article>
+<article class="mod mod-soon">
+<div class="mod-top"><span class="mod-module">Module</span><span class="tag tag-soon"><span class="dot"></span>Coming soon</span></div>
+<div class="mod-body">
+<h3 class="mod-name">Agent name</h3>
+<div class="mod-vis"><div class="trace" style="opacity: .8"><div class="node"><span class="k">Input</span><span class="v">Record</span></div><span class="wire grey" aria-hidden="true"></span><div class="node ghost"><span class="k">Output</span><span class="v" style="color: #5C6C71">in progress</span></div></div></div>
+<ul class="uses muted"><li>Muted check<span class="cs"></span></li><li class="soon">Later capability<span class="cs">Coming soon</span></li></ul>
+<div class="mod-foot"><div class="price"><span class="amt">From $39 <small>/ month</small></span><span class="rt">At launch</span></div><div class="actions"><a class="btn btn-ghost btn-sm" href="#">View agent</a><a class="btn btn-secondary btn-sm" href="#">Request a call</a></div></div>
+</div>
+</article>
+<article class="mod mod-later">
+<div class="mod-top"><span class="mod-module">Module</span><span class="tag tag-later"><span class="dot"></span>Later</span></div>
+<div class="mod-body"><h3 class="mod-name">Agent name TBD</h3><span class="small dim">In development</span></div>
+</article>
+</div>
+</div>
+</section>
+
+<!-- S3 FORK + PRICING -->
+<section class="sec dark">
+<div class="wrap">
+<div class="sec-head"><span class="sec-no">S3</span><span class="sec-label">Two-route fork</span></div>
+<div class="fork" style="height: 320px" role="img" aria-label="Fork diagram example">
+<svg class="fork-svg" viewBox="0 0 100 320" preserveAspectRatio="none" aria-hidden="true">
+<path class="a" pathLength="1" d="M22 160 C 31 160, 30 70, 39 70"></path>
+<path class="b" pathLength="1" d="M22 160 C 31 160, 30 250, 39 250"></path>
+<path class="c" pathLength="1" d="M63 70 C 71 70, 70 160, 78 160"></path>
+<path class="d" pathLength="1" d="M63 250 C 71 250, 70 160, 78 160"></path>
+</svg>
+<div class="fk src" style="left: 0; top: 160px; width: 22%"><span class="k">Source</span><span class="v">Agent</span></div>
+<div class="fk" style="left: 39%; top: 70px; width: 24%"><span class="k">Route A</span><span class="v">With AI license</span><span class="t">grey path</span></div>
+<div class="fk hi" style="left: 39%; top: 250px; width: 24%"><span class="k">Route B</span><span class="v">Your own key</span><span class="t">sage path, flagged</span></div>
+<div class="fk dst" style="left: 78%; top: 160px; width: 22%"><span class="k">Result</span><span class="v">Same guardrails</span></div>
+<span class="fork-flag" style="left: 51%; top: 308px">No AI license needed</span>
+</div>
+</div>
+</section>
+
+<section class="sec">
+<div class="wrap">
+<div class="sec-head"><span class="sec-no">S4</span><span class="sec-label">Pricing block</span></div>
+<div class="ptable">
+<div class="prow prow-head"><span>Agent</span><span>With AI license</span><span>Your own AI key</span><span></span></div>
+<div class="prow live"><div class="who"><span class="tag tag-live" style="align-self: flex-start"><span class="dot"></span>Live</span><span class="nm">Agent name</span></div><div class="price"><span class="amt">$19 <small>/ month</small></span></div><div class="price"><span class="amt">$49 <small>/ month</small></span></div><a class="btn btn-primary" href="#">Get it on the Store</a></div>
+<div class="prow soon"><div class="who"><span class="nm">Agent name</span><span class="data dim">Coming soon</span></div><div class="price"><span class="amt">$39 <small>/ month</small></span></div><div class="price"><span class="amt">$99 <small>/ month</small></span></div><a class="btn btn-secondary btn-sm" href="#">Request a call</a></div>
+<div class="prow later"><div class="who"><span class="nm">Agent name TBD</span></div><span class="small dim">Later</span><span class="small dim">Later</span><span></span></div>
+</div>
+<p class="small" style="margin-top: 12px">No "most popular" badges. Rows follow the status hierarchy.</p>
+</div>
+</section>
+
+<!-- S5 ANNOTATED VISUAL -->
+<section class="sec">
+<div class="wrap">
+<div class="sec-head"><span class="sec-no">S5</span><span class="sec-label">Annotated product visual</span></div>
+<div class="two" style="gap: 48px">
+<div class="stack g16">
+<span class="h3">Rules</span>
+<ul class="uses"><li>Rebuilt as a vector mock<span class="cs"></span></li><li>Neutral, one element in accent<span class="cs"></span></li><li>Path layered over the record<span class="cs"></span></li><li>Numbered callouts reveal meaning<span class="cs"></span></li><li>Animates once on scroll<span class="cs"></span></li></ul>
+<p class="small">Live agent highlights in sage. Coming soon highlights in deep teal.</p>
+</div>
+<div>
+<div class="amock" style="height: 220px">
+<svg class="am-svg" viewBox="0 0 100 220" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M42 104 C 54 104, 56 80, 66 80"></path></svg>
+<div class="am-layer vrec" style="left: 0; top: 0; width: 62%">
+<div class="vrec-h"><b>Record</b><span class="data dim">table_name</span></div>
+<div class="vrow"><span class="k">Field</span><span class="v"><span class="dim">neutral</span></span></div>
+<div class="vrow hl"><span class="k">Key field</span><span class="v"><span class="val-to">the one highlight</span></span></div>
+<div class="vrow"><span class="k">Field</span><span class="v"><span class="dim">neutral</span></span></div>
+</div>
+<div class="am-layer am-top node end" style="left: 58%; top: 52px; width: 34%"><span class="k">Overlay · layered</span><span class="v">Result card</span></div>
+<div class="am-co" style="left: 64%; top: 170px"><span class="ln"></span><span class="cob on" aria-hidden="true">1</span><span class="lbl">Callout</span></div>
+</div>
+<div class="cap-bar"><span class="cob on" aria-hidden="true">1</span><span class="h4">Callout title</span><span class="small">One line on what this part means.</span><span class="cap-hint">Hover or tap</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- S6 SETUP TRACKER -->
+<section class="sec">
+<div class="wrap">
+<div class="sec-head"><span class="sec-no">S6</span><span class="sec-label">Setup step tracker · two route tabs</span></div>
+<div class="tabs" role="tablist" aria-label="Example route"><button class="on" type="button" role="tab">With AI license<span class="sub">AI Agent Studio</span></button><button type="button" role="tab">No AI license<span class="sub">own key</span></button></div>
+<div class="track">
+<div class="tstep"><span class="tn">1</span><span class="tt">Install from the Store</span><div class="tbox"><span class="mini-btn">Get</span></div></div>
+<div class="tstep"><span class="tn">2</span><span class="tt">Assign the admin role</span><div class="tbox"><div class="mini-fld"><span>x_[scope].admin</span></div></div></div>
+<div class="tstep alt"><span class="tn">3</span><span class="tt">The step that changes per tab</span><div class="tbox"><span class="toggle"><i aria-hidden="true"></i>Skill enabled</span></div></div>
+<div class="tstep"><span class="tn">4</span><span class="tt">Run your first request</span><div class="tbox"><span class="data">first log line</span></div></div>
+</div>
+</div>
+</section>
+
+<!-- S7 MEDIA + FEEDBACK -->
+<section class="sec">
+<div class="wrap">
+<div class="sec-head"><span class="sec-no">S7</span><span class="sec-label">Media frame and feedback form</span></div>
+<div class="two" style="gap: 32px; grid-template-columns: minmax(0,7fr) minmax(0,5fr)">
+<div class="player">
+<div class="player-screen"><span class="player-slot">[Video or screenshot · always framed]</span><button class="play" type="button" aria-label="Play">▶</button></div>
+<div class="player-bar"><div class="chap-track"><i style="left: 0"></i><i style="left: 33%"></i><i style="left: 66%"></i></div><div class="chaps"><span><b>0:00</b>Chapter</span><span><b>0:40</b>Chapter</span><span><b>1:20</b>Chapter</span></div></div>
+</div>
+<form class="form fb" aria-label="Feedback form example" style="grid-template-columns: minmax(0,1fr)">
+<div class="fld"><label for="s-name">Name</label><input id="s-name" type="text"></div>
+<div class="fld"><label for="s-email">Work email</label><input id="s-email" type="email"></div>
+<div class="fld"><label for="s-mod">Module</label><select id="s-mod"><option>ITSM</option><option>SecOps</option><option>Source-to-Pay</option></select></div>
+<div class="fld"><label for="s-msg">Message</label><textarea id="s-msg"></textarea></div>
+<button class="btn btn-primary" type="button" style="align-self: flex-start">Send</button>
+</form>
+</div>
+</div>
+</section>
+
+<!-- S8 CARRIED OVER -->
+<section class="sec">
+<div class="wrap">
+<div class="sec-head"><span class="sec-no">S8</span><span class="sec-label">Carried over from round 2</span></div>
+<div class="panel panel-flat">
+<div class="btn-demo"><span class="label">Levels</span><span><span class="lvl lvl-act">ACT</span></span><span><span class="lvl lvl-propose">PROPOSE</span></span><span><span class="lvl lvl-never">NEVER</span></span></div>
+<div class="btn-demo"><span class="label">Chips</span><span><span class="obj">sc_cat_item</span></span><span><span class="ph">[placeholder]</span></span><span class="small dim">Amber means it ships empty</span></div>
+<div class="btn-demo"><span class="label">Also in use</span><span class="small">Global nav + dropdown, sub-nav</span><span class="small">Lanes, spec summary + expandable</span><span class="small">Mobile header, chips, menu, sticky CTA</span></div>
+</div>
+</div>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":5200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

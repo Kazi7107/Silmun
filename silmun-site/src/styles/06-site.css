@@ -1,0 +1,166 @@
+/* 06 · Production layer: page layout classes that replace the design mocks'
+   inline layout styles, plus site plumbing (a11y helpers, forms, demo state).
+   Loads after 01-05. */
+
+html{background:#F3F6F6;-webkit-text-size-adjust:100%}
+body{margin:0}
+[hidden]{display:none !important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+section[id],div[id]{scroll-margin-top:64px}
+
+/* ---------- a11y helpers ---------- */
+.sr-only{position:absolute !important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:#1A2B30;color:#fff;padding:10px 14px;border-radius:6px;font:600 14px/1 'Instrument Sans',system-ui,sans-serif;text-decoration:none}
+.skip:focus{top:12px}
+.self-start{align-self:flex-start}
+
+/* ---------- nav details ---------- */
+.subnav-name{color:var(--ink)}
+.subnav-tag{padding:3px 8px}
+.m-prod-row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.site a[aria-current="page"].gnav-link{background:var(--well)}
+.m-menu{position:fixed;inset:0;min-height:0;overflow-y:auto;overscroll-behavior:contain}
+html.menu-open,html.menu-open body{overflow:hidden}
+
+/* ---------- reveal: fade in once (only when JS runs) ---------- */
+html:not(.js) .reveal *,html:not(.js) .reveal *::before,html:not(.js) .reveal *::after{animation-play-state:running}
+.js .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+.js .reveal.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  .js .reveal{opacity:1;transform:none;transition:none}
+}
+
+/* ---------- small tag on dark cards ---------- */
+.tag-dark{background:rgba(255,255,255,.1);color:#F3F6F6}
+
+/* ---------- hero variants ---------- */
+.site .hero.hero-tight{padding-bottom:80px}
+.hero-top-start{align-items:start}
+.hero-side{padding-top:8px}
+.hero-top-last{margin-bottom:0}
+.site .display.display-sm{font-size:48px}
+.site .h2.h2-sm{font-size:30px}
+.line1.line1-sm{font-size:15.5px}
+
+/* ---------- catalog hero mock ---------- */
+.am-pin{left:40.6%;top:194px;width:12px;height:12px;border-radius:50%;background:#2B7350;z-index:4}
+.amock-mob{display:none}
+.mrow{height:auto !important;grid-template-columns:minmax(0,1fr) !important;gap:4px !important;padding:10px 14px !important}
+.mrow .v{height:36px}
+.mrow-k{display:flex;justify-content:space-between;align-items:center}
+.cap-bar .cob{cursor:default}
+
+/* ---------- home: module rows ---------- */
+.modrow{display:flex;flex-wrap:wrap;gap:32px;padding:36px 0;border-top:1px solid #C8D2D4}
+.modrow-first{border-top:2px solid #2B7350}
+.modrow-side{flex:1 1 240px;min-width:0}
+.modrow-main{flex:3 1 560px;min-width:0;display:flex}
+.modrow-main > .mod{flex:1}
+.modrow-title{margin:0;font-size:44px;font-weight:500;letter-spacing:-.02em;line-height:1}
+.modrow-title-md{font-size:36px;line-height:1.05}
+.modrow-title-sm{font-size:26px;letter-spacing:-.01em;line-height:1.1;color:#5C6C71}
+.site .modrow-link{align-self:flex-start;padding:0}
+.modrow-next{padding:28px 0;border-top:1px dashed #C8D2D4;border-bottom:1px dashed #C8D2D4}
+.modrow-next-main{align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.modrow-next-cta{display:flex;gap:12px;align-items:center}
+.mini-item div.mini-hl{background:#E6F3EC}
+
+/* ---------- home: how agents work ---------- */
+.site .sec.sec-tight{padding:88px 0}
+.flow3{display:grid;grid-template-columns:minmax(0,1fr) 40px minmax(0,1fr) 40px minmax(0,1fr);align-items:stretch}
+.flow-card{display:flex;flex-direction:column;gap:12px;padding:24px;background:#FFFFFF;border:1px solid #DDE4E5;border-radius:14px}
+.flow-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.flow-top .sec-no{font-size:13px}
+.site .h3.flow-h{font-size:24px}
+.flow-ex{margin-top:auto;padding:12px 14px;background:#F3F6F6;border-radius:10px}
+.flow-ex p{margin:4px 0 0}
+.flow-card-dark{background:#0E2A31;color:#F3F6F6;border-color:#0E2A31}
+.flow-card-dark .sec-no{color:#9FB3B7}
+.flow-card-dark .h3{color:#F3F6F6}
+.flow-card-dark > .small{color:#C9D6D8}
+.flow-card-dark .flow-ex{background:rgba(255,255,255,.06)}
+.flow-card-dark .flow-ex .label{color:#9FB3B7}
+.flow-card-dark .flow-ex p{color:#F3F6F6}
+.flow-arrow{display:flex;align-items:center;justify-content:center;color:#8A989C;font-size:22px}
+.flow-note{margin:24px 0 0}
+
+/* ---------- simple CTA row ---------- */
+.site .sec.sec-cta{padding:72px 0}
+.cta-row{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+
+/* ---------- agent pages ---------- */
+.what-list{margin-top:56px}
+.site .what-list.two{gap:48px}
+
+.cmp{border:1px solid rgba(230,238,238,.25);border-radius:6px;overflow:hidden}
+.cmp-head,.cmp-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.cmp-head > span{padding:14px 22px;border-bottom:1px solid rgba(230,238,238,.25)}
+.cmp-head .cmp-a .label{color:#9DB3B8}
+.cmp-head .cmp-b{background:rgba(25,198,180,.10)}
+.cmp-head .cmp-b .label{color:#19C6B4}
+.cmp-row > span{padding:18px 22px;border-bottom:1px solid rgba(230,238,238,.18)}
+.cmp-row:last-child > span{border-bottom:0}
+.cmp-a{border-right:1px solid rgba(230,238,238,.25)}
+.cmp-row .cmp-a .h4{color:#9DB3B8}
+.cmp-row .cmp-b{background:rgba(25,198,180,.06)}
+.cmp-row .cmp-b .h4{color:#FFFFFF}
+.cmp-k{display:none}
+
+.objections{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px}
+.dark .obj-q{color:#19C6B4}
+
+.spec-more.spec-on-dark{margin-top:32px;border-top:1px solid #DDE4E5;border-radius:12px;color:#1A2B30}
+.spec-on-dark > summary{border-radius:12px}
+
+.player-wide{margin-bottom:24px}
+.player-wide .player-screen{aspect-ratio:21/9}
+.play[disabled]{cursor:default;opacity:.85}
+
+.card{padding:20px;background:#FFFFFF;border:1px solid #DDE4E5;border-radius:12px;min-width:0}
+.card.card-sm{padding:18px}
+.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:8px 0 56px}
+.pillar-k{color:#143640}
+.ucgrid{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+
+.steps3.steps4{margin-top:32px;grid-template-columns:repeat(4,minmax(0,1fr))}
+.tier-head{display:flex;justify-content:space-between;align-items:center;gap:8px}
+
+/* ---------- Security Operations demo ---------- */
+.demo-desk{height:280px;overflow:hidden}
+.demo-scale > .amock{width:100%;transform:scale(.7);transform-origin:top center}
+.demo-mob{display:none}
+.demo-mob-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px 14px}
+.unassigned{color:#B5442A}
+.muted-mock .m-down{background:#143640}
+.muted-mock .m-down::after{border-top-color:#143640}
+[data-decision] [data-when]{display:none}
+[data-decision="pending"] [data-when~="pending"],
+[data-decision="approved"] [data-when~="approved"],
+[data-decision="overridden"] [data-when~="overridden"]{display:inline-flex}
+
+/* ---------- forms ---------- */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-actions{flex-direction:row;flex-wrap:wrap;align-items:center;gap:12px 16px}
+.form-actions .btn{align-self:flex-start}
+.form-status:empty{display:none}
+.form-status.is-error{color:#B5442A}
+.form.is-sent .form-status{animation:flip .35s ease-out both}
+.fld input:focus-visible,.fld select:focus-visible,.fld textarea:focus-visible{outline:2px solid var(--accent-ink);outline-offset:1px}
+
+/* ---------- support / simple pages ---------- */
+.site .sec.support-sec{padding:72px 0 104px}
+
+/* ---------- about ---------- */
+.kind-ex{margin-top:auto}
+.kind-b-label{color:#2B7350}
+.site a.obj{text-decoration:none;color:var(--ink-2)}
+.site a.obj:hover{color:var(--ink);background:var(--line)}
+.kind .h3,.reason .h4{margin:0}
+
+/* Ink primary buttons on links too. 01-base's `.site a.btn-primary` (sage)
+   outranks 05-editorial's `.site .btn-primary`; sage is for "Live" only. */
+.site a.btn-primary{background:var(--rule);border-color:var(--rule);color:#FFFFFF}
+.site a.btn-primary:hover{background:#0E2A31;border-color:#0E2A31;color:#FFFFFF}
+.dark a.btn-primary,.site .tier.top a.btn-primary{background:#FFFFFF;border-color:#FFFFFF;color:var(--rule)}
+.site .tier.top a.btn-primary:hover{background:#E6EEEE;border-color:#E6EEEE;color:var(--rule)}

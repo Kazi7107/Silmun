@@ -1,0 +1,44 @@
+/* r7 · Direction C: editorial, big type, black hairlines, highlighter */
+:root{--rule:#1A2B30;--hl:#C9F2EC}
+
+/* Type scale: much bigger, tighter */
+.site .display{font-size:76px;line-height:.95;letter-spacing:-.045em;font-weight:500}
+.site .h2{font-size:46px;line-height:1;letter-spacing:-.035em;font-weight:500}
+.site.m .display{font-size:44px;line-height:.98;letter-spacing:-.035em}
+.site.m .h2{font-size:30px;line-height:1.05;letter-spacing:-.025em}
+.site .lede{font-size:18px;line-height:1.5}
+
+/* Highlighter on one word per headline */
+.hlw{background:linear-gradient(transparent 60%, var(--hl) 60%, var(--hl) 92%, transparent 92%);padding:0 .06em;margin:0 -.06em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.dark .hlw{background:linear-gradient(transparent 60%, rgba(25,198,180,.45) 60%, rgba(25,198,180,.45) 92%, transparent 92%)}
+
+/* Black hairlines instead of soft borders */
+.site .gnav{border-bottom:1px solid var(--rule)}
+.site .subnav{border-bottom:1px solid var(--rule)}
+.site .sec{border-top:1px solid var(--rule)}
+.site .band{background:#FFFFFF;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.site .foot{border-top:1px solid var(--rule)}
+.site .mod,.site .tier:not(.top),.site .step3,.site .lib-row,.site .kind,.site .form.fb,.site .player,.site .panel{border:1px solid var(--rule)!important;border-radius:6px;box-shadow:none!important}
+.site .tier.top{border-radius:6px;box-shadow:none}
+.site .tier.top::before{border-radius:6px 6px 0 0;background:var(--warm)}
+.site .mod-live .mod-top{background:transparent;border-bottom:1px solid var(--rule)}
+.site .fld input,.site .fld select,.site .fld textarea{border-color:var(--rule);border-radius:4px}
+
+/* Calm the motion: editorial pages don't bounce */
+.site .mod:hover,.site .tier:hover,.site .lib-row:hover,.site .kind:hover{transform:none;box-shadow:none!important}
+
+/* Buttons: ink primary, square-ish */
+.site .btn{border-radius:6px}
+.site .btn-primary{background:var(--rule);border-color:var(--rule);color:#FFFFFF;box-shadow:none}
+.site .btn-primary:hover{background:#0E2A31;transform:none}
+.site .btn-secondary{border-color:var(--rule)}
+.dark .btn-primary{background:#FFFFFF;color:var(--rule);border-color:#FFFFFF}
+
+/* Section labels: mono, numbered, ruled */
+.site .sec-no{color:var(--warm-ink)}
+.site .sec-no::before{display:none}
+.site .sec-head{padding-bottom:10px;border-bottom:1px solid var(--rule)}
+.dark .sec-head{border-bottom-color:rgba(230,238,238,.3)}
+
+/* Hero breathes more */
+.site:not(.m) .hero{padding-top:64px}

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Catalog Automation for ServiceNow ITSM · Silmun</title>
+    <meta name="description" content="Describe a catalog item in plain words. Get every question, type and choice back to review. Nothing is built until you click Build Item. Runs on your own OpenAI key, no Now Assist needed.">
+    <link rel="canonical" href="https://silmun.com/itsm/catalog-automation/">
+    
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <meta name="theme-color" content="#F3F6F6">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Silmun">
+    <meta property="og:title" content="Catalog Automation for ServiceNow ITSM · Silmun">
+    <meta property="og:description" content="Describe a catalog item in plain words. Get every question, type and choice back to review. Nothing is built until you click Build Item. Runs on your own OpenAI key, no Now Assist needed.">
+    <meta property="og:url" content="https://silmun.com/itsm/catalog-automation/">
+    <meta property="og:image" content="https://silmun.com/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+
+    <script>document.documentElement.classList.add('js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('mo');</script>
+    
+  <link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/refresh.css">
+<link rel="stylesheet" href="css/motion.css"></head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="site hero-dark">
+      <!-- Desktop -->
+<header class="gnav">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Silmun home">
+  <svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="flex: none"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg>
+  <span>silmun</span>
+</a>
+    <nav class="gnav-links" aria-label="Site">
+      <div class="dd-anchor" data-dropdown>
+        <button class="gnav-link" type="button" aria-expanded="false" aria-controls="modules-menu" data-dropdown-toggle>Modules <span class="caret" aria-hidden="true">▾</span></button>
+        <div class="dropdown" id="modules-menu" hidden>
+          <a class="dd-row live" href="catalog-automation.html" aria-current="page"><span class="dd-mod">Module</span><span class="nm">ITSM</span><span class="tag tag-live"><span class="dot"></span>Live</span><span class="ds">Catalog Automation: plain-language request in, catalog item out.</span></a>
+          <a class="dd-row live" href="security-operations.html"><span class="dd-mod">Module</span><span class="nm">Security Operations</span><span class="tag tag-live"><span class="dot"></span>Live</span><span class="ds">Vulnerability Remediation agent.</span></a>
+          <a class="dd-later" href="source-to-pay.html"><span>Finance &amp; Supply Chain · Source to Pay</span><span class="tag tag-later"><span class="dot"></span>Next</span></a>
+        </div>
+      </div>
+      <a class="gnav-link" href="about.html">About us</a>
+      <a class="gnav-link" href="support.html">Support</a>
+      <a class="gnav-link" href="index.html#contact">Contact</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="catalog-automation.html#pricing" data-event="Store click" data-event-agent="catalog">Get it on the Store <span class="k" aria-hidden="true">↗</span></a>
+  </div>
+</header>
+
+<!-- Mobile -->
+<header class="m-head">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Silmun home">
+  <svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="flex: none"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg>
+  <span>silmun</span>
+</a>
+    <button class="m-menu-btn" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-open><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Menu</button>
+  </div>
+</header>
+<div class="m-menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Site menu" hidden data-menu>
+  <div class="m-menu-top"><a class="brand" href="index.html" aria-label="Silmun home">
+  <svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="flex: none"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg>
+  <span>silmun</span>
+</a><button class="m-menu-btn" type="button" data-menu-close>Close <span class="mono" aria-hidden="true">×</span></button></div>
+  <nav class="m-menu-body" aria-label="Site">
+    <span class="m-menu-sec">Modules</span>
+    <a class="m-prod live" href="catalog-automation.html" aria-current="page"><span class="dd-mod">Module</span><span class="m-prod-row"><span class="nm">ITSM</span><span class="tag tag-live"><span class="dot"></span>Live</span></span><span class="small">Catalog Automation</span></a>
+    <a class="m-prod live" href="security-operations.html"><span class="dd-mod">Module</span><span class="m-prod-row"><span class="nm">Security Operations</span><span class="tag tag-live"><span class="dot"></span>Live</span></span><span class="small">Vulnerability Remediation</span></a>
+    <a class="m-prod later" href="source-to-pay.html"><span class="nm">Source to Pay · next</span><span class="small dim">Finance &amp; Supply Chain</span></a>
+    <span class="m-menu-sec">Company</span>
+    <a class="m-link" href="about.html">About us <span class="k" aria-hidden="true">→</span></a>
+    <a class="m-link" href="support.html">Support <span class="k" aria-hidden="true">→</span></a>
+    <a class="m-link" href="index.html#contact" data-menu-close>Contact <span class="k" aria-hidden="true">→</span></a>
+  </nav>
+  <div class="m-menu-cta"><a class="btn btn-primary" href="catalog-automation.html#pricing" data-event="Store click" data-event-agent="catalog">Get it on the Store <span class="k" aria-hidden="true">↗</span></a></div>
+</div>
+      <nav class="subnav" aria-label="On this page">
+  <div class="wrap">
+    <span class="subnav-id"><span class="label subnav-name">ITSM · Catalog Automation</span><span class="tag tag-live subnav-tag"><span class="dot"></span>Live</span></span>
+    <span class="subnav-links" data-spy>
+      <a class="on" href="#what">What it does</a><a href="#why">Why us</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#feedback">Feedback</a>
+    </span>
+  </div>
+</nav>
+<nav class="m-chips" aria-label="On this page" data-spy>
+  <a class="on" href="#what">What it does</a><a href="#why">Why us</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#feedback">Feedback</a>
+</nav>
+      <main id="main">
+        
+  
+  <section class="hero reveal hero-tight" data-reveal="hero" id="what">
+    <div class="wrap">
+      <div class="hero-top">
+        <div class="hero-copy"><span class="mod-label">Module · ITSM</span><h1 class="display">Describe it. Review it. <span class="hlw">Ship</span> the catalog item.</h1></div>
+        <div class="stack g24">
+          <p class="lede">Type what the catalog item needs in plain words. You get every question, type and choice back to review. Nothing is built until you say so.</p>
+          <div class="actions"><a class="btn btn-primary" href="catalog-automation.html#pricing" data-event="Store click" data-event-agent="catalog">Get it on the ServiceNow Store <span class="k" aria-hidden="true">↗</span></a><a class="btn btn-secondary" href="#how">Watch the demo</a></div>
+        </div>
+      </div>
+      <div class="catalog-mock rise" data-callouts>
+  <template data-co-text="1" data-title="Choices from the sentence">&quot;MacBook Pro 14 or Dell Latitude 7450&quot; became a dropdown with two choices.</template><template data-co-text="2" data-title="Required flag and help text">&quot;Justification required&quot; became a required question with help text.</template><template data-co-text="3" data-title="Built on Build Item">Edit or delete any question in the preview. Nothing is created until you click Build Item.</template>
+
+  <!-- Desktop: layered -->
+  <div class="amock amock-desk" style="height: 400px" role="group" aria-label="A plain-English request layered over a catalog item form. The laptop choices from the sentence fill the Select Box field and the preview flips to Ready for review.">
+    <svg class="am-svg" viewBox="0 0 100 400" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M50 74 C 44 74, 47 200, 41 200" style="animation-delay: .9s"></path></svg>
+    <span class="am-layer am-pin" aria-hidden="true"></span>
+    <div class="am-layer vrec" style="left: 0; top: 72px; width: 60%">
+      <div class="vrec-h"><b>New Hire Laptop</b><span class="data dim">catalog item · Hardware</span></div>
+      <div class="vrow"><span class="k">New hire name</span><span class="v"><span class="dim">new_hire_name</span><span class="c">Single Line Text</span></span></div>
+      <div class="vrow hl"><span class="k">Which laptop?</span><span class="v"><span class="flipper" style="--at: 1.5s"><span class="from dim">empty</span><span class="to val-to">MacBook Pro 14 · Dell Latitude 7450</span></span><span class="c">Select Box</span></span></div>
+      <div class="vrow"><span class="k">Needs a monitor?</span><span class="v"><span class="dim">needs_monitor</span><span class="c">Checkbox</span></span></div>
+      <div class="vrow"><span class="k">Justification *</span><span class="v"><span class="dim">help: Why this model?</span><span class="c">Multi Line · required</span></span></div>
+      <div class="vrec-f"><span class="data dim">4 questions · 2 choices · nothing built yet</span><span class="flipper" style="--at: 2.4s"><span class="from tag tag-soon">Generating preview</span><span class="to tag tag-live">Ready for review</span></span></div>
+    </div>
+    <div class="am-layer am-top req-note" style="left: 50%; top: 0; width: 36%">
+      <div class="rn-h"><span>Request</span><span>typed by catalog admin</span></div>
+      <p>New hire laptop: name, <mark class="hi">MacBook Pro 14 or Dell Latitude 7450</mark>, monitor yes or no, <mark>justification required</mark>.</p>
+    </div>
+    <div class="am-co" style="left: 61.5%; top: 200px">
+        <span class="ln"></span>
+        <button class="cob on" type="button" data-co="1" aria-pressed="true" aria-label="Callout 1: Choices from the sentence">1</button>
+        <span class="lbl">Choices from the sentence</span>
+      </div><div class="am-co" style="left: 61.5%; top: 296px">
+        <span class="ln"></span>
+        <button class="cob" type="button" data-co="2" aria-pressed="false" aria-label="Callout 2: Required flag and help text">2</button>
+        <span class="lbl">Required flag + help text</span>
+      </div><div class="am-co" style="left: 61.5%; top: 348px">
+        <span class="ln"></span>
+        <button class="cob" type="button" data-co="3" aria-pressed="false" aria-label="Callout 3: Built on Build Item">3</button>
+        <span class="lbl">Built on Build Item</span>
+      </div>
+  </div>
+
+  <!-- Small screens: stacked -->
+  <div class="amock-mob" role="group" aria-label="A plain-English request layered over a catalog item form. The laptop choices from the sentence fill the Select Box field and the preview flips to Ready for review.">
+    <div class="req-note"><div class="rn-h"><span>Request</span><span>admin</span></div><p>New hire laptop: <mark class="hi">MacBook Pro 14 or Dell 7450</mark>, <mark>justification required</mark>.</p></div>
+    <div class="m-down" style="height: 36px"><span>fills the form</span></div>
+    <div class="vrec">
+      <div class="vrec-h" style="padding: 0 14px"><b>New Hire Laptop</b><span class="data dim">catalog item</span></div>
+      <div class="vrow hl mrow"><span class="k mrow-k">Which laptop? <button class="cob on" type="button" data-co="1" aria-pressed="true" aria-label="Callout 1: Choices from the sentence">1</button></span><span class="v"><span class="flipper" style="--at: 1.3s"><span class="from dim">empty</span><span class="to val-to">MacBook Pro 14 · Dell 7450</span></span></span></div>
+      <div class="vrow mrow"><span class="k mrow-k">Justification * <button class="cob" type="button" data-co="2" aria-pressed="false" aria-label="Callout 2: Required flag and help text">2</button></span><span class="v"><span class="dim">help: Why this model?</span><span class="c">required</span></span></div>
+      <div class="vrec-f" style="padding: 0 14px"><button class="cob" type="button" data-co="3" aria-pressed="false" aria-label="Callout 3: Built on Build Item">3</button><span class="flipper" style="--at: 2.2s"><span class="from tag tag-soon">Generating</span><span class="to tag tag-live">Ready for review</span></span></div>
+    </div>
+  </div>
+
+  <div class="cap-bar" aria-live="polite" data-cap>
+      <span class="cob on" aria-hidden="true" data-cap-n>1</span>
+      <span class="h4" data-cap-t>Choices from the sentence</span>
+      <span class="small" data-cap-x>&quot;MacBook Pro 14 or Dell Latitude 7450&quot; became a dropdown with two choices.</span>
+      <span class="cap-hint">Hover or tap 1 · 2 · 3</span>
+    </div>
+</div>
+      <div class="two what-list">
+        <div class="stack g8"><span class="label">What it does</span><h2 class="h2 h2-sm">Catalog items in minutes, not afternoons.</h2></div>
+        <ul class="uses uses-lg">
+          <li>Build catalog items from plain text<span class="cs"></span></li>
+          <li>Auto-create questions and choices<span class="cs"></span></li>
+          <li>Review and edit before building<span class="cs"></span></li>
+          <li>Catch duplicate item names<span class="cs"></span></li>
+          <li>Keep a log of every request<span class="cs"></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="sec dark reveal" data-reveal="why" id="why">
+    <div class="wrap">
+      <div class="intro">
+        <div class="stack g12"><div class="sec-head"><span class="sec-no">02</span><span class="sec-label">Why us</span></div><h2 class="h2">Stop building catalog items <span class="hlw">by hand.</span></h2></div>
+      </div>
+      <div class="cmp" role="table" aria-label="Today, without it, compared with Silmun">
+  <div class="cmp-head" role="row">
+    <span class="cmp-a" role="columnheader"><span class="label">Today, without it</span></span>
+    <span class="cmp-b" role="columnheader"><span class="label">With Silmun</span></span>
+  </div>
+  <div class="cmp-row" role="row">
+      <span class="cmp-a" role="cell"><span class="label cmp-k">Today</span><span class="h4">One item eats an afternoon</span></span>
+      <span class="cmp-b" role="cell"><span class="label cmp-k">With Silmun</span><span class="h4">Describe it, get it in minutes</span></span>
+    </div><div class="cmp-row" role="row">
+      <span class="cmp-a" role="cell"><span class="label cmp-k">Today</span><span class="h4">AI means another license</span></span>
+      <span class="cmp-b" role="cell"><span class="label cmp-k">With Silmun</span><span class="h4">No ServiceNow AI license</span></span>
+    </div><div class="cmp-row" role="row">
+      <span class="cmp-a" role="cell"><span class="label cmp-k">Today</span><span class="h4">Every admin builds it differently</span></span>
+      <span class="cmp-b" role="cell"><span class="label cmp-k">With Silmun</span><span class="h4">Consistent items, every time</span></span>
+    </div>
+</div>
+      <div class="objections">
+  <div class="stack g8"><span class="label obj-q">"Will it build things without us?"</span><span class="h4">No. Nothing is created until you click Build Item.</span></div><div class="stack g8"><span class="label obj-q">"Is our data safe?"</span><span class="h4">Only the request text leaves your instance.</span></div><div class="stack g8"><span class="label obj-q">"What will the AI cost us?"</span><span class="h4">Usually very little, and you can see it.</span></div>
+</div>
+      <details class="spec-more spec-on-dark">
+        <summary><span>Security details for your reviewer</span><span class="pm" aria-hidden="true"></span></summary>
+        <table class="spec"><tbody>
+          <tr><th scope="row">Sent to OpenAI</th><td>Only the catalog request text. No personal data by design.</td></tr>
+          <tr><th scope="row">Connection</th><td>Outbound HTTPS to api.openai.com, only when you ask for a preview. Works through your AI proxy.</td></tr>
+          <tr><th scope="row">Your key</th><td>Stored encrypted in your instance. Never shown in the browser or written to logs.</td></tr>
+          <!-- Open item 5: confirm the Australia release and the app version. -->
+          <tr><th scope="row">Releases</th><td>Tested on Washington DC, Xanadu, Zurich <span class="ph">[Australia: confirm]</span></td></tr>
+        </tbody></table>
+      </details>
+    </div>
+  </section>
+
+  
+  <section class="sec" id="how">
+    <div class="wrap">
+      <div class="intro">
+        <div class="stack g12"><div class="sec-head"><span class="sec-no">03</span><span class="sec-label">How it works</span></div><h2 class="h2">Set up once, then just describe.</h2></div>
+        <p class="line1">The demo shows a real item built from one sentence.</p>
+      </div>
+      <!-- Open item 6: demo video. Replace the placeholder screen with the real player. -->
+      <div class="player player-wide">
+        <div class="player-screen"><span class="player-slot">[Demo video · recorded by the team]</span><button class="play" type="button" aria-label="Play demo video (coming soon)" disabled>▶</button></div>
+        <div class="player-bar"><div class="chap-track"><i style="left: 0"></i><i style="left: 30%"></i><i style="left: 62%"></i><i style="left: 86%"></i></div><div class="chaps"><span><b>0:00</b>Describe</span><span><b>0:40</b>Review</span><span><b>1:20</b>Build Item</span><span><b>1:50</b>In the portal</span></div></div>
+      </div>
+      <div class="steps3">
+        <div class="step3"><span class="n">1</span><span class="h4">Install from the ServiceNow Store</span><span class="small">An admin installs it like any Store app.</span></div>
+        <div class="step3"><span class="n">2</span><span class="h4">Add your OpenAI key</span><span class="small">Paste it once in the app's settings.</span></div>
+        <div class="step3"><span class="n">3</span><span class="h4">Describe your first item</span><span class="small">Review the preview, then click Build Item.</span></div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="sec band" id="pricing">
+    <div class="wrap">
+      <div class="intro">
+        <div class="stack g12"><div class="sec-head"><span class="sec-no">04</span><span class="sec-label">Pricing</span></div><h2 class="h2">Three plans. Pick what you need.</h2></div>
+        <p class="line1">Example prices. OpenAI usage bills to your own account on every plan.</p>
+      </div>
+      <div class="tiers">
+  <div class="tier">
+      <span class="tname">Essential</span>
+      <span class="tfor">For a team building its first items</span>
+      <span class="tamt">$19 <small>/ month</small></span>
+      <ul class="uses"><li>Build items from plain text<span class="cs"></span></li><li>Review and edit before building<span class="cs"></span></li><li>Up to 25 items a month<span class="cs"></span></li><li>Email support, 1 business day<span class="cs"></span></li></ul>
+      <a class="btn btn-secondary" href="catalog-automation.html#pricing" data-event="Store click" data-event-agent="catalog">Get Essential</a>
+    </div><div class="tier top">
+      <span class="tier-head"><span class="tname">Pro</span><span class="tag tag-live"><span class="dot"></span>Most popular</span></span>
+      <span class="tfor">For catalog teams shipping every week</span>
+      <span class="tamt">$49 <small>/ month</small></span>
+      <ul class="uses"><li>Everything in Essential<span class="cs"></span></li><li>Unlimited items<span class="cs"></span></li><li>Duplicate name checks and overwrite control<span class="cs"></span></li><li>Full request log for audits<span class="cs"></span></li></ul>
+      <a class="btn btn-primary" href="catalog-automation.html#pricing" data-event="Store click" data-event-agent="catalog">Get Pro <span class="k" aria-hidden="true">↗</span></a>
+    </div><div class="tier">
+      <span class="tname">Enterprise</span>
+      <span class="tfor">For large catalogs across instances</span>
+      <span class="tamt">$249 <small>/ month</small></span>
+      <ul class="uses"><li>Everything in Pro<span class="cs"></span></li><li>Test and production instances<span class="cs"></span></li><li>Guided onboarding session<span class="cs"></span></li><li>1-hour response on critical issues<span class="cs"></span></li></ul>
+      <a class="btn btn-secondary" href="index.html#contact">Talk to us</a>
+    </div>
+</div>
+<p class="small dim tier-note">Example prices and plan contents for the team to confirm.</p>
+    </div>
+  </section>
+
+  
+  <section class="sec" id="feedback">
+    <div class="wrap two">
+      <div class="stack g16">
+        <div class="sec-head"><span class="sec-no">05</span><span class="sec-label">Feedback</span></div>
+        <h2 class="h2">Tell us what to improve.</h2>
+        <p class="line1">Ideas, bugs or the next feature you need. Something broken? <a href="support.html">Contact support</a>.</p>
+      </div>
+      <form class="form fb" name="feedback-catalog-automation" method="POST" action="thanks.html" aria-label="Feedback form" data-netlify="true" netlify-honeypot="bot-field" data-site-form data-sent-label="Sent. Thanks">
+  <input type="hidden" name="form-name" value="feedback-catalog-automation">
+  <input type="hidden" name="subject" value="Catalog Automation feedback">
+  <p class="hp" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+  
+        <div class="fld"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name"></div>
+        <div class="fld"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="fld full"><label for="f-type">Type</label><select id="f-type" name="type"><option>Idea</option><option>Bug</option><option>Question</option></select></div>
+        <div class="fld full"><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
+      
+  <div class="fld full form-actions">
+    <button class="btn btn-primary" type="submit"><span data-label>Send feedback</span><span class="k" aria-hidden="true">→</span></button>
+    <span class="small form-status" role="status" data-form-status></span>
+  </div>
+</form>
+    </div>
+  </section>
+
+      </main>
+      <footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Silmun home">
+  <svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="flex: none"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg>
+  <span>silmun</span>
+</a>
+    <nav class="foot-prods" aria-label="Footer">
+      <a class="live" href="catalog-automation.html"><span class="dot live"></span>ITSM</a>
+      <a class="live" href="security-operations.html"><span class="dot live"></span>Security Operations</a>
+      <a class="soon" href="source-to-pay.html">Source to Pay · next</a>
+      <a class="soon" href="about.html">About us</a>
+      <a class="soon" href="support.html">Support</a>
+    </nav>
+    <span class="label dim">© <span data-year>2026</span> Silmun · ServiceNow is a trademark of ServiceNow, Inc.</span>
+  </div>
+</footer>
+      <div class="m-sticky"><a class="btn btn-primary" href="catalog-automation.html#pricing" data-event="Store click" data-event-agent="catalog">Get it on the Store <span class="k" aria-hidden="true">↗</span></a></div>
+    </div>
+    <script type="module" src="js/site.js"></script>
+<script type="module" src="js/motion.js"></script>
+  </body>
+</html>

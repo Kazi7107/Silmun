@@ -1,0 +1,129 @@
+---
+import Base from '../../layouts/Base.astro';
+import StoreButton from '../../components/StoreButton.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import CatalogMock from '../../components/CatalogMock.astro';
+import Compare from '../../components/Compare.astro';
+import Objections from '../../components/Objections.astro';
+import Tiers from '../../components/Tiers.astro';
+import SiteForm from '../../components/SiteForm.astro';
+import { CATALOG_TIERS } from '../../data/pricing';
+import { ROUTES } from '../../data/site';
+---
+<Base
+  title="Catalog Automation for ServiceNow ITSM · Silmun"
+  description="Describe a catalog item in plain words. Get every question, type and choice back to review. Nothing is built until you click Build Item. Runs on your own OpenAI key, no Now Assist needed."
+  storeAgent="catalog"
+  mobileCta
+  subnav={{
+    label: 'ITSM · Catalog Automation',
+    links: [
+      { href: '#what', text: 'What it does' },
+      { href: '#why', text: 'Why us' },
+      { href: '#how', text: 'How it works' },
+      { href: '#pricing', text: 'Pricing' },
+      { href: '#feedback', text: 'Feedback' },
+    ],
+  }}
+>
+  <!-- 01 WHAT IT DOES -->
+  <section class="hero reveal hero-tight" data-reveal="hero" id="what">
+    <div class="wrap">
+      <div class="hero-top">
+        <div class="hero-copy"><span class="mod-label">Module · ITSM</span><h1 class="display">Describe it. Review it. <span class="hlw">Ship</span> the catalog item.</h1></div>
+        <div class="stack g24">
+          <p class="lede">Type what the catalog item needs in plain words. You get every question, type and choice back to review. Nothing is built until you say so.</p>
+          <div class="actions"><StoreButton agent="catalog" label="Get it on the ServiceNow Store" /><a class="btn btn-secondary" href="#how">Watch the demo</a></div>
+        </div>
+      </div>
+      <CatalogMock interactive />
+      <div class="two what-list">
+        <div class="stack g8"><span class="label">What it does</span><h2 class="h2 h2-sm">Catalog items in minutes, not afternoons.</h2></div>
+        <ul class="uses uses-lg">
+          <li>Build catalog items from plain text<span class="cs"></span></li>
+          <li>Auto-create questions and choices<span class="cs"></span></li>
+          <li>Review and edit before building<span class="cs"></span></li>
+          <li>Catch duplicate item names<span class="cs"></span></li>
+          <li>Keep a log of every request<span class="cs"></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 WHY US -->
+  <section class="sec dark reveal" data-reveal="why" id="why">
+    <div class="wrap">
+      <div class="intro">
+        <div class="stack g12"><SectionHead no="02" label="Why us" /><h2 class="h2">Stop building catalog items <span class="hlw">by hand.</span></h2></div>
+      </div>
+      <Compare rows={[
+        ['One item eats an afternoon', 'Describe it, get it in minutes'],
+        ['AI means another license', 'No ServiceNow AI license'],
+        ['Every admin builds it differently', 'Consistent items, every time'],
+      ]} />
+      <Objections items={[
+        ['Will it build things without us?', 'No. Nothing is created until you click Build Item.'],
+        ['Is our data safe?', 'Only the request text leaves your instance.'],
+        ['What will the AI cost us?', 'Usually very little, and you can see it.'],
+      ]} />
+      <details class="spec-more spec-on-dark">
+        <summary><span>Security details for your reviewer</span><span class="pm" aria-hidden="true"></span></summary>
+        <table class="spec"><tbody>
+          <tr><th scope="row">Sent to OpenAI</th><td>Only the catalog request text. No personal data by design.</td></tr>
+          <tr><th scope="row">Connection</th><td>Outbound HTTPS to api.openai.com, only when you ask for a preview. Works through your AI proxy.</td></tr>
+          <tr><th scope="row">Your key</th><td>Stored encrypted in your instance. Never shown in the browser or written to logs.</td></tr>
+          <!-- Open item 5: confirm the Australia release and the app version. -->
+          <tr><th scope="row">Releases</th><td>Tested on Washington DC, Xanadu, Zurich <span class="ph">[Australia: confirm]</span></td></tr>
+        </tbody></table>
+      </details>
+    </div>
+  </section>
+
+  <!-- 03 HOW IT WORKS -->
+  <section class="sec" id="how">
+    <div class="wrap">
+      <div class="intro">
+        <div class="stack g12"><SectionHead no="03" label="How it works" /><h2 class="h2">Set up once, then just describe.</h2></div>
+        <p class="line1">The demo shows a real item built from one sentence.</p>
+      </div>
+      <!-- Open item 6: demo video. Replace the placeholder screen with the real player. -->
+      <div class="player player-wide">
+        <div class="player-screen"><span class="player-slot">[Demo video · recorded by the team]</span><button class="play" type="button" aria-label="Play demo video (coming soon)" disabled>▶</button></div>
+        <div class="player-bar"><div class="chap-track"><i style="left: 0"></i><i style="left: 30%"></i><i style="left: 62%"></i><i style="left: 86%"></i></div><div class="chaps"><span><b>0:00</b>Describe</span><span><b>0:40</b>Review</span><span><b>1:20</b>Build Item</span><span><b>1:50</b>In the portal</span></div></div>
+      </div>
+      <div class="steps3">
+        <div class="step3"><span class="n">1</span><span class="h4">Install from the ServiceNow Store</span><span class="small">An admin installs it like any Store app.</span></div>
+        <div class="step3"><span class="n">2</span><span class="h4">Add your OpenAI key</span><span class="small">Paste it once in the app's settings.</span></div>
+        <div class="step3"><span class="n">3</span><span class="h4">Describe your first item</span><span class="small">Review the preview, then click Build Item.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 PRICING -->
+  <section class="sec band" id="pricing">
+    <div class="wrap">
+      <div class="intro">
+        <div class="stack g12"><SectionHead no="04" label="Pricing" /><h2 class="h2">Three plans. Pick what you need.</h2></div>
+        <p class="line1">Example prices. OpenAI usage bills to your own account on every plan.</p>
+      </div>
+      <Tiers tiers={CATALOG_TIERS} agent="catalog" />
+    </div>
+  </section>
+
+  <!-- 05 FEEDBACK -->
+  <section class="sec" id="feedback">
+    <div class="wrap two">
+      <div class="stack g16">
+        <SectionHead no="05" label="Feedback" />
+        <h2 class="h2">Tell us what to improve.</h2>
+        <p class="line1">Ideas, bugs or the next feature you need. Something broken? <a href={ROUTES.support}>Contact support</a>.</p>
+      </div>
+      <SiteForm name="feedback-catalog-automation" ariaLabel="Feedback form" buttonLabel="Send feedback" sentLabel="Sent. Thanks" subject="Catalog Automation feedback">
+        <div class="fld"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" /></div>
+        <div class="fld"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required /></div>
+        <div class="fld full"><label for="f-type">Type</label><select id="f-type" name="type"><option>Idea</option><option>Bug</option><option>Question</option></select></div>
+        <div class="fld full"><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
+      </SiteForm>
+    </div>
+  </section>
+</Base>

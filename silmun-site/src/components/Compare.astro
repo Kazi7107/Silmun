@@ -1,0 +1,18 @@
+---
+// "Today, without it" vs "With Silmun". A two-column table on desktop,
+// stacked pairs on small screens.
+interface Props { rows: [string, string][] }
+const { rows } = Astro.props;
+---
+<div class="cmp" role="table" aria-label="Today, without it, compared with Silmun">
+  <div class="cmp-head" role="row">
+    <span class="cmp-a" role="columnheader"><span class="label">Today, without it</span></span>
+    <span class="cmp-b" role="columnheader"><span class="label">With Silmun</span></span>
+  </div>
+  {rows.map(([a, b]) => (
+    <div class="cmp-row" role="row">
+      <span class="cmp-a" role="cell"><span class="label cmp-k">Today</span><span class="h4">{a}</span></span>
+      <span class="cmp-b" role="cell"><span class="label cmp-k">With Silmun</span><span class="h4">{b}</span></span>
+    </div>
+  ))}
+</div>

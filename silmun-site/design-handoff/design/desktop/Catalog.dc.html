@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Silmun · ITSM · Catalog Automation</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/24a1a36d510f1c7d8ea7661074bb699c">
+<link rel="stylesheet" href="/_blob/6e96a1914e7b529372c1c4836b4cc102">
+<link rel="stylesheet" href="/_blob/21ce855bb796ee1969b5e8b3fb51a1f7">
+<link rel="stylesheet" href="/_blob/7c2f2ff715d852230a89c8b6c4e93b8f">
+<link rel="stylesheet" href="/_blob/e8cf45c30d8fb382c0b40a83d7cc6884">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="site" style="font-family: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif; color: #1A2B30; background: #F3F6F6">
+
+<header class="gnav">
+<div class="wrap">
+<a class="brand" href="Main.dc.html"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="flex: none"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg><span>silmun</span></a>
+<nav class="gnav-links" aria-label="Site">
+<div class="dd-anchor">
+<button class="gnav-link {{ddCls}}" type="button" aria-expanded="{{ddOpen}}" onClick="{{toggleDd}}">Modules <span class="caret">▾</span></button>
+<sc-if value="{{ddOpen}}" hint-placeholder-val="{{ false }}">
+<div class="dropdown">
+<a class="dd-row live" href="Catalog.dc.html"><span class="dd-mod">Module</span><span class="nm">ITSM</span><span class="tag tag-live"><span class="dot"></span>Live</span><span class="ds">Catalog Automation: plain-language request in, catalog item out.</span></a>
+<a class="dd-row live" href="Orchestrator.dc.html"><span class="dd-mod">Module</span><span class="nm">Security Operations</span><span class="tag tag-live"><span class="dot"></span>Live</span><span class="ds">Vulnerability Remediation agent.</span></a>
+<a class="dd-later" href="SourceToPay.dc.html"><span>Finance &amp; Supply Chain · Source to Pay</span><span class="tag tag-later"><span class="dot"></span>Next</span></a>
+</div>
+</sc-if>
+</div>
+<a class="gnav-link" href="About.dc.html">About us</a>
+<a class="gnav-link" href="Support.dc.html">Support</a>
+<a class="gnav-link" href="Main.dc.html#contact">Contact</a>
+</nav>
+<a class="btn btn-primary btn-sm" href="#pricing">Get it on the Store <span class="k">↗</span></a>
+</div>
+</header>
+<nav class="subnav" aria-label="On this page">
+<div class="wrap">
+<span class="subnav-id"><span class="label" style="color: #1A2B30">ITSM · Catalog Automation</span><span class="tag tag-live" style="padding: 3px 8px"><span class="dot"></span>Live</span></span>
+<span class="subnav-links"><a class="on" href="#what">What it does</a><a href="#why">Why us</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#feedback">Feedback</a></span>
+</div>
+</nav>
+
+<!-- 1 WHAT IT DOES -->
+<section class="hero reveal {{rvHero}}" data-reveal="hero" id="what" style="padding-bottom: 80px">
+<div class="wrap">
+<div class="hero-top">
+<div class="hero-copy"><span class="mod-label">Module · ITSM</span><h1 class="display">Describe it. Review it. <span class="hlw">Ship</span> the catalog item.</h1></div>
+<div class="stack g24">
+<p class="lede">Type what the catalog item needs in plain words. You get every question, type and choice back to review. Nothing is built until you say so.</p>
+<div class="actions"><a class="btn btn-primary" href="#pricing">Get it on the ServiceNow Store <span class="k">↗</span></a><a class="btn btn-secondary" href="#how">Watch the demo</a></div>
+</div>
+</div>
+
+<div class="amock" style="height: 400px" role="img" aria-label="A plain-English request layered over a catalog item form, with three numbered callouts">
+<svg class="am-svg" viewBox="0 0 100 400" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M50 74 C 44 74, 47 200, 41 200" style="animation-delay: .9s"></path></svg>
+<span class="am-layer" style="left: 40.6%; top: 194px; width: 12px; height: 12px; border-radius: 50%; background: #2B7350; z-index: 4" aria-hidden="true"></span>
+<div class="am-layer vrec" style="left: 0; top: 72px; width: 60%">
+<div class="vrec-h"><b>New Hire Laptop</b><span class="data dim">catalog item · Hardware</span></div>
+<div class="vrow"><span class="k">New hire name</span><span class="v"><span class="dim">new_hire_name</span><span class="c">Single Line Text</span></span></div>
+<div class="vrow hl"><span class="k">Which laptop?</span><span class="v"><span class="flipper" style="--at: 1.5s"><span class="from dim">empty</span><span class="to val-to">MacBook Pro 14 · Dell Latitude 7450</span></span><span class="c">Select Box</span></span></div>
+<div class="vrow"><span class="k">Needs a monitor?</span><span class="v"><span class="dim">needs_monitor</span><span class="c">Checkbox</span></span></div>
+<div class="vrow"><span class="k">Justification *</span><span class="v"><span class="dim">help: Why this model?</span><span class="c">Multi Line · required</span></span></div>
+<div class="vrec-f"><span class="data dim">4 questions · 2 choices · nothing built yet</span><span class="flipper" style="--at: 2.4s"><span class="from tag tag-soon">Generating preview</span><span class="to tag tag-live">Ready for review</span></span></div>
+</div>
+<div class="am-layer am-top req-note" style="left: 50%; top: 0; width: 36%">
+<div class="rn-h"><span>Request</span><span>typed by catalog admin</span></div>
+<p>New hire laptop: name, <mark class="hi">MacBook Pro 14 or Dell Latitude 7450</mark>, monitor yes or no, <mark>justification required</mark>.</p>
+</div>
+<div class="am-co" style="left: 61.5%; top: 200px"><span class="ln"></span><button class="cob {{c1}}" type="button" onClick="{{pick1}}" onMouseEnter="{{pick1}}" aria-label="Callout 1">1</button><span class="lbl">Choices from the sentence</span></div>
+<div class="am-co" style="left: 61.5%; top: 296px"><span class="ln"></span><button class="cob {{c2}}" type="button" onClick="{{pick2}}" onMouseEnter="{{pick2}}" aria-label="Callout 2">2</button><span class="lbl">Required flag + help text</span></div>
+<div class="am-co" style="left: 61.5%; top: 348px"><span class="ln"></span><button class="cob {{c3}}" type="button" onClick="{{pick3}}" onMouseEnter="{{pick3}}" aria-label="Callout 3">3</button><span class="lbl">Built on Build Item</span></div>
+</div>
+<div class="cap-bar" aria-live="polite"><span class="cob on" aria-hidden="true">{{coN}}</span><span class="h4">{{coTitle}}</span><span class="small">{{coText}}</span><span class="cap-hint">Hover or tap 1 · 2 · 3</span></div>
+
+<div class="two" style="margin-top: 56px; gap: 48px">
+<div class="stack g8"><span class="label">What it does</span><h2 class="h2" style="font-size: 30px">Catalog items in minutes, not afternoons.</h2></div>
+<ul class="uses uses-lg">
+<li>Build catalog items from plain text<span class="cs"></span></li>
+<li>Auto-create questions and choices<span class="cs"></span></li>
+<li>Review and edit before building<span class="cs"></span></li>
+<li>Catch duplicate item names<span class="cs"></span></li>
+<li>Keep a log of every request<span class="cs"></span></li></ul>
+</div>
+</div>
+</section>
+
+<!-- 2 WHY US -->
+<section class="sec dark reveal {{rvWhy}}" data-reveal="why" id="why">
+<div class="wrap">
+<div class="intro">
+<div class="stack g12"><div class="sec-head"><span class="sec-no">02</span><span class="sec-label">Why us</span></div><h2 class="h2">Stop building catalog items <span class="hlw">by hand.</span></h2></div>
+</div>
+<div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); border: 1px solid rgba(230,238,238,.25); border-radius: 6px; overflow: hidden">
+<div style="padding: 14px 22px; border-bottom: 1px solid rgba(230,238,238,.25); border-right: 1px solid rgba(230,238,238,.25)"><span class="label" style="color: #9DB3B8">Today, without it</span></div>
+<div style="padding: 14px 22px; border-bottom: 1px solid rgba(230,238,238,.25); background: rgba(25,198,180,.10)"><span class="label" style="color: #19C6B4">With Silmun</span></div>
+<div style="padding: 18px 22px; border-bottom: 1px solid rgba(230,238,238,.18); border-right: 1px solid rgba(230,238,238,.25)"><span class="h4" style="color: #9DB3B8">One item eats an afternoon</span></div>
+<div style="padding: 18px 22px; border-bottom: 1px solid rgba(230,238,238,.18); background: rgba(25,198,180,.06)"><span class="h4" style="color: #FFFFFF">Describe it, get it in minutes</span></div>
+<div style="padding: 18px 22px; border-bottom: 1px solid rgba(230,238,238,.18); border-right: 1px solid rgba(230,238,238,.25)"><span class="h4" style="color: #9DB3B8">AI means another license</span></div>
+<div style="padding: 18px 22px; border-bottom: 1px solid rgba(230,238,238,.18); background: rgba(25,198,180,.06)"><span class="h4" style="color: #FFFFFF">No ServiceNow AI license</span></div>
+<div style="padding: 18px 22px; border-right: 1px solid rgba(230,238,238,.25)"><span class="h4" style="color: #9DB3B8">Every admin builds it differently</span></div>
+<div style="padding: 18px 22px; background: rgba(25,198,180,.06)"><span class="h4" style="color: #FFFFFF">Consistent items, every time</span></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin-top: 40px">
+<div class="stack g8"><span class="label" style="color: #19C6B4">"Will it build things without us?"</span><span class="h4">No. Nothing is created until you click Build Item.</span></div><div class="stack g8"><span class="label" style="color: #19C6B4">"Is our data safe?"</span><span class="h4">Only the request text leaves your instance.</span></div><div class="stack g8"><span class="label" style="color: #19C6B4">"What will the AI cost us?"</span><span class="h4">Usually very little, and you can see it.</span></div>
+</div>
+<details class="spec-more" style="margin-top: 32px; border-top: 1px solid #DDE4E5; border-radius: 12px; color: #1A2B30">
+<summary><span>Security details for your reviewer</span><span class="pm" aria-hidden="true"></span></summary>
+<table class="spec"><tbody>
+<tr><th>Sent to OpenAI</th><td>Only the catalog request text. No personal data by design.</td></tr>
+<tr><th>Connection</th><td>Outbound HTTPS to api.openai.com, only when you ask for a preview. Works through your AI proxy.</td></tr>
+<tr><th>Your key</th><td>Stored encrypted in your instance. Never shown in the browser or written to logs.</td></tr>
+<tr><th>Releases</th><td>Tested on Washington DC, Xanadu, Zurich <span class="ph">[Australia: confirm]</span></td></tr>
+</tbody></table>
+</details>
+</div>
+</section>
+
+<!-- 3 HOW IT WORKS -->
+<section class="sec" id="how">
+<div class="wrap">
+<div class="intro">
+<div class="stack g12"><div class="sec-head"><span class="sec-no">03</span><span class="sec-label">How it works</span></div><h2 class="h2">Set up once, then just describe.</h2></div>
+<p class="line1">The demo shows a real item built from one sentence.</p>
+</div>
+<div class="player" style="margin-bottom: 24px">
+<div class="player-screen" style="aspect-ratio: 21/9"><span class="player-slot">[Demo video · recorded by the team]</span><button class="play" type="button" aria-label="Play demo video">▶</button></div>
+<div class="player-bar"><div class="chap-track"><i style="left: 0"></i><i style="left: 30%"></i><i style="left: 62%"></i><i style="left: 86%"></i></div><div class="chaps"><span><b>0:00</b>Describe</span><span><b>0:40</b>Review</span><span><b>1:20</b>Build Item</span><span><b>1:50</b>In the portal</span></div></div>
+</div>
+<div class="steps3">
+<div class="step3"><span class="n">1</span><span class="h4">Install from the ServiceNow Store</span><span class="small">An admin installs it like any Store app.</span></div>
+<div class="step3"><span class="n">2</span><span class="h4">Add your OpenAI key</span><span class="small">Paste it once in the app's settings.</span></div>
+<div class="step3"><span class="n">3</span><span class="h4">Describe your first item</span><span class="small">Review the preview, then click Build Item.</span></div>
+</div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section class="sec band" id="pricing">
+<div class="wrap">
+<div class="intro">
+<div class="stack g12"><div class="sec-head"><span class="sec-no">04</span><span class="sec-label">Pricing</span></div><h2 class="h2">Three plans. Pick what you need.</h2></div>
+<p class="line1">Example prices. OpenAI usage bills to your own account on every plan.</p>
+</div>
+<div class="tiers">
+<div class="tier">
+<span class="tname">Essential</span>
+<span class="tfor">For a team building its first items</span>
+<span class="tamt">$19 <small>/ month</small></span>
+<ul class="uses"><li>Build items from plain text<span class="cs"></span></li><li>Review and edit before building<span class="cs"></span></li><li>Up to 25 items a month<span class="cs"></span></li><li>Email support, 1 business day<span class="cs"></span></li></ul>
+<a class="btn btn-secondary" href="#pricing">Get Essential</a>
+</div>
+<div class="tier top">
+<span style="display: flex; justify-content: space-between; align-items: center"><span class="tname">Pro</span><span class="tag tag-live"><span class="dot"></span>Most popular</span></span>
+<span class="tfor">For catalog teams shipping every week</span>
+<span class="tamt">$49 <small>/ month</small></span>
+<ul class="uses"><li>Everything in Essential<span class="cs"></span></li><li>Unlimited items<span class="cs"></span></li><li>Duplicate name checks and overwrite control<span class="cs"></span></li><li>Full request log for audits<span class="cs"></span></li></ul>
+<a class="btn btn-primary" href="#pricing">Get Pro <span class="k">↗</span></a>
+</div>
+<div class="tier">
+<span class="tname">Enterprise</span>
+<span class="tfor">For large catalogs across instances</span>
+<span class="tamt">$249 <small>/ month</small></span>
+<ul class="uses"><li>Everything in Pro<span class="cs"></span></li><li>Test and production instances<span class="cs"></span></li><li>Guided onboarding session<span class="cs"></span></li><li>1-hour response on critical issues<span class="cs"></span></li></ul>
+<a class="btn btn-secondary" href="Main.dc.html#contact">Talk to us</a>
+</div>
+</div>
+<p class="small dim tier-note">Example prices and plan contents for the team to confirm.</p>
+</div>
+</section>
+
+<!-- FEEDBACK -->
+<section class="sec" id="feedback">
+<div class="wrap two">
+<div class="stack g16">
+<div class="sec-head"><span class="sec-no">05</span><span class="sec-label">Feedback</span></div>
+<h2 class="h2">Tell us what to improve.</h2>
+<p class="line1">Ideas, bugs or the next feature you need. Something broken? <a href="Support.dc.html">Contact support</a>.</p>
+</div>
+<form class="form fb" aria-label="Feedback form">
+<div class="fld"><label for="f-name">Name</label><input id="f-name" type="text" autocomplete="name"></div>
+<div class="fld"><label for="f-email">Work email</label><input id="f-email" type="email" autocomplete="email"></div>
+<div class="fld full"><label for="f-type">Type</label><select id="f-type"><option>Idea</option><option>Bug</option><option>Question</option></select></div>
+<div class="fld full"><label for="f-msg">Message</label><textarea id="f-msg"></textarea></div>
+<div class="fld full"><button class="btn btn-primary" type="button" onClick="{{send}}" style="align-self: flex-start">{{sendLabel}} <span class="k">→</span></button></div>
+</form>
+</div>
+</section>
+
+<footer class="foot">
+<div class="wrap">
+<a class="brand" href="Main.dc.html"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true" style="flex: none"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg><span>silmun</span></a>
+<nav class="foot-prods" aria-label="Site"><a class="live" href="Catalog.dc.html"><span class="dot live"></span>ITSM</a><a class="live" href="Orchestrator.dc.html"><span class="dot live"></span>Security Operations</a><a class="soon" href="SourceToPay.dc.html">Source to Pay · next</a><a class="soon" href="About.dc.html">About us</a><a class="soon" href="Support.dc.html">Support</a></nav>
+<span class="label dim">© [YEAR] Silmun · ServiceNow is a trademark of ServiceNow, Inc.</span>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":5200}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { dd: false, co: 1, sent: false, seen: {}, all: false };
+  }
+  componentDidMount() {
+    this._fb = setTimeout(() => { if (!Object.keys(this.state.seen).length) this.setState({ all: true }); }, 3000);
+    try {
+      if (!('IntersectionObserver' in window)) { this.setState({ all: true }); return; }
+      this.io = new IntersectionObserver((es) => {
+        const add = {};
+        es.forEach((e) => { if (e.isIntersecting) { add[e.target.getAttribute('data-reveal')] = true; this.io.unobserve(e.target); } });
+        if (Object.keys(add).length) this.setState({ seen: Object.assign({}, this.state.seen, add) });
+      }, { threshold: 0.2 });
+      document.querySelectorAll('[data-reveal]').forEach((el) => this.io.observe(el));
+    } catch (err) { this.setState({ all: true }); }
+  }
+  componentWillUnmount() { clearTimeout(this._fb); if (this.io) this.io.disconnect(); }
+  renderVals() {
+    const on = (k) => (this.state.all || this.state.seen[k]) ? 'is-in' : '';
+    const cos = {
+      1: { t: 'Choices from the sentence', x: '"MacBook Pro 14 or Dell Latitude 7450" became a dropdown with two choices.' },
+      2: { t: 'Required flag and help text', x: '"Justification required" became a required question with help text.' },
+      3: { t: 'Built on Build Item', x: 'Edit or delete any question in the preview. Nothing is created until you click Build Item.' }
+    };
+    const c = this.state.co;
+    return {
+      rvHero: on('hero'), rvWhy: on('why'),
+      ddOpen: this.state.dd, ddCls: this.state.dd ? 'open' : '',
+      toggleDd: () => this.setState({ dd: !this.state.dd }),
+      c1: c === 1 ? 'on' : '', c2: c === 2 ? 'on' : '', c3: c === 3 ? 'on' : '',
+      pick1: () => this.setState({ co: 1 }), pick2: () => this.setState({ co: 2 }), pick3: () => this.setState({ co: 3 }),
+      coN: String(c), coTitle: cos[c].t, coText: cos[c].x,
+      sendLabel: this.state.sent ? 'Sent. Thanks' : 'Send feedback',
+      send: () => this.setState({ sent: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

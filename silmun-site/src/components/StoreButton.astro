@@ -1,0 +1,19 @@
+---
+import { storeHref, isExternalStore, type AgentKey } from '../data/site';
+
+interface Props {
+  agent: AgentKey;
+  label?: string;
+  class?: string;
+  arrow?: boolean;
+}
+const { agent, label = 'Get it on the Store', class: cls = 'btn btn-primary', arrow = true } = Astro.props;
+const external = isExternalStore(agent);
+---
+<a
+  class={cls}
+  href={storeHref(agent)}
+  data-event="Store click"
+  data-event-agent={agent}
+  {...(external ? { target: '_blank', rel: 'noopener' } : {})}
+>{label}{arrow && <> <span class="k" aria-hidden="true">↗</span></>}{external && <span class="sr-only"> (opens the ServiceNow Store in a new tab)</span>}</a>
