@@ -29,7 +29,8 @@
   <link rel="stylesheet" href="css/styles.css?v=20261102">
 <link rel="stylesheet" href="css/refresh.css?v=20261102">
 <link rel="stylesheet" href="css/nav.css?v=20261102">
-<link rel="stylesheet" href="css/motion.css?v=20261102"></head>
+<link rel="stylesheet" href="css/motion.css?v=20261102">
+<link rel="stylesheet" href="css/platform-map.css?v=20261103"></head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
     <div class="site hero-dark">
@@ -100,61 +101,35 @@
           <h1 class="display">Agents that make ServiceNow work <span class="hlw">easier.</span></h1>
         </div>
         <div class="stack g24">
-          <p class="lede">They do the follow-through inside your instance. You approve anything that matters.</p>
+          <p class="lede">Silmun builds AI agents for ServiceNow. They work inside your instance, across your modules, doing the follow-through on the records your teams already use. Nothing changes until a person approves it.</p>
           <div class="actions">
             <a class="btn btn-primary" href="catalog-automation.html#pricing" data-event="Store click" data-event-agent="catalog">Get it on the Store <span class="k" aria-hidden="true">↗</span></a>
             <a class="btn btn-secondary" href="#modules">See the modules <span class="k" aria-hidden="true">↓</span></a>
           </div>
         </div>
       </div>
-      <div class="catalog-mock rise">
-  
-
-  <!-- Desktop: layered -->
-  <div class="amock amock-desk" style="height: 400px" role="img" aria-label="A plain-English request layered over a catalog item form. The laptop choices from the sentence fill the Select Box field and the preview flips to Ready for review.">
-    <svg class="am-svg" viewBox="0 0 100 400" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M50 74 C 44 74, 47 200, 41 200" style="animation-delay: .9s"></path></svg>
-    <span class="am-layer am-pin" aria-hidden="true"></span>
-    <div class="am-layer vrec" style="left: 0; top: 72px; width: 60%">
-      <div class="vrec-h"><b>New Hire Laptop</b><span class="data dim">catalog item · Hardware</span></div>
-      <div class="vrow"><span class="k">New hire name</span><span class="v"><span class="dim">new_hire_name</span><span class="c">Single Line Text</span></span></div>
-      <div class="vrow hl"><span class="k">Which laptop?</span><span class="v"><span class="flipper" style="--at: 1.5s"><span class="from dim">empty</span><span class="to val-to">MacBook Pro 14 · Dell Latitude 7450</span></span><span class="c">Select Box</span></span></div>
-      <div class="vrow"><span class="k">Needs a monitor?</span><span class="v"><span class="dim">needs_monitor</span><span class="c">Checkbox</span></span></div>
-      <div class="vrow"><span class="k">Justification *</span><span class="v"><span class="dim">help: Why this model?</span><span class="c">Multi Line · required</span></span></div>
-      <div class="vrec-f"><span class="data dim">4 questions · 2 choices · nothing built yet</span><span class="flipper" style="--at: 2.4s"><span class="from tag tag-soon">Generating preview</span><span class="to tag tag-live">Ready for review</span></span></div>
-    </div>
-    <div class="am-layer am-top req-note" style="left: 50%; top: 0; width: 36%">
-      <div class="rn-h"><span>Request</span><span>typed by catalog admin</span></div>
-      <p>New hire laptop: name, <mark class="hi">MacBook Pro 14 or Dell Latitude 7450</mark>, monitor yes or no, <mark>justification required</mark>.</p>
-    </div>
-    <div class="am-co" style="left: 61.5%; top: 200px">
-        <span class="ln"></span>
-        <span class="cob" aria-hidden="true">1</span>
-        <span class="lbl">Choices pulled from the sentence</span>
-      </div><div class="am-co" style="left: 61.5%; top: 296px">
-        <span class="ln"></span>
-        <span class="cob" aria-hidden="true">2</span>
-        <span class="lbl">Required flag and help text added</span>
-      </div><div class="am-co" style="left: 61.5%; top: 348px">
-        <span class="ln"></span>
-        <span class="cob" aria-hidden="true">3</span>
-        <span class="lbl">Built only when you click Build Item</span>
+      <div class="pmap rise" role="img" aria-label="Two Silmun agents at work. The Catalog agent turns requests into draft catalog items in ITSM. The Vulnerability agent finds owners, checks scans and classifies hardware in Security Operations. Each finished result goes to a Waiting for you queue for a person to approve.">
+        <div class="pm-card pm-itsm" data-pm="ca">
+          <div class="pm-h"><b>ITSM</b><span class="pm-sub">Catalog Automation</span></div>
+          <div class="pm-row" data-done="Draft item ready" data-acts="reading the request|building questions" data-slip="New Hire Laptop · draft catalog item"><span class="pm-k">Request</span><span class="pm-v">New hire laptop</span><span class="pm-bar"></span></div>
+          <div class="pm-row" data-done="Draft item ready" data-acts="reading the request|adding approvals" data-slip="VPN Access · draft catalog item"><span class="pm-k">Request</span><span class="pm-v">VPN access</span><span class="pm-bar"></span></div>
+          <div class="pm-row" data-done="Already in catalog" data-acts="checking existing items" data-slip="Office Chair · duplicate, not built"><span class="pm-k">Request</span><span class="pm-v">Office chair</span><span class="pm-bar"></span></div>
+        </div>
+        <div class="pm-card pm-sec" data-pm="vr">
+          <div class="pm-h"><b>Security Operations</b><span class="pm-sub">Vulnerability Remediation</span></div>
+          <div class="pm-row" data-done="Linux Ops · fix-by Nov 14" data-acts="tracing server to CI|finding support group" data-slip="VIT0041187 · assign Linux Ops"><span class="pm-k">No owner</span><span class="pm-v">VIT0041187</span><span class="pm-bar"></span></div>
+          <div class="pm-row" data-done="Fixed on latest scan" data-acts="checking the latest scan" data-slip="VIT0039822 · ready to close"><span class="pm-k">Patched, still open</span><span class="pm-v">VIT0039822</span><span class="pm-bar"></span></div>
+          <div class="pm-row" data-done="Network switch · owner found" data-acts="matching hardware model|finding the owner" data-slip="10.4.18.22 · classify as switch"><span class="pm-k">Unclassed hardware</span><span class="pm-v">10.4.18.22</span><span class="pm-bar"></span></div>
+        </div>
+        <div class="pm-queue">
+          <div class="pm-qh"><span class="pm-qt">Waiting for you</span><span class="pm-count">2 to review</span></div>
+          <div class="pm-list">
+            <span class="pm-slip"><i class="pm-sq pm-sq-vr"></i>VIT0041187 · assign Linux Ops</span>
+            <span class="pm-slip"><i class="pm-sq pm-sq-ca"></i>New Hire Laptop · draft catalog item</span>
+          </div>
+          <div class="pm-qf"><span>Nothing changes in ServiceNow until you approve.</span><button class="pm-btn" type="button" tabindex="-1" aria-hidden="true">Approve</button></div>
+        </div>
       </div>
-  </div>
-
-  <!-- Small screens: stacked -->
-  <div class="amock-mob" role="img" aria-label="A plain-English request layered over a catalog item form. The laptop choices from the sentence fill the Select Box field and the preview flips to Ready for review.">
-    <div class="req-note"><div class="rn-h"><span>Request</span><span>admin</span></div><p>New hire laptop: <mark class="hi">MacBook Pro 14 or Dell 7450</mark>, <mark>justification required</mark>.</p></div>
-    <div class="m-down" style="height: 36px"><span>fills the form</span></div>
-    <div class="vrec">
-      <div class="vrec-h" style="padding: 0 14px"><b>New Hire Laptop</b><span class="data dim">catalog item</span></div>
-      <div class="vrow hl mrow"><span class="k mrow-k">Which laptop? </span><span class="v"><span class="flipper" style="--at: 1.3s"><span class="from dim">empty</span><span class="to val-to">MacBook Pro 14 · Dell 7450</span></span></span></div>
-      <div class="vrow mrow"><span class="k mrow-k">Justification * </span><span class="v"><span class="dim">help: Why this model?</span><span class="c">required</span></span></div>
-      <div class="vrec-f" style="padding: 0 14px"><span class="data dim">nothing built yet</span><span class="flipper" style="--at: 2.2s"><span class="from tag tag-soon">Generating</span><span class="to tag tag-live">Ready for review</span></span></div>
-    </div>
-  </div>
-
-  
-</div>
     </div>
   </section>
 
@@ -346,5 +321,6 @@
     </div>
     <script type="module" src="js/site.js?v=20261102"></script>
 <script type="module" src="js/motion.js?v=20261102"></script>
+<script type="module" src="js/platform-map.js?v=20261103"></script>
   </body>
 </html>

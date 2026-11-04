@@ -1,0 +1,80 @@
+/* Home hero: the platform map. One floating card per live module, each with its
+   own agent (js/platform-map.js), and one shared "Waiting for you" queue.
+   Agents stay inside their own module; only the finished result crosses to the
+   queue. Without motion (no JS or reduced motion) the cards and queue show as a
+   still picture. */
+
+.pmap{
+  position:relative;
+  display:grid;grid-template-columns:repeat(2,minmax(0,410px));justify-content:center;
+  column-gap:20px;row-gap:18px;align-items:start;
+  padding-bottom:8px;
+}
+
+/* ---------- module cards ---------- */
+.pm-card{background:var(--surface);border:1px solid var(--rule,#1A2B30);border-radius:var(--r);box-shadow:0 22px 44px -26px rgba(14,42,49,.45);overflow:hidden}
+.pm-sec{margin-top:36px}
+.pm-h{height:48px;padding:0 16px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.pm-h b{font-size:16px;font-weight:600;letter-spacing:-.01em}
+.pm-sub{font-family:var(--mono);font-size:11px;color:var(--ink-3);white-space:nowrap}
+.pm-row{position:relative;height:44px;padding:0 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid var(--line);font-size:13.5px;overflow:hidden;transition:background .3s}
+.pm-k{color:var(--ink-3);font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .3s}
+.pm-v{font-family:var(--mono);font-size:12px;white-space:nowrap}
+.pm-bar{position:absolute;left:0;bottom:0;height:2px;width:0;background:#19C6B4;transition:width .8s linear}
+.pm-row.is-work{background:#F4FDFB}
+.pm-row.is-work::after{content:"";position:absolute;top:0;bottom:0;left:-30%;width:30%;background:linear-gradient(90deg,transparent,rgba(25,198,180,.18),transparent);animation:pm-scan 1.2s linear infinite}
+@keyframes pm-scan{to{left:100%}}
+.pm-row.is-done .pm-k{color:var(--accent-ink);font-weight:500}
+
+/* ---------- the queue ---------- */
+.pm-queue{grid-column:1/-1;justify-self:center;width:min(440px,100%);background:var(--deep);color:var(--on-dark);border-radius:var(--r);box-shadow:0 22px 44px -22px rgba(14,42,49,.6);padding:14px 16px;display:flex;flex-direction:column;gap:10px;position:relative;z-index:1}
+.pm-qh{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.pm-qt{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--on-dark-2)}
+.pm-count{font-family:var(--mono);font-size:11px;color:#19C6B4}
+.pm-list{display:flex;flex-direction:column;gap:6px;min-height:90px}
+.pm-slip{display:flex;align-items:center;gap:8px;height:26px;padding:0 9px;border-radius:4px;border:1px solid rgba(201,242,236,.28);font-family:var(--mono);font-size:10.5px;color:#C9F2EC;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pm-slip.is-new{animation:pm-in .4s cubic-bezier(.2,.7,.2,1) both}
+@keyframes pm-in{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.pm-empty{font-family:var(--mono);font-size:10.5px;color:#6F878C;padding-top:4px}
+.pm-sq{flex:none;width:7px;height:7px;border-radius:1px}
+.pm-sq-ca{background:#E6EEEE}
+.pm-sq-vr{background:#19C6B4}
+.pm-qf{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid rgba(255,255,255,.1);padding-top:10px}
+.pm-qf > span{font-size:12.5px;line-height:1.4;color:#C9D6D8}
+.pm-btn{font-family:var(--sans);font-weight:600;font-size:14px;min-height:40px;padding:0 16px;border-radius:6px;background:#19C6B4;color:var(--deep);border:0;cursor:pointer;flex:none}
+.pm-btn:hover{background:#4FD9CA}
+.pm-btn.is-ready{animation:pm-ring 1.4s ease-out infinite}
+@keyframes pm-ring{0%{box-shadow:0 0 0 0 rgba(25,198,180,.55)}100%{box-shadow:0 0 0 10px rgba(25,198,180,0)}}
+.pm-btn.is-idle{background:rgba(255,255,255,.08);color:var(--on-dark-2);cursor:default}
+
+/* ---------- agent cursors ---------- */
+.pm-cur{position:absolute;left:0;top:0;z-index:5;pointer-events:none;will-change:transform;opacity:0;transition:opacity .3s}
+.pm-cur.is-on{opacity:1}
+.pm-cur svg{display:block}
+.pm-tag{position:absolute;left:15px;top:17px;display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:4px;font-family:var(--mono);font-size:11px;font-weight:600;white-space:nowrap}
+.pm-ca .pm-tag{background:var(--ink);color:#FFFFFF;box-shadow:0 0 0 1px rgba(255,255,255,.35)}
+.pm-vr .pm-tag{background:#19C6B4;color:var(--deep)}
+.pm-cur.is-busy .pm-tag::after{content:"";width:5px;height:5px;margin-left:7px;border-radius:50%;background:currentColor;animation:pm-blink .8s ease-in-out infinite}
+@keyframes pm-blink{50%{opacity:.2}}
+.pm-cargo{position:absolute;left:19px;top:44px;display:flex;align-items:center;gap:6px;height:22px;padding:0 8px;border-radius:4px;background:var(--surface);border:1px solid var(--rule,#1A2B30);color:var(--ink);font-family:var(--mono);font-size:10.5px;white-space:nowrap;box-shadow:0 4px 10px rgba(14,42,49,.16);transform-origin:top left;animation:pm-lift .28s cubic-bezier(.2,.7,.2,1) both}
+.pm-cargo[hidden]{display:none}
+.pm-cargo .pm-sq-ca{background:var(--ink)}
+@keyframes pm-lift{from{opacity:0;transform:translateY(-6px) scaleY(.6)}to{opacity:1;transform:none}}
+
+/* ---------- smaller screens: stack ---------- */
+@media (max-width: 860px){
+  .pmap{grid-template-columns:minmax(0,1fr);max-width:520px;margin:0 auto}
+  .pm-sec{margin-top:0}
+  .pm-queue{width:100%}
+}
+@media (max-width: 640px){
+  .pm-step{display:none}
+  .pm-sub{display:none}
+}
+@media (prefers-reduced-motion: reduce){
+  .pm-cur{display:none}
+}
+
+/* The dark hero band ends through the module cards, so the queue sits on light. */
+.hero-dark .pmap.rise::before{bottom:auto;top:calc(-300vh + 120px)}
+@media (max-width: 860px){ .hero-dark .pmap.rise::before{top:calc(-300vh + 160px)} }
