@@ -855,3 +855,15 @@ html.paused *,html.paused *::before,html.paused *::after{animation-play-state:pa
 .marq:focus-within .marq-in{animation-play-state:paused}
 
 main:focus{outline:none}
+
+/* Homepage "Pick your team" fork */
+.fork-h{text-align:center;margin:0 0 18px}
+.fork{color:inherit;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}
+.fork .go{margin-top:auto;padding-top:6px;color:var(--teal);font-weight:600;font-size:15px}
+.fork:hover{transform:translateY(-2px)}
+.fork:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+@media (prefers-reduced-motion: reduce){.fork{transition:none}.fork:hover{transform:none}}
+
+/* Security & Trust: bullet lists inside cards */
+.tlist{margin:4px 0 8px;padding:0 0 0 18px;display:flex;flex-direction:column;gap:8px;font-size:15px;color:var(--muted);line-height:1.5}
+.tlist b{font-size:inherit;letter-spacing:0;color:var(--ink)}

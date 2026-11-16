@@ -425,11 +425,11 @@ function initForms() {
   });
 }
 
-/* ---------- Analytics on Store buttons ---------- */
+/* ---------- Analytics on CTA buttons (data-event, data-event-agent, data-event-plan) ---------- */
 function initEvents() {
   document.addEventListener('click', (e) => {
     const el = e.target.closest('[data-event]');
-    if (el) track(el.dataset.event, { agent: el.dataset.eventAgent || '', page: location.pathname });
+    if (el) track(el.dataset.event, { agent: el.dataset.eventAgent || '', plan: el.dataset.eventPlan || '', page: location.pathname });
   });
 }
 

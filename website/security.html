@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Security &amp; Trust · Silmun</title>
+    <meta name="description" content="How Silmun's ServiceNow agents handle approvals, audit history, permissions and data: what runs on Now Assist, what calls an LLM with your own key, and exactly what leaves your instance.">
+    <link rel="canonical" href="https://silmun.com/security/">
+    
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <meta name="theme-color" content="#F6F7F5">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Silmun">
+    <meta property="og:title" content="Security &amp; Trust · Silmun">
+    <meta property="og:description" content="How Silmun's ServiceNow agents handle approvals, audit history, permissions and data: what runs on Now Assist, what calls an LLM with your own key, and exactly what leaves your instance.">
+    <meta property="og:url" content="https://silmun.com/security/">
+    <meta property="og:image" content="https://silmun.com/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+    <script>document.documentElement.classList.add('js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('mo');</script>
+    <link rel="stylesheet" href="css/site.css?v=20261116a">
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+<!-- Desktop -->
+<header class="isl-wrap">
+  <div class="isl" data-island>
+    <div class="isl-bar">
+      <a class="brand" href="index.html" aria-label="Silmun home"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg><span>silmun</span></a>
+      <nav class="isl-links" aria-label="Site">
+        <span class="isl-blob" aria-hidden="true"></span>
+        <button class="isl-link" type="button" aria-expanded="false" aria-controls="isl-modules" data-island-toggle>Modules <span class="isl-plus" aria-hidden="true"></span></button>
+        <a class="isl-link" href="about.html">About us</a>
+        <a class="isl-link" href="support.html">Support</a>
+        <a class="isl-link" href="index.html#contact">Contact</a>
+      </nav>
+      <a class="isl-cta" href="index.html#contact" data-event="Demo click">Book a demo</a>
+    </div>
+    <div class="isl-panel" id="isl-modules">
+      <div class="isl-panel-in">
+        <div class="isl-grid">
+          <p class="isl-sec" style="--d:0">Modules</p>
+          <a class="isl-mod" href="catalog-automation.html" style="--d:1"><span class="isl-top"><span class="isl-n">01</span><span class="isl-live">Live</span></span><span class="isl-mn">Catalog Automation <span class="isl-go" aria-hidden="true">&#8594;</span></span><span class="isl-ms">ITSM · One sentence in, a reviewed catalog item out.</span></a>
+          <a class="isl-mod" href="security-operations.html" style="--d:2"><span class="isl-top"><span class="isl-n">02</span><span class="isl-live">Live</span></span><span class="isl-mn">Vulnerability Remediation <span class="isl-go" aria-hidden="true">&#8594;</span></span><span class="isl-ms">Security Operations · Moves the vulnerable items your rules leave stuck.</span></a>
+          <a class="isl-next" href="source-to-pay.html" style="--d:3"><span class="isl-n">03</span><span class="isl-nn">Source to Pay</span><span class="isl-ns">Finance &amp; Supply Chain</span><span class="isl-soon">Next</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile -->
+<header class="mh">
+  <div class="mh-pill">
+    <a class="brand" href="index.html" aria-label="Silmun home"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg><span>silmun</span></a>
+    <button class="mh-btn" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-open>Menu <span class="mh-ic" aria-hidden="true"><i></i><i></i></span></button>
+  </div>
+</header>
+<div class="msheet" id="site-menu" role="dialog" aria-modal="true" aria-label="Site menu" hidden data-menu>
+  <div class="msheet-top"><a class="brand" href="index.html" aria-label="Silmun home"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#2B7350"></circle></svg><span>silmun</span></a><button class="mh-btn" type="button" data-menu-close>Close <span class="mh-ic x" aria-hidden="true"><i></i><i></i></span></button></div>
+  <nav class="msheet-body" aria-label="Site">
+    <p class="msheet-sec" style="--d:0">Modules</p>
+    <a class="ms-mod" href="catalog-automation.html" style="--d:1"><span class="ms-n">01</span><span><span class="ms-nm">Catalog Automation</span><span class="ms-sub">ITSM</span></span><span class="ms-tag">Live</span></a>
+    <a class="ms-mod" href="security-operations.html" style="--d:2"><span class="ms-n">02</span><span><span class="ms-nm">Vulnerability Remediation</span><span class="ms-sub">Security Operations</span></span><span class="ms-tag">Live</span></a>
+    <a class="ms-mod ms-later" href="source-to-pay.html" style="--d:3"><span class="ms-n">03</span><span><span class="ms-nm">Source to Pay</span><span class="ms-sub">Finance &amp; Supply Chain</span></span><span class="ms-tag">Next</span></a>
+    <p class="msheet-sec" style="--d:4">Company</p>
+    <div class="ms-co" style="--d:5"><a href="about.html">About us</a><a href="support.html">Support</a><a href="index.html#contact" data-menu-close>Contact</a></div>
+  </nav>
+  <div class="msheet-cta" style="--d:6"><a class="pill-sheet" href="index.html#contact" data-menu-close data-event="Demo click" style="background:#72C49A;color:#0E2A31">Book a demo</a></div>
+</div>
+<main id="main" tabindex="-1">
+<section class="phero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span>Security &amp; Trust · for your reviewers</span>
+    <h1 class="h1 h1-md">What our agents can touch, <span class="em">and what they can't.</span></h1>
+    <p class="lede">This page is for your security and platform reviewers. Every Silmun agent is a scoped ServiceNow app, security-reviewed by ServiceNow before it's listed on the Store, and nothing it proposes is written until one of your approvers signs off.</p>
+    <div class="actions"><a class="pill pill-dark" href="index.html#contact" data-event="Security question click">Ask a security question</a><a class="pill pill-line" href="index.html#contact" data-event="Demo click">Book a demo</a></div>
+  </div>
+</section>
+
+<section class="sec" id="rules" data-reveal>
+  <div class="wrap">
+    <div class="split">
+      <div><p class="kick">The rules</p><h2 class="h2">Four rules every agent <span class="em">ships with.</span></h2></div>
+      <p>These hold for every agent we publish, whichever LLM it runs on.</p>
+    </div>
+    <div>
+      <div class="why"><span class="n">01</span><div><h3>Human-in-the-loop on every write.</h3><p>Agents stage changes and raise an approval through the platform approval engine. An approver confirms anything that changes ownership, risk posture or your catalog before a record is written.</p></div><div class="vis vis-row"><span class="chip chip-lg c-grey">Staged</span><span class="arrow" aria-hidden="true">&#8594;</span><span class="chip chip-lg c-amber">Requested</span><span class="arrow" aria-hidden="true">&#8594;</span><span class="chip chip-lg c-green">Approved</span></div></div>
+      <div class="why"><span class="n">02</span><div><h3>Some decisions are never automated.</h3><p>Vulnerability exception requests are assembled with their evidence, but never auto-approved.</p></div><div class="vis vis-row"><span class="tool tool-sm"><i></i>Exception requests: human only</span></div></div>
+      <div class="why"><span class="n">03</span><div><h3>Everything is journaled.</h3><p>Every action is written to the work notes of the record it touched, with its reasoning and the source record behind each fact, so it stays in your activity stream and audit history.</p></div><div class="vis codebox" style="margin:0">work_notes · Vulnerability agent<br>cmdb_rel_ci: Payments API depends on lnx-pay-app-07<br>application service · support group = Linux Ops</div></div>
+      <div class="why"><span class="n">04</span><div><h3>Standard ServiceNow, from the Store.</h3><p>Scoped applications, installed from the Application Manager, bound by the roles you grant and your ACLs and business rules. No external data store to keep in sync.</p></div><div class="vis vis-row"><span class="tool tool-sm"><i></i>Scoped app</span><span class="tool tool-sm"><i></i>Your roles &amp; ACLs</span><span class="tool tool-sm"><i></i>Store certified</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec band" id="data" data-reveal>
+  <div class="wrap">
+    <div class="split">
+      <div><p class="kick">Where your data goes</p><h2 class="h2">Two ways to run, <span class="em">stated up front.</span></h2></div>
+      <p>Each agent either runs on ServiceNow's own LLMs or calls an LLM with your own key. Here's exactly what each one does.</p>
+    </div>
+    <div class="cards">
+      <div class="card pcard"><span class="tag-n">Runs on Now Assist</span><b>Vulnerability Remediation</b>
+        <ul class="tlist">
+          <li>Built in AI Agent Studio and runs on ServiceNow's own LLMs, under your Now Assist entitlement.</li>
+          <li>Shows up in AI Control Tower alongside your other agents, and runs in supervised mode.</li>
+          <li>Reads the detections and assets already imported into Vulnerability Response. It doesn't call your scanner directly.</li>
+          <li>Requires Vulnerability Response and a Now Assist entitlement that includes AI Agent Studio.</li>
+        </ul>
+        <a class="pill pill-line pill-sm" style="align-self:flex-start;margin-top:auto" href="security-operations.html">See the agent &#8594;</a></div>
+      <div class="card pcard"><span class="tag-n">Bring your own LLM key</span><b>Catalog Automation</b>
+        <ul class="tlist">
+          <li><b>Sent to OpenAI:</b> only the description you type. No record data, user data or PII, by design.</li>
+          <li><b>Connection:</b> outbound REST over HTTPS (TLS 1.2+) to api.openai.com, only when you ask for a preview. Works through your AI proxy.</li>
+          <li><b>Your key:</b> stored encrypted in your instance, inside the app's scope. Never sent to the browser or written to system logs.</li>
+          <li><b>Audit:</b> every generation request is logged. Nothing is written to sc_cat_item until someone clicks Build Item.</li>
+          <li><b>Releases:</b> tested on Washington DC, Xanadu and Zurich.</li>
+        </ul>
+        <a class="pill pill-line pill-sm" style="align-self:flex-start;margin-top:auto" href="catalog-automation.html">See the agent &#8594;</a></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:clamp(56px,7vw,88px) 0 clamp(72px,9vw,120px)">
+  <div class="wrap">
+    <div class="cta cta-solo">
+      <div class="l">
+        <h2 class="h2">Your reviewer has a question <span class="em-aqua">we didn't answer?</span></h2>
+        <p>Send it over. We'll answer it directly, and add it here if other teams are likely to ask it too.</p>
+        <div class="actions"><a class="pill pill-white" href="index.html#contact" data-event="Security question click">Ask us &#8594;</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div style="display:flex;flex-direction:column;gap:12px;max-width:280px"><a class="brand" href="index.html" aria-label="Silmun home"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true"><path d="M8 46 H30 a7 7 0 0 0 0 -14 h-4 a7 7 0 0 1 0 -14 H46" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="56" cy="18" r="3.5" fill="#72C49A"></circle></svg><span>silmun</span></a><span style="font-size:14px">AI agents for ServiceNow.</span></div>
+    <nav class="foot-cols" aria-label="Footer">
+      <div><b>Agents</b><a href="catalog-automation.html">Catalog Automation</a><a href="security-operations.html">Vulnerability Remediation</a><a href="source-to-pay.html">Source to Pay (next)</a></div>
+      <div><b>Company</b><a href="about.html">About us</a><a href="security.html" aria-current="page">Security &amp; Trust</a><a href="support.html">Support</a><a href="index.html#contact">Contact</a></div>
+    </nav>
+  </div>
+  <div class="wrap foot-legal">&copy; <span data-year>2026</span> Silmun · ServiceNow is a trademark of ServiceNow, Inc.</div>
+</footer>
+<script type="module" src="js/site.js?v=20261116a"></script>
+  </body>
+</html>
